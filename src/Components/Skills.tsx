@@ -11,6 +11,7 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useState } from "react";
 import { motion } from 'framer-motion'
 import LiveCodeEditor from "./LiveCodeEditor";
+import TypeScriptDemo from "./TypeScriptDemo";
 
 
 
@@ -56,7 +57,7 @@ type Feature = {
 const features: Feature[] = [
     {
         title: "React js",
-        description: "proficient at building react web apps",
+        description: "Proficient at building react web apps",
         content: (
             <div>
                 <LiveCodeEditor/>
@@ -64,16 +65,11 @@ const features: Feature[] = [
         )
     },
     {
-        title: "Next js",
-        description: "proficient at building react web apps",
+        title: "Typescript",
+        description: "Advanced typescript knowledge with handson expereience in both React & Angular projects",
         content: (
             <div>
-                <Image
-                    src={code}
-                    alt="React"
-                    height="500"
-                    width="500"
-                    className="rounded-lg"/>
+                <TypeScriptDemo/>
             </div>
         )
     },
