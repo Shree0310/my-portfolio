@@ -12,6 +12,7 @@ import { useRef, useState } from "react";
 import { motion } from 'framer-motion'
 import LiveCodeEditor from "./LiveCodeEditor";
 import TypeScriptDemo from "./TypeScriptDemo";
+import ColorPaletteDemo from "./ColorPaletteDemo";
 
 
 
@@ -74,16 +75,11 @@ const features: Feature[] = [
         )
     },
     {
-        title: "html",
-        description: "proficient at building react web apps",
+        title: "CSS/Tailwind",
+        description: "Experience in working with both Tailwind css and framer motion to create interactive animations",
         content: (
             <div>
-                <Image
-                    src={coder}
-                    alt="React"
-                    height="500"
-                    width="500"
-                    className="rounded-lg"/>
+                <ColorPaletteDemo/>
             </div>
         )
     },
