@@ -10,11 +10,12 @@ import Skill from "./Skill";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useState } from "react";
 import { motion } from 'framer-motion'
+import LiveCodeEditor from "./LiveCodeEditor";
 
 
 
 const Skills = () => {
-    const backgrounds = ["#1a1a1a", "#0f172a", "#18181b", "#0a0a0a"];
+    const backgrounds = ["#065a60", "#212f45", "#272640", "#3e1f47"];
     const [background, setBackground] = useState(backgrounds[0]);
     const containerRef = useRef<HTMLDivElement>(null);
     const {scrollYProgress} = useScroll({
@@ -22,12 +23,17 @@ const Skills = () => {
         offset: ["start end", "end start"]
     });
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        setBackground(backgrounds[Math.floor(latest * backgrounds.length)])
+        const finalValue = Math.floor(latest * backgrounds.length)
+        setBackground(backgrounds[finalValue])
     });
     return <div>
         <motion.div 
-            style={{
+            animate={{
                 background,
+            }}
+            transition={{
+                duration: 1,
+                ease: "easeInOut"
             }}
             ref={containerRef}
             className="flex justify-center items-center min-h-screen bg-neutral-700">
@@ -53,12 +59,7 @@ const features: Feature[] = [
         description: "proficient at building react web apps",
         content: (
             <div>
-                <Image
-                    src={nature}
-                    alt="React"
-                    height="500"
-                    width="500"
-                    className="rounded-lg"/>
+                <LiveCodeEditor/>
             </div>
         )
     },
