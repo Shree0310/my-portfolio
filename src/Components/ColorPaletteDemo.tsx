@@ -28,7 +28,7 @@ const ColorPaletteDemo = () => {
       ];
     return (
         <div className="bg-neutral-100 font-mono text-sm p-4 rounded-md">
-            <div className="text-blue-900 font-bold">Design System Colors</div>
+            <div className="text-blue-900 font-bold text-xl">Design System Colors</div>
             <div className="py-4">
                 {colorPalettes.map((palette, index) => (
                     <motion.div
@@ -37,20 +37,20 @@ const ColorPaletteDemo = () => {
                         animate={{ scale: 1}}
                         transition={{ delay: 0.5 }}
                         className="flex text-neutral-600 space-x-3 pt-10">
-                        <div className="flex space-x-2">
-                            {palette.name}
-                        <div className="flex space-x-3">
-                            {palette.colors.map((color, colorIndex) => (
-                                <motion.div
-                                    key={colorIndex}
-                                    className={`w-8 h-8 rounded-md ${color}`}
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 0.5 }}>
-                                </motion.div>
-                            ))}
-                        </div>
-                        </div>
+                            <div className="flex space-x-2">
+                                {palette.name}
+                            <div className="flex space-x-3 pl-10">
+                                {palette.colors.map((color, colorIndex) => (
+                                    <motion.div
+                                        key={colorIndex}
+                                        className={`w-8 h-8 rounded-md ${color}`}
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.5 }}>
+                                    </motion.div>
+                                ))}
+                            </div>
+                            </div>
                     </motion.div>
                 ))}
             </div>

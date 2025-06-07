@@ -30,13 +30,13 @@ const Skill = ({feature} : { feature: Feature}) => {
     const scale = useTransform(scrollYProgress, [0.5,1], [1,0.8]);
 
     return <div>
-        <div ref={ref} key={feature.title} className="grid grid-cols-2 py-40">
+        <div ref={ref} key={feature.title} className="grid grid-cols-2 pt-50">
             <motion.div 
                 style={{
                     filter: useMotionTemplate`blur(${blur}px)`,
                     scale,
                 }}
-            className="flex flex-col gap-5 pl-20">
+            className="flex flex-col gap-10">
                 <h2 className="text-4xl font-bold text-white">{feature.title}</h2>
                 <h2 className="text-neutral-300 text-lg">{feature.description}</h2>
             </motion.div>

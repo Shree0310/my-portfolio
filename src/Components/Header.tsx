@@ -1,14 +1,14 @@
 const Header = () => {
     return (
         <div>
-            <header className="bg-white shadow-md sticky top-0 z-50">
+            <header className="bg-[#3e1f47] shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16 text-gray-700 font-bold">
-                        <div className="flex justify-end py-4 text-2xl">
+                        <div className="flex justify-end py-4 text-2xl text-neutral-400">
                             Sowrasree Banerjee
                         </div>
                         <div>
-                            <ul className="flex py-4 text-lg">
+                            <ul className="flex py-4 text-lg text-neutral-400">
                                 <li className="px-3">Home</li>
                                 <li className="px-3">Projects</li>
                                 <li className="px-3">Snippets</li>

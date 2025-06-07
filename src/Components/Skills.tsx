@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 import LiveCodeEditor from "./LiveCodeEditor";
 import TypeScriptDemo from "./TypeScriptDemo";
 import ColorPaletteDemo from "./ColorPaletteDemo";
+import APIFetchDemo from "./APIFetchDemo";
 
 
 
@@ -39,7 +40,7 @@ const Skills = () => {
             }}
             ref={containerRef}
             className="flex justify-center items-center min-h-screen bg-neutral-700">
-            <div className="flex flex-col gap-10 max-w-4xl mx-auto py-40">
+            <div className="flex flex-col gap-0 max-w-4xl mx-auto py-10">
                 {features.map((feature,id) => (
                     <Skill key={feature.title} feature={feature}/>
                 ))}
@@ -76,24 +77,10 @@ const features: Feature[] = [
     },
     {
         title: "CSS/Tailwind",
-        description: "Experience in working with both Tailwind css and framer motion to create interactive animations",
+        description: "Experienced in both Tailwind CSS & framer motion to create interactive animations",
         content: (
             <div>
                 <ColorPaletteDemo/>
-            </div>
-        )
-    },
-    {
-        title: "css",
-        description: "proficient at building react web apps",
-        content: (
-            <div>
-                <Image
-                    src={website}
-                    alt="React"
-                    height="500"
-                    width="500"
-                    className="rounded-lg"/>
             </div>
         )
     },
@@ -102,12 +89,7 @@ const features: Feature[] = [
         description: "proficient at building react web apps",
         content: (
             <div>
-                <Image
-                    src={girl_code}
-                    alt="React"
-                    height="500"
-                    width="500"
-                    className="rounded-lg"/>
+                <APIFetchDemo/>
             </div>
         )
     }
