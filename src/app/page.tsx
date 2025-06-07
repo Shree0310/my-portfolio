@@ -2,6 +2,7 @@
 
 import { Content } from '@/Components/Content'
 import Header from '@/Components/Header'
+import Skills from '@/Components/Skills'
 import Card from '@/Components/ui/Card'
 import { motion } from 'framer-motion'
 
@@ -10,6 +11,7 @@ export default function Home() {
     <div>
       <Header/>
       <Content/>
+      <Skills/>
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
