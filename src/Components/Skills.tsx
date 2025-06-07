@@ -6,23 +6,37 @@ import  code  from "@/assets/Images/code.png";
 import  coder  from "@/assets/Images/coder.png";
 import  girl_code  from "@/assets/Images/girl_code.png";
 import  website  from "@/assets/Images/website.png";
+import Skill from "./Skill";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion } from 'framer-motion'
+
 
 
 const Skills = () => {
+    const backgrounds = ["#1a1a1a", "#0f172a", "#18181b", "#0a0a0a"];
+    const [background, setBackground] = useState(backgrounds[0]);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const {scrollYProgress} = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        setBackground(backgrounds[Math.floor(latest * backgrounds.length)])
+    });
     return <div>
-        <div className="flex justify-center items-center min-h-screen items-center bg-neutral-700">
+        <motion.div 
+            style={{
+                background,
+            }}
+            ref={containerRef}
+            className="flex justify-center items-center min-h-screen bg-neutral-700">
             <div className="flex flex-col gap-10 max-w-4xl mx-auto py-40">
                 {features.map((feature,id) => (
-                    <div key={feature.title} className="grid grid-cols-2 gap-20">
-                        <div className="flex flex-col gap-5">
-                            <h2 className="text-4xl font-bold text-white">{feature.title}</h2>
-                            <h2 className="text-neutral-300 text-lg">{feature.description}</h2>
-                        </div>
-                        <div>{feature.content}</div>
-                    </div>
+                    <Skill key={feature.title} feature={feature}/>
                 ))}
             </div>
-        </div>
+        </motion.div>
     </div>
 }
 export default Skills;
