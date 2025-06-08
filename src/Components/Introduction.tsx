@@ -42,7 +42,7 @@ const Introduction = () => {
     const skills = [
         { name: "Frontend", icon: <CodeIcon />, color: "blue" },
         { name: "Design", icon: <PaletteIcon />, color: "purple" },
-        { name: "Performance", icon: <ZapIcon />, color: "yellow" }
+        { name: "React", icon: <ZapIcon />, color: "yellow" }
       ];
     
     useEffect(() => {
@@ -53,7 +53,7 @@ const Introduction = () => {
         return () => clearInterval(timer);
     },[]);
     return (
-        <div className="bg-gradient-to-br from-gray-900 to-[#3e1f47]">
+        <div className="bg-[#3e1f47]">
             <div className="grid grid-cols-1 min-h-2/3 pt-10">
             <div className="flex flex-wrap justify-center items-center px-6">
                 <div className="max-h-lg">

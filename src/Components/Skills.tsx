@@ -30,6 +30,7 @@ const Skills = () => {
         setBackground(backgrounds[finalValue])
     });
     return <div>
+         
         <motion.div 
             animate={{
                 background,
@@ -41,6 +42,9 @@ const Skills = () => {
             ref={containerRef}
             className="flex justify-center items-center min-h-screen bg-neutral-700">
             <div className="flex flex-col gap-0 max-w-4xl mx-auto py-10">
+            <h1 className="text-4xl text-neutral-300 font-bold mb-4">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text pt-10">Technical Skills</span>
+             </h1>
                 {features.map((feature,id) => (
                     <Skill key={feature.title} feature={feature}/>
                 ))}
