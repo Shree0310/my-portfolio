@@ -18,7 +18,7 @@ import APIFetchDemo from "./APIFetchDemo";
 
 
 const Skills = () => {
-    const backgrounds = ["#065a60", "#212f45", "#272640", "#3e1f47"];
+    const backgrounds = [ "#3e1f47", "#272640", "#212f45", "#065a60" ];
     const [background, setBackground] = useState(backgrounds[0]);
     const containerRef = useRef<HTMLDivElement>(null);
     const {scrollYProgress} = useScroll({
@@ -59,7 +59,7 @@ type Feature = {
 const features: Feature[] = [
     {
         title: "React js",
-        description: "Proficient at building react web apps",
+        description: "Proficient at building react & next js web apps.",
         content: (
             <div>
                 <LiveCodeEditor/>
@@ -68,7 +68,7 @@ const features: Feature[] = [
     },
     {
         title: "Typescript",
-        description: "Advanced typescript knowledge with handson expereience in both React & Angular projects",
+        description: "Advanced typescript knowledge with hands on expereience in both React & Angular projects",
         content: (
             <div>
                 <TypeScriptDemo/>
@@ -86,7 +86,7 @@ const features: Feature[] = [
     },
     {
         title: "Javascript",
-        description: "proficient at building react web apps",
+        description: "Modern ES6+ features, async programming, and DOM manipulation",
         content: (
             <div>
                 <APIFetchDemo/>

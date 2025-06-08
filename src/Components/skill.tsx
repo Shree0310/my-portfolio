@@ -26,7 +26,7 @@ const Skill = ({feature} : { feature: Feature}) => {
         }
     );
     const opacityContent = useTransform(scrollYProgress, [0,0.5,1], [0,1,0]);
-    const blur = useTransform(scrollYProgress, [0.5,1], [0,10]);
+    const blur = useTransform(scrollYProgress, [0.8,1], [0,10]);
     const scale = useTransform(scrollYProgress, [0.5,1], [1,0.8]);
 
     return <div>
@@ -36,8 +36,8 @@ const Skill = ({feature} : { feature: Feature}) => {
                     filter: useMotionTemplate`blur(${blur}px)`,
                     scale,
                 }}
-            className="flex flex-col gap-10">
-                <h2 className="text-4xl font-bold text-white">{feature.title}</h2>
+            className="flex flex-col gap-5">
+                <h2 className="text-2xl font-bold text-white">{feature.title}</h2>
                 <h2 className="text-neutral-300 text-lg">{feature.description}</h2>
             </motion.div>
             <motion.div
