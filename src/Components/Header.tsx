@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Header = () => {
     return (
         <div>
@@ -9,10 +11,10 @@ const Header = () => {
                         </div> */}
                         <div>
                             <ul className="flex py-4 text-lg text-neutral-200">
-                                <li className="px-3">Home</li>
-                                <li className="px-3">Projects</li>
-                                <li className="px-3">Snippets</li>
-                                <li className="px-3">Blogs</li>
+                                <Link className="px-3" href="/">Home</Link>
+                                <Link className="px-3" href="/projects">Projects</Link>
+                                <Link className="px-3" href="/snippets">Snippets</Link>
+                                <Link className="px-3" href="">Blogs</Link>
                             </ul>
                         </div>
                     </div>

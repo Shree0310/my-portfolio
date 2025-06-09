@@ -42,9 +42,22 @@ const Skills = () => {
             ref={containerRef}
             className="flex justify-center items-center min-h-screen bg-neutral-700">
             <div className="flex flex-col gap-0 max-w-4xl mx-auto py-10">
-            <h1 className="text-4xl text-neutral-300 font-bold mb-4">
+            <motion.h1 
+                initial={{ 
+                    opacity: 0,
+                    scale: 0.8
+                }}
+                animate={{
+                    opacity: 1,
+                    scale: 1
+                }}
+                transition={{
+                    duration:1,
+                    delay: 0.2
+                }}
+                className="text-4xl text-neutral-300 font-bold mb-4">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text pt-10">Technical Skills</span>
-             </h1>
+             </motion.h1>
                 {features.map((feature,id) => (
                     <Skill key={feature.title} feature={feature}/>
                 ))}
