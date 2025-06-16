@@ -8,6 +8,7 @@ import MoviesGPT1 from "../assets/Images/MoviesGPT1.png";
 import MoviesGPT2 from "../assets/Images/MoviesGPT2.png";
 import MoviesGPT3 from "../assets/Images/MoviesGPT3.png";
 import { useEffect, useState } from "react";
+import BorderBeam from "./ui/BorderBeam";
 
 const Projects = () => {
     const [activeImage, setActiveImage] = useState<{[key: string]: number}>({
@@ -39,18 +40,25 @@ const Projects = () => {
     return <>
          <div className="min-h-screen bg-[#1a1a2e] text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <h1 className="text-4xl font-bold mb-8">My Projects</h1>
-                <div className="flex justify-center items-center">
+                <h1 className="text-4xl font-bold mb-8 text-center">My Projects</h1>
+                <div className="flex justify-center items-center gap-8">
                     {projects.map((project) => {
                         const currentIndex = activeImage[project.name] || 0;
                         return (
-                            <div key={project.name} className="rounded-md border-white">
+                            <div key={project.name} className="relative rounded-md border-white">
                                <div className="">
                                <img src={project.images[currentIndex]} alt="image"
                                             className="w-[400px] h-[400px] rounded-md border-white p-3"/>
                                </div>
-                                <div>{project.name}</div>
-    
+                                <div className="text-center my-2 text-xl font-semibold">{project.name}</div>
+                                <BorderBeam
+                                duration={4}
+                                size={300}
+                                reverse
+                                colorFrom="#9333ea"
+                                colorTo="#ec4899"
+                                className="from-transparent via-purple-600 to-transparent"
+                            />
                             </div>
                         )
                     }
