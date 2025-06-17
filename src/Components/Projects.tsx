@@ -59,7 +59,8 @@ const Projects = () => {
                                 ) : (
                                 project.images && project.images.length > 0 && (
                                     <img src={project.images[currentIndex]} alt="image"
-                                        className="w-[400px] h-[200px] rounded-md border-white p-3"/>
+                                        className="w-[400px] h-[200px] rounded-md border-white p-3"
+                                        />
                                     )
                                 )}
                                </div>

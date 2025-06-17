@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion'
+import Button from "./ui/Button";
 
 const Introduction = () => {
     const CodeIcon = () => (
@@ -86,20 +87,22 @@ const Introduction = () => {
                         Passionate about modern web technologies and creating applications that make a difference.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <motion.button
+                      <Button>View My Work</Button>
+                        {/* <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors">
                                   <span>View My Work</span>
                                   <ArrowDownIcon/>
-                        </motion.button>
-                        <motion.button
+                        </motion.button> */}
+                        {/* <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors">
                                   <span>Download CV</span>
                                   <DownloadIcon/>
-                        </motion.button>
+                        </motion.button> */}
+                        <Button>Download CV</Button>
                     </div>
                 </div>
             <div className="flex items-center justify-center p-8">
