@@ -15,6 +15,7 @@ const Header = () => {
                                 <Link className="px-3" href="/projects">Projects</Link>
                                 <Link className="px-3" href="/snippets">Snippets</Link>
                                 <Link className="px-3" href="">Blogs</Link>
+                                <Link className="px-3" href="/new_portfolio">New</Link>
                             </ul>
                         </div>
                     </div>
