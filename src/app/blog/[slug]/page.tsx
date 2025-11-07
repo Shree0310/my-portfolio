@@ -1,14 +1,22 @@
 import NewPortfolio from "@/Components/NewPortfolio";
 import { Metadata } from "next";
 
-import getSingleBLog from "@/utils/mdx";
+import {getBlogFrontMatterBySlug, getSingleBLog } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
 
+export const generateMetadata = async ({params}:{params:{slug: string}}): Promise<Metadata> => {
+    const frontmatter = await getBlogFrontMatterBySlug(params.slug);
 
-export const metadata: Metadata = {
-    title: 'All Blogs - Sowrasree banerjee',
-    description: 'All my general tech thoughts'
+    if(!frontmatter){
+        return {
+            title: "Blog not found",
+        };
+    }
+    return {
+        title: frontmatter?.title ?? 'Blog - Sowrasree banerjee',
+        description: frontmatter?.description ?? 'All my general tech thoughts'
+    };
 }
 
 const SingleBlogPage = async ({params}: {params:{slug: string};}) => {

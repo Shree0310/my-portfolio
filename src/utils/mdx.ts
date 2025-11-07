@@ -9,7 +9,7 @@ type frontmatter = {
     image: string
 }
 
-const getSingleBLog = async(slug: string) => {
+export const getSingleBLog = async(slug: string) => {
     try{
         const singleBlog = await fs.readFile(
         path.join(process.cwd(), 'src/data/',`${slug}.mdx`),
@@ -31,7 +31,6 @@ const getSingleBLog = async(slug: string) => {
     }
     
 }
-export default getSingleBLog;
 
 export const getBlogs = async() => {
     const files = await fs.readdir(
@@ -51,7 +50,7 @@ export const getBlogs = async() => {
     return allBlogs;
 }
 
-const getBlogFrontMatterBySlug = async (slug: string) => {
+export const getBlogFrontMatterBySlug = async (slug: string) => {
      const singleBlog = await fs.readFile(
         path.join(process.cwd(), 'src/data/',`${slug}.mdx`),
         'utf-8');
