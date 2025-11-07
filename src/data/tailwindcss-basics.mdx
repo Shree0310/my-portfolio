@@ -1,0 +1,215 @@
+---
+title: "Getting Started with Tailwind CSS: A Modern Approach to Styling"
+description: "Learn how Tailwind CSS revolutionizes web development with utility-first classes, enabling faster and more maintainable styling."
+date: "2025-11-07"
+author: "Sourashree"
+tags: ["tailwind", "css", "web-development", "frontend"]
+---
+
+# Getting Started with Tailwind CSS
+
+Tailwind CSS has transformed how developers approach styling web applications. Instead of writing custom CSS or relying on pre-built components, Tailwind provides low-level utility classes that let you build completely custom designs without leaving your HTML.
+
+## What is Tailwind CSS?
+
+Tailwind is a **utility-first CSS framework** that provides thousands of pre-built classes for styling elements directly in your markup. Rather than naming things and creating abstractions, you compose utilities to create your design.
+
+### Traditional CSS Approach
+```css
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a202c;
+}
+```
+
+### Tailwind Approach
+```html
+<div class="bg-white rounded-lg p-6 shadow-lg">
+  <h2 class="text-2xl font-bold text-gray-900">Card Title</h2>
+</div>
+```
+
+## Core Concepts
+
+### The Utility-First Philosophy
+
+Every utility class does one thing well. You combine them to create complex designs:
+
+- `flex` - applies display: flex
+- `items-center` - aligns items vertically
+- `justify-between` - spaces items apart
+- `p-4` - adds padding of 1rem
+- `bg-blue-500` - sets background color
+
+### Responsive Design Made Easy
+
+Tailwind uses mobile-first breakpoints with intuitive prefixes:
+```html
+<div class="w-full md:w-1/2 lg:w-1/3">
+  <!-- Full width on mobile, half on tablet, third on desktop -->
+</div>
+```
+
+Breakpoints:
+- `sm` - 640px and up
+- `md` - 768px and up
+- `lg` - 1024px and up
+- `xl` - 1280px and up
+- `2xl` - 1536px and up
+
+### State Variants
+
+Apply styles on hover, focus, active, and more:
+```html
+<button class="bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 active:scale-95">
+  Click me
+</button>
+```
+
+## Common Patterns
+
+### Flexbox Layouts
+```html
+<div class="flex items-center justify-between p-4">
+  <div class="flex items-center gap-4">
+    <img class="w-12 h-12 rounded-full" src="avatar.jpg" alt="User" />
+    <span class="font-semibold">John Doe</span>
+  </div>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded">Follow</button>
+</div>
+```
+
+### Grid Layouts
+```html
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="bg-white p-6 rounded-lg shadow">Card 1</div>
+  <div class="bg-white p-6 rounded-lg shadow">Card 2</div>
+  <div class="bg-white p-6 rounded-lg shadow">Card 3</div>
+</div>
+```
+
+### Cards
+```html
+<div class="max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  <img class="w-full h-48 object-cover" src="image.jpg" alt="Card" />
+  <div class="p-6">
+    <h3 class="text-xl font-bold text-gray-900 mb-2">Card Title</h3>
+    <p class="text-gray-600 mb-4">
+      This is a beautiful card component built entirely with Tailwind utilities.
+    </p>
+    <button class="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+      Learn More
+    </button>
+  </div>
+</div>
+```
+
+## The Spacing System
+
+Tailwind uses a consistent spacing scale where each unit equals 0.25rem (4px):
+
+- `p-1` = 0.25rem (4px)
+- `p-2` = 0.5rem (8px)
+- `p-4` = 1rem (16px)
+- `p-8` = 2rem (32px)
+- `p-16` = 4rem (64px)
+
+This applies to padding (`p`), margin (`m`), width (`w`), height (`h`), and gap (`gap`).
+
+## Color System
+
+Colors range from 50 (lightest) to 950 (darkest):
+```html
+<div class="bg-blue-50">Very light blue</div>
+<div class="bg-blue-500">Medium blue</div>
+<div class="bg-blue-900">Dark blue</div>
+```
+
+## Typography
+
+Control text with semantic classes:
+```html
+<h1 class="text-4xl font-bold text-gray-900">Large Heading</h1>
+<p class="text-base text-gray-600 leading-relaxed">
+  Paragraph with comfortable line height.
+</p>
+<span class="text-sm text-gray-500">Small caption text</span>
+```
+
+## Dark Mode
+
+Tailwind v4 makes dark mode simple with the `dark:` variant:
+```html
+<div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+  Content that adapts to dark mode
+</div>
+```
+
+## Real-World Example: Navigation Bar
+```html
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center gap-8">
+        <span class="text-2xl font-bold text-blue-600">Logo</span>
+        <div class="hidden md:flex gap-6">
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+        </div>
+      </div>
+      <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+        Get Started
+      </button>
+    </div>
+  </div>
+</nav>
+```
+
+## Advantages of Tailwind
+
+**Rapid Development**: Build UIs faster without context switching between HTML and CSS files.
+
+**Consistency**: The design system ensures consistent spacing, colors, and typography across your app.
+
+**Responsive by Default**: Mobile-first approach with intuitive breakpoint prefixes.
+
+**Small Bundle Size**: With proper configuration, only the classes you use are included in production.
+
+**No Naming Conflicts**: No need to worry about class name collisions or CSS specificity issues.
+
+## Getting Started
+
+Install Tailwind in your project:
+```bash
+npm install tailwindcss
+```
+
+For Next.js projects with Tailwind v4:
+```css
+/* app/globals.css */
+@import "tailwindcss";
+```
+
+And you're ready to go!
+
+## Conclusion
+
+Tailwind CSS represents a paradigm shift in how we write styles. While it may feel unusual at first, the utility-first approach leads to faster development, easier maintenance, and more consistent designs. Give it a try on your next project—you might never go back to traditional CSS!
+
+## Resources
+
+- [Official Documentation](https://tailwindcss.com/docs)
+- [Tailwind UI Components](https://tailwindui.com)
+- [Tailwind Play (Online Editor)](https://play.tailwindcss.com)
+- [Awesome Tailwind CSS](https://github.com/aniftyco/awesome-tailwindcss)
+
