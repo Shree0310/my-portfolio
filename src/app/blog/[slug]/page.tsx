@@ -1,7 +1,6 @@
 import NewPortfolio from "@/Components/NewPortfolio";
 import { Metadata } from "next";
 
-import { compileMDX } from 'next-mdx-remote/rsc'
 import getSingleBLog from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
@@ -14,18 +13,19 @@ export const metadata: Metadata = {
 
 const SingleBlogPage = async ({params}: {params:{slug: string};}) => {
     const slug = params.slug;
-    const singleBlog = await getSingleBLog(slug);
+    const blog = await getSingleBLog(slug);
 
-    if(!singleBlog){
+    if(!blog){
         redirect('/blog')
     }
-    const { content, frontmatter } = await compileMDX<{ title: string }>({
-    source: singleBlog,
-    options: { parseFrontmatter: true },
-  })
+
+    const {content, frontmatter} = blog;
+
+    console.log(frontmatter);
+   
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
-        <div className="prose">
+        <div className="prose mx-auto">
             {content}
         </div>
     </NewPortfolio>
