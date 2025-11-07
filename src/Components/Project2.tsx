@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { motion, AnimatePresence, easeInOut } from 'framer-motion';
+import Link from "next/link";
 
 
 const Projects2 = () => {
@@ -13,9 +14,12 @@ return <div className="py-10">
             initial={{ opacity:0, filter: 'blur(10px)', y:10}}
             whileInView={{ opacity:1, filter: 'blur(0px)', y:0}}
             transition={{ duration:0.3, delay: idx * 0.1, ease: easeInOut }}
-            className="project-card" key={idx}>
-            <Image className="h-72 object-cover rounded-xl w-full" alt="project_image" src={project.image} height={300} width={300}/>    
-            <div className="py-4">{project.name}</div>
+            className="project-card group" key={idx}>
+            <Link href={project.url}>
+                <Image className="h-72 object-cover rounded-xl w-full transition duration-200 group-hover:blur-[3px]" alt="project_image" src={project.image} height={300} width={300}/>    
+                <h2 className="py-4 font-bold tracking-tight text-neutral-500 dark:text-neutral-300">{project.name}</h2>
+                <div className="text-secondary text-sm">{project.description}</div>
+            </Link>
         </motion.div>
     ))}
     </div>
@@ -40,7 +44,7 @@ const projects: Project[]  = [
     },
     {
         name: "MoviesGpt",
-        description: "A netflix clone to browse through different series and movies that you might wnat to watch, giving you an option to see the trailer and carousel of movies displayed with an ooption to ask AI to recommend you movies based on your mood and taste.",
+        description: "A netflix clone to browse through different series and movies that you might wnat to watch, with an option to ask AI to recommend you movies based on your mood and taste.",
         url: "https://moviesgpt.sourashreeart.com/#/",
         image:"/Images/MoviesGPT1.png"
     },
