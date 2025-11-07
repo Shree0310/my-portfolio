@@ -2,6 +2,12 @@ import {promises as fs} from 'fs';
 import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc'
 
+type frontmatter = {
+    title: string,
+    description: string,
+    date: string,
+    image: string
+}
 
 const getSingleBLog = async(slug: string) => {
     try{
@@ -31,6 +37,18 @@ export const getBlogs = async() => {
     const files = await fs.readdir(
         path.join(process.cwd(), 'src/data')
     )
+
+    const allBlogs = await Promise.all(files.map( async (file) => {
+        const slug = file.replace(".mdx", '');
+        const frontmatter = await getBlogFrontMatterBySlug(slug);
+        return {
+            slug,
+            ...frontmatter
+
+        }
+    }))
+
+    return allBlogs;
 }
 
 const getBlogFrontMatterBySlug = async (slug: string) => {
@@ -41,9 +59,9 @@ const getBlogFrontMatterBySlug = async (slug: string) => {
         if(!singleBlog){
             return null;
         }
-    const { frontmatter } = await compileMDX<{ title: string}>({
+    const { frontmatter } = await compileMDX<frontmatter>({
         source: singleBlog,
         options: { parseFrontmatter: true}
-    })
+    });
     return frontmatter;
 }
