@@ -23,6 +23,9 @@ return <motion.div
                 delay: 0.25,
                 ease:"easeInOut"
             }}
+            viewport={{
+                once:true
+            }}
         >
     <Tag className={cn("text-2xl md:text-4xl font-bold tracking-tighter text-primary drop-shadow-lg",
         className

@@ -7,8 +7,8 @@ const LandingBlogs = async () => {
 
     return <div>
         <h1 className="text-primary pt-4">My Blogs</h1>
-        <p className="text-secondary mb-10">I love putting my thoughts down</p>
-        <div className="flex flex-col gap-4 py-10">
+        <p className="text-secondary">I love putting my thoughts down</p>
+        <div className="flex flex-col gap-4 pt-4 pb-10">
            {allBlogs.map((blog) => (
             <Link className="" href={`/blog/${blog.slug}`} key={blog.slug}>
                 <div className="flex items-center justify-between">

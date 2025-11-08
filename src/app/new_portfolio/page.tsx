@@ -3,6 +3,7 @@ import Projects2 from "@/Components/Project2";
 import LandingBlogs from "@/Components/Landing-blogs";
 import Heading from "@/Components/Heading";
 import SubHeading from "@/Components/SubHeading";
+import Footer from "@/Components/Navbar/Footer";
 
 const NewPortfolioPage = () => {
 return <div className="min-h-screen flex items-start justify-start">
@@ -15,6 +16,7 @@ return <div className="min-h-screen flex items-start justify-start">
          </SubHeading>
         <Projects2/>
         <LandingBlogs/>
+        <Footer/>
     </NewPortfolio>
 </div>
 }

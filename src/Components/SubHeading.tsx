@@ -23,6 +23,9 @@ const SubHeading = ({
                 filter: "blur(0)",
                 y:0
                }}
+               viewport={{
+                once:true
+               }}
                 >
         <Tag className={cn("text-secondary md:text-base text-sm pt-4 max-w-base",
             className
