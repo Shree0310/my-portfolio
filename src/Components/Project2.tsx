@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Projects2 = () => {
 return <div className="py-10">
-    <p className="text-primary">Projects</p>
+    <p className="text-primary text-lg font-bold">Projects</p>
     <p className="text-secondary">I love building web apps and products that impact millions of lives.</p>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-4">
         {projects.map((project,idx) => (
