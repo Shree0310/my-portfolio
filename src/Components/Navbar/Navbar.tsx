@@ -3,8 +3,7 @@
 import Image from "next/image";
 import NewPortfolio from "../NewPortfolio";
 import Profile_Pic from "../../../public/Images/Profile_Pic.jpeg";
-import { Niramit } from "next/font/google";
-import Link from "next/link";
+import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';
 import { useState } from "react";
 
@@ -13,6 +12,10 @@ const Navbar = () => {
         {
             title: 'About',
             href:'/about'
+        },
+        {
+            title: "Projects",
+            href: '/projects2'
         },
         {
             title: 'Contact',

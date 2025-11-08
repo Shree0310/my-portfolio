@@ -33,7 +33,15 @@ const SingleBlogPage = async ({params}: {params:{slug: string};}) => {
    
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
-        <div className="prose mx-auto">
+        <div className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl md:h-[29rem] mb-20">
+            <img
+                src={frontmatter.image}
+                alt={frontmatter.title}
+                className="w-full h-full object-cover"
+            />
+        </div>
+
+        <div className="prose mx-auto mt-6">
             {content}
         </div>
     </NewPortfolio>
