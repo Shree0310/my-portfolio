@@ -40,6 +40,10 @@ const TimeLine = () => {
                 {
                     title: "Built a design system",
                     description: "Created a reusable design system and component library to ensure visual consistency and speed up development across teams."
+                },
+                 {
+                    title: "Performance and accessibility improvements",
+                    description: "Reduced bundle size by 40%, improved Lighthouse scores, and fixed WCAG accessibility issues across core pages."
                 }
             ]
         },
@@ -67,7 +71,12 @@ const TimeLine = () => {
                 {
                     title: "Shipped first production SPA",
                     description: "Built and launched a single-page application using React and modern tooling, gaining initial user traction and feedback."
-                }
+                },
+                {
+                    title: "Shipped first production SPA",
+                    description: "Built and launched a single-page application using React and modern tooling, gaining initial user traction and feedback."
+                },
+
             ]
         }
     ]
@@ -86,23 +95,32 @@ const TimeLine = () => {
                             delay:0.1 * index,
                             ease:"easeInOut"
                         }}
-                        className="font-bold text-black">{EachYear.title}</motion.h2>
-                    {EachYear.content.map((item, idx) => (
+                        className="font-bold text-black">
+                            {EachYear.title}
+                    </motion.h2>
+                    <div className="flex flex-col gap-4">
+                        {EachYear.content.map((item, idx) => (
                         <div key={idx} className="timeline-item pl-4">
-                            <motion.h3
-                                animate={{
-                                    opacity: isInView ? 1: 0,
-                                    y: isInView ? 0: 10
-                                }} 
-                                transition={{
-                                    duration: 0.3,
-                                    delay: 0.2 *idx,
-                                    ease:'easeInOut'
-                                }}
-                                className="text-primary font-bold">{item.title}</motion.h3>
-                            <p className="text-muted">{item.description}</p>
+                            <div className="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="pt-2 icon icon-tabler icons-tabler-filled icon-tabler-circle-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" /></svg>
+                                <motion.h3
+                                    animate={{
+                                        opacity: isInView ? 1: 0,
+                                        y: isInView ? 0: -10
+                                    }} 
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: 0.3 *idx,
+                                        ease:'easeInOut'
+                                    }}
+                                    className="text-neutral-600 font-bold pt-1 ">
+                                    {item.title}
+                                </motion.h3>
+                            </div>
+                            <p className="text-secondary pl-8">{item.description}</p>
                         </div>
                     ))}
+                    </div>
                 </div>
             ))}
         </div>
@@ -110,3 +128,9 @@ const TimeLine = () => {
 }
 
 export default TimeLine;
+
+const step = () => {
+    return <div className="flex flex-start gap-2">
+
+    </div>
+}
