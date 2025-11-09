@@ -4,6 +4,7 @@ import { getBlogs } from "@/utils/mdx";
 import { Link } from 'next-view-transitions'
 import Heading from "@/Components/Heading";
 import SubHeading from "@/Components/SubHeading";
+import Footer from "@/Components/Navbar/Footer";
 
 export const metadata: Metadata = {
     title: 'All Blogs - Sowrasree banerjee',
@@ -44,6 +45,7 @@ return <div className="min-h-screen flex items-start justify-start">
            ))}
         </div>
     </NewPortfolio>
+    <Footer/>
 </div>
 }
 

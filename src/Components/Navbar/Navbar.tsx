@@ -6,6 +6,7 @@ import Profile_Pic from "../../../public/Images/Profile_Pic.jpeg";
 import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';
 import { useState } from "react";
+import { title } from "process";
 
 const Navbar = () => {
     const navItems = [
@@ -24,6 +25,10 @@ const Navbar = () => {
         {
             title:'Blog',
             href:'/blog'
+        },
+        {
+            title:'Testimonials',
+            href:'/testimonials'
         }
     ]
 

@@ -2,6 +2,8 @@ import Heading from "@/Components/Heading";
 import NewPortfolio from "@/Components/NewPortfolio";
 import Projects2 from "@/Components/Project2";
 import SubHeading from "@/Components/SubHeading";
+import { projects } from "@/Components/Constants/projects";
+import Footer from "@/Components/Navbar/Footer";
 
 const Projects2Page =() => {
     return <div className="div">
@@ -12,7 +14,8 @@ const Projects2Page =() => {
                     With 6 years of professional experience, 
                     I've had the privilege of working on diverse projects—from AI-powered features to complex enterprise applications.
                 </SubHeading>
-            <Projects2/>
+            <Projects2 projects={projects.slice(0,3)}/>
+            <Footer/>
         </NewPortfolio>
     </div>
 }

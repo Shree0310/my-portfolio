@@ -1,5 +1,6 @@
 import { Collage } from "@/Components/Collage";
 import Heading from "@/Components/Heading";
+import Footer from "@/Components/Navbar/Footer";
 import NewPortfolio from "@/Components/NewPortfolio";
 import SubHeading from "@/Components/SubHeading";
 import TimeLine from "@/Components/Timeline";
@@ -14,5 +15,6 @@ export default function AboutPage() {
         </SubHeading>
         <Collage/>
         <TimeLine/>
+        <Footer/>
     </NewPortfolio>
 }
