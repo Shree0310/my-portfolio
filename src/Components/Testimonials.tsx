@@ -30,10 +30,8 @@ const Testimonials = () => {
         },
     ]
     return <div>
-        <SubHeading className="text-primary text-lg font-bold pt-4">
-            Testimonials
-        </SubHeading>
-        <SectionHeading className="text-primary">People love my work..</SectionHeading>
+        <SectionHeading delay={0.8} className="text-primary">People love my work..</SectionHeading>
+        <div className="flex py-4" style={{ maskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))', WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))' }}>
             <Marquee speed={20}>
                 {data.map((testimonial,idx) => (
                 <div>
@@ -41,6 +39,7 @@ const Testimonials = () => {
                 </div>
                 ))}
             </Marquee>
+        </div>
     </div>
 }
 export default Testimonials;
