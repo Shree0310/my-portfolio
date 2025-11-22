@@ -95,7 +95,7 @@ const TimeLine = () => {
                             delay:0.1 * index,
                             ease:"easeInOut"
                         }}
-                        className="font-bold text-black">
+                        className="font-bold text-black dark:text-neutral-100">
                             {EachYear.title}
                     </motion.h2>
                     <div className="flex flex-col gap-4">

@@ -54,3 +54,27 @@
   );
   background-size: 10px 10px;
 }
+
+.prose {
+  --tw-prose-body: theme('colors.neutral.700');
+  --tw-prose-headings: theme('colors.neutral.900');
+  --tw-prose-links: theme('colors.blue.600');
+  --tw-prose-code: theme('colors.pink.600');
+}
+
+/* Dark mode prose */
+.dark .prose {
+  --tw-prose-body: theme('colors.neutral.300');
+  --tw-prose-headings: theme('colors.neutral.100');
+  --tw-prose-links: theme('colors.blue.200');
+  --tw-prose-code: theme('colors.pink.400');
+  --tw-prose-pre-bg: theme('colors.neutral.900');
+}
+
+.prose strong {
+  color: theme('colors.neutral.900');
+}
+
+.dark .prose strong {
+  color: theme('colors.neutral.100');
+}

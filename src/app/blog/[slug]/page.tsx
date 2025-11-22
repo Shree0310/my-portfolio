@@ -6,7 +6,8 @@ import { redirect } from "next/navigation";
 
 
 export const generateMetadata = async ({params}:{params:{slug: string}}): Promise<Metadata> => {
-    const frontmatter = await getBlogFrontMatterBySlug(params.slug);
+    const { slug } = await params;
+    const frontmatter = await getBlogFrontMatterBySlug(slug);
 
     if(!frontmatter){
         return {
@@ -19,7 +20,8 @@ export const generateMetadata = async ({params}:{params:{slug: string}}): Promis
     };
 }
 
-const SingleBlogPage = async ({params}: {params:{slug: string};}) => {
+const SingleBlogPage = async (props: { params: { slug: string } }) => {
+    const { params } = await props;
     const slug = params.slug;
     const blog = await getSingleBLog(slug);
 
