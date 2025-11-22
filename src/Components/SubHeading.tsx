@@ -27,7 +27,7 @@ const SubHeading = ({
                 once:true
                }}
                 >
-        <Tag className={cn("text-secondary md:text-base text-sm pt-4 max-w-base",
+        <Tag className={cn("text-secondary dark:text-neutral-300 md:text-base text-sm pt-4 max-w-base",
             className
         )}>{children}</Tag>
     </motion.div>

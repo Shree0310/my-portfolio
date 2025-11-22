@@ -10,7 +10,7 @@ const LandingBlogs = async () => {
     const allBlogs = await getBlogs();
 
     return <div>
-        <SectionHeading delay={0.2} className="text-primary">I love putting my thoughts down...</SectionHeading>
+        <SectionHeading delay={0.2} className="text-primary dark:text-neutral-300">I love putting my thoughts down...</SectionHeading>
         <div className="flex flex-col gap-4 pt-4 pb-10">
            {allBlogs.map((blog,idx) => (
             <MotionDiv
@@ -26,8 +26,8 @@ const LandingBlogs = async () => {
                 }}>
                 <Link className="" href={`/blog/${blog.slug}`} key={blog.slug}>
                     <div className="flex items-center justify-between">
-                        <h2 className="text-primary text-base font-bold tracking-tight text-sm pt-2 md:text-sm">{blog.title}</h2>
-                        <p className="text-secondary text-base font-bold tracking-tight text-sm pt-2 md:text-sm">{new Date(blog.date || '').toLocaleDateString('en-us',{
+                        <h2 className="text-primary dark:text-white font-bold tracking-tight text-lg pt-2 md:text-lg">{blog.title}</h2>
+                        <p className="text-secondary font-bold tracking-tight text-sm pt-2 md:text-sm">{new Date(blog.date || '').toLocaleDateString('en-us',{
                             weekday: 'long', 
                             year: 'numeric',
                             month: 'short',

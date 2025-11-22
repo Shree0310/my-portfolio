@@ -30,7 +30,7 @@ const Testimonials = () => {
         },
     ]
     return <div>
-        <SectionHeading delay={0.8} className="text-primary">People love my work..</SectionHeading>
+        <SectionHeading delay={0.8} className="text-primary dark:text-neutral-300">People love my work..</SectionHeading>
         <div className="flex py-4" style={{ maskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))', WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))' }}>
             <Marquee speed={20}>
                 {data.map((testimonial,idx) => (
@@ -45,11 +45,11 @@ const Testimonials = () => {
 export default Testimonials;
 
 const TestimonialCard = ({quote, name, avatar}: {quote: string, name: string, avatar: string}) => {
-    return <div className="flex flex-col justify-between gap-4 shadow-aceternity max-w-60 w-full h-60 p-4 rounded-xl ml-10 py-4 mt-4">
-        <p className="text-sm text-neutral-500">{quote}</p>
+    return <div className="flex flex-col justify-between dark:bg-neutral-700 gap-4 shadow-aceternity max-w-60 w-full h-60 p-4 rounded-xl ml-10 py-4 mt-4">
+        <p className="text-sm text-neutral-500 dark:text-neutral-200">{quote}</p>
         <div className="flex items-center gap-4">
             <img src={avatar} alt={name} className="size-4 rounded-full"/>
-            <p className="text-sm text-neutral-500 font-light">{name}</p>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 font-light">{name}</p>
         </div>
 
     </div>

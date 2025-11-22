@@ -14,7 +14,7 @@ const Roles = () => {
         return () => clearInterval(timer);
     },[])
     return <div>
-        <p className="px-8 mt-2 ml-2 py-[1px] border border-gray-200 shadow-xl rounded-md text-secondary text-sm">
+        <p className="px-8 mt-2 ml-2 py-[1px] border border-gray-200 shadow-xl rounded-md text-secondary dark:text-teal-300 text-sm">
             {rolesDes[currentRole]}
         </p>
     </div>

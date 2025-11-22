@@ -25,7 +25,7 @@ export default function RootLayout({
         <body
           className={`${inter.className} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
         >
-          <main className="bg-background diagonal-pattern text-foreground">
+          <main className="bg-background text-foreground">
               <Toaster />
               <Navbar/>
               {children}

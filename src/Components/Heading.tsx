@@ -27,7 +27,7 @@ return <motion.div
                 once:true
             }}
         >
-    <Tag className={cn("text-2xl md:text-4xl font-bold tracking-tighter text-primary drop-shadow-lg",
+    <Tag className={cn("text-2xl md:text-4xl font-bold tracking-tighter text-primary dark:text-white drop-shadow-lg",
         className
     )}>
         {children}

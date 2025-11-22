@@ -82,7 +82,7 @@ const TimeLine = () => {
     ]
     return (
         <div ref={ref}>
-            <h2 className="text-primary py-4 text-xl">Here is the timeline of my life's achievements:</h2>
+            <h2 className="text-primary dark:text-neutral-300 py-4 text-xl">Here is the timeline of my life's achievements:</h2>
             {data.map((EachYear, index) => (
                 <div key={index}>
                     <motion.h2
@@ -113,11 +113,11 @@ const TimeLine = () => {
                                         delay: 0.3 *idx,
                                         ease:'easeInOut'
                                     }}
-                                    className="text-neutral-600 font-bold pt-1 ">
+                                    className="text-neutral-600 dark:text-neutral-300 font-bold pt-1 ">
                                     {item.title}
                                 </motion.h3>
                             </div>
-                            <p className="text-secondary pl-8">{item.description}</p>
+                            <p className="text-secondary dark:text-neutral-400 pl-8">{item.description}</p>
                         </div>
                     ))}
                     </div>

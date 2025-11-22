@@ -72,7 +72,7 @@ const ContactForm = () => {
                     placeholder="Write your crazy ideas here...."
                     className="border border-neutral-300 h-64 rounded-lg shadow-aceternity px-2 pt-2 focus:outline-none focus:ring-2 focus:ring-primary"/>
             </div>
-            <button type="submit" className="rounded-md bg-primary px-4 py-2 text-white my-4 w-full cursor-pointer">
+            <button type="submit" className="rounded-md bg-primary dark:bg-secondary dark:text-neutral-200 px-4 py-2 text-white my-4 w-full cursor-pointer">
                 Send Message
             </button>
         </form>
