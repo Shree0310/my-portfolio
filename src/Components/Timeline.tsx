@@ -128,9 +128,3 @@ const TimeLine = () => {
 }
 
 export default TimeLine;
-
-const step = () => {
-    return <div className="flex flex-start gap-2">
-
-    </div>
-}

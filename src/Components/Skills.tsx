@@ -50,7 +50,7 @@ const Skills = () => {
                 className="text-4xl text-neutral-300 font-bold mb-4">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text pt-10">Technical Skills</span>
              </motion.h1>
-                {features.map((feature,id) => (
+                {features.map((feature) => (
                     <Skill key={feature.title} feature={feature}/>
                 ))}
             </div>

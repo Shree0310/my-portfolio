@@ -1,12 +1,13 @@
 import NewPortfolio from "@/Components/NewPortfolio";
 import { Metadata } from "next";
+import Image from "next/image";
 
-import {getBlogFrontMatterBySlug, getSingleBLog } from "@/utils/mdx";
+import { getBlogFrontMatterBySlug, getSingleBLog } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
 
 export const generateMetadata = async ({params}:{params:{slug: string}}): Promise<Metadata> => {
-    const { slug } = await params;
+    const { slug } = params;
     const frontmatter = await getBlogFrontMatterBySlug(slug);
 
     if(!frontmatter){
@@ -20,8 +21,7 @@ export const generateMetadata = async ({params}:{params:{slug: string}}): Promis
     };
 }
 
-const SingleBlogPage = async (props: { params: { slug: string } }) => {
-    const { params } = await props;
+const SingleBlogPage = async ({ params }: { params: { slug: string } }) => {
     const slug = params.slug;
     const blog = await getSingleBLog(slug);
 
@@ -36,10 +36,12 @@ const SingleBlogPage = async (props: { params: { slug: string } }) => {
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
         <div className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl md:h-[29rem] mb-20">
-            <img
+            <Image
                 src={frontmatter.image}
                 alt={frontmatter.title}
-                className="w-full h-full object-cover"
+                width={800}
+                height={500}
+                className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl py-4"
             />
         </div>
 

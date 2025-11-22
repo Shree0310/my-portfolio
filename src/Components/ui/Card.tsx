@@ -5,7 +5,6 @@ import { FiX } from "react-icons/fi";
 import  nature  from "@/assets/Images/nature.png";
 import Image from "next/image";
 import { motion } from 'framer-motion'
-import { filter } from "framer-motion/client";
 
 export const Card = () => {
     return (
@@ -14,7 +13,7 @@ export const Card = () => {
             "shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)]",
             "p-6 flex flex-col"
         )}>
-        <h1 className="font-bold text-lg px-10 pt-2 text-gray-700">Hi, I'm Sowrasree</h1>
+        <h1 className="font-bold text-lg px-10 pt-2 text-gray-700">Hi, I&apos;m Sowrasree</h1>
         <p className="text-sm px-10 text-neutral-500">A Frontend Developer</p>
         <div className="flex justify-center items-center pt-3">
             <button className="flex rounded-lg px-4 py-2  text-gray-600 shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)]">

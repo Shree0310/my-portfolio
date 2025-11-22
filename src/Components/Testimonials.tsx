@@ -33,7 +33,7 @@ const Testimonials = () => {
         <div className="flex py-4" style={{ maskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))', WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0))' }}>
             <Marquee speed={20}>
                 {data.map((testimonial,idx) => (
-                <div>
+                <div key={idx}>
                     <TestimonialCard key={`testimonial-${idx}`} {...testimonial}/>
                 </div>
                 ))}
