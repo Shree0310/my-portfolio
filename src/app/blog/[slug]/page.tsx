@@ -5,51 +5,56 @@ import Image from "next/image";
 import { getBlogFrontMatterBySlug, getSingleBLog } from "@/utils/mdx";
 import { redirect } from "next/navigation";
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> => {
+  const { slug } = await params;
+  const frontmatter = await getBlogFrontMatterBySlug(slug);
 
-export const generateMetadata = async ({params}:{params:{slug: string}}): Promise<Metadata> => {
-    const { slug } = params;
-    const frontmatter = await getBlogFrontMatterBySlug(slug);
-
-    if(!frontmatter){
-        return {
-            title: "Blog not found",
-        };
-    }
+  if (!frontmatter) {
     return {
-        title: frontmatter?.title ?? 'Blog - Sowrasree banerjee',
-        description: frontmatter?.description ?? 'All my general tech thoughts'
+      title: "Blog not found",
     };
-}
+  }
+  return {
+    title: frontmatter?.title ?? "Blog - Sowrasree banerjee",
+    description: frontmatter?.description ?? "All my general tech thoughts",
+  };
+};
 
-const SingleBlogPage = async ({ params }: { params: { slug: string } }) => {
-    const slug = params.slug;
-    const blog = await getSingleBLog(slug);
+const SingleBlogPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
+  const blog = await getSingleBLog(slug);
 
-    if(!blog){
-        redirect('/blog')
-    }
+  if (!blog) {
+    redirect("/blog");
+  }
 
-    const {content, frontmatter} = blog;
+  const { content, frontmatter } = blog;
 
-    console.log(frontmatter);
-   
-return <div className="min-h-screen flex items-start justify-start">
-    <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
+  return (
+    <div className="min-h-screen flex items-start justify-start">
+      <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
         <div className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl md:h-[29rem] mb-20">
-            <Image
-                src={frontmatter.image}
-                alt={frontmatter.title}
-                width={800}
-                height={500}
-                className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl py-4"
-            />
+          <Image
+            src={frontmatter.image}
+            alt={frontmatter.title}
+            width={800}
+            height={500}
+            className="mx-auto w-full overflow-hidden rounded-lg border border-neutral-200 shadow-xl py-4"
+          />
         </div>
 
-        <div className="prose mx-auto mt-6">
-            {content}
-        </div>
-    </NewPortfolio>
-</div>
-}
+        <div className="prose mx-auto mt-6">{content}</div>
+      </NewPortfolio>
+    </div>
+  );
+};
 
 export default SingleBlogPage;
