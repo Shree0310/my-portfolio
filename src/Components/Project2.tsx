@@ -4,9 +4,44 @@ import { motion, AnimatePresence, easeInOut } from 'framer-motion';
 import Link from "next/link";
 import {projects as defaultProjects, Project} from "../Components/Constants/projects";
 import SectionHeading from "./SectionHeading";
+import { IconBrandNextjs, IconBrandOpenai, IconBrandReact, IconBrandTailwind } from "@tabler/icons-react";
+import { FaReact } from 'react-icons/fa'
+import { RiTailwindCssFill } from 'react-icons/ri'
+import { SiOpenai } from 'react-icons/si'
+import { VscVscode } from 'react-icons/vsc'
 
 
 const Projects2 = ({ projects = defaultProjects }: {projects: Project[]}) => {
+    const icons = [
+
+        {
+            title: "React",
+            size: "size-8",
+            circle: "circle-1",
+            icon: <FaReact className="h-4 w-4 text-cyan-500"/>
+        },
+        {
+            title: "Tailwind",
+            size: "size-8",
+            circle: "circle-2",
+            icon: <RiTailwindCssFill className="h-4 w-4 text-teal-500"/>
+
+        },
+        {
+            title: "VS Code",
+            size: "size-8",
+            circle: "circle-3",
+            icon: <VscVscode className="h-4 w-4 text-blue-500"/>
+
+        },
+        {
+            title: "ChatGPT",
+            size: "size-8",
+            circle: "circle-4",
+            icon: <SiOpenai className="h-4 w-4"/>
+
+        }
+    ]
 return <div className="py-10">
     <p className="text-primary text-lg font-bold">Projects</p>
     <SectionHeading delay={0.2}>I love building web apps and products that impact millions of lives.</SectionHeading>
@@ -21,6 +56,17 @@ return <div className="py-10">
                 <Image className="h-[150px] object-cover rounded-xl  transition duration-200 group-hover:blur-[3px]" alt="project_image" src={project.image} height={150} width={300}/>    
                 <h2 className="py-4 font-bold tracking-tight text-neutral-500 dark:text-neutral-300">{project.name}</h2>
                 <div className="text-secondary text-sm">{project.description}</div>
+                <div className="flex justify-start mt-2">
+                    {icons.map((item, idx) => (
+                        <div 
+                            key={item.title} 
+                            className={`${item.size} h-8 w-8 ring-1 ring-neutral-200 rounded-full flex items-center justify-center bg-gray-100 dark:bg-neutral-800
+                                shadow-2xl relative ${idx !== 0 ? '-ml-2' : ''}`}
+                        >
+                            <span>{item.icon}</span>
+                        </div>
+                    ))}
+                </div>
             </Link>
         </motion.div>
     ))}
