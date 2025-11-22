@@ -1,10 +1,9 @@
 "use client"
 import Image from "next/image";
-import { motion, AnimatePresence, easeInOut } from 'framer-motion';
+import { motion, easeInOut } from 'framer-motion';
 import Link from "next/link";
 import {projects as defaultProjects, Project} from "../Components/Constants/projects";
 import SectionHeading from "./SectionHeading";
-import { IconBrandNextjs, IconBrandOpenai, IconBrandReact, IconBrandTailwind } from "@tabler/icons-react";
 import { FaReact } from 'react-icons/fa'
 import { RiTailwindCssFill } from 'react-icons/ri'
 import { SiOpenai } from 'react-icons/si'

@@ -1,6 +1,6 @@
 "use client"
 import { cn } from "@/lib/utils";
-import {easeInOut, motion} from "framer-motion"; 
+import { motion} from "framer-motion"; 
 
 const Heading = ({
     as: Tag = "h1",

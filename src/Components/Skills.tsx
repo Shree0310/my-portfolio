@@ -1,11 +1,4 @@
 "use client"
-
-import Image from "next/image";
-import  nature  from "@/assets/Images/nature.png";
-import  code  from "@/assets/Images/code.png";
-import  coder  from "@/assets/Images/coder.png";
-import  girl_code  from "@/assets/Images/girl_code.png";
-import  website  from "@/assets/Images/website.png";
 import Skill from "./Skill";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useRef, useState } from "react";
@@ -13,7 +6,6 @@ import { motion } from 'framer-motion'
 import LiveCodeEditor from "./LiveCodeEditor";
 import TypeScriptDemo from "./TypeScriptDemo";
 import ColorPaletteDemo from "./ColorPaletteDemo";
-import APIFetchDemo from "./APIFetchDemo";
 
 
 
@@ -101,13 +93,4 @@ const features: Feature[] = [
             </div>
         )
     },
-    {
-        title: "Javascript",
-        description: "Modern ES6+ features, async programming, and DOM manipulation",
-        content: (
-            <div>
-                <APIFetchDemo/>
-            </div>
-        )
-    }
 ]

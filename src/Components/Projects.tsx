@@ -1,12 +1,5 @@
 "use client"
 
-import { StaticImageData } from "next/image";
-import Foodie1 from "../assets/Images/FoodieImage1.png";
-import Foodie2 from "../assets/Images/FoodieImage2.png";
-import Foodie3 from "../assets/Images/FoodieImage3.png";
-import MoviesGPT1 from "../assets/Images/MoviesGPT1.png";
-import MoviesGPT2 from "../assets/Images/MoviesGPT2.png";
-import MoviesGPT3 from "../assets/Images/MoviesGPT3.png";
 import { useEffect, useState } from "react";
 import BorderBeam from "./ui/BorderBeam";
 

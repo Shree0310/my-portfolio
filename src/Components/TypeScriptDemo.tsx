@@ -33,7 +33,7 @@ const TypeScriptDemo = () => {
             <div className="text-2xl text-white font-bold">
                 TypeScript
             </div>
-            <div className="text-blue-400 text-sm py-2">//TypeScript Definitions</div>
+            <div className="text-blue-400 text-sm py-2">{'// TypeScript Definitions'}</div>
             <AnimatePresence mode="wait">
                 <motion.div
                 key={activeType}

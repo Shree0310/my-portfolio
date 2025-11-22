@@ -20,7 +20,7 @@ const ContactForm = () => {
        }
 
        //Call your api here to submit the form
-       const response = await new Promise((resolve, reject) => {
+       const response = await new Promise((resolve) => {
             setTimeout(() => {
                 resolve("API call successful");
             }, 1000)

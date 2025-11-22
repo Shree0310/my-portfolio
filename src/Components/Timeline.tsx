@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { easeInOut, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 type Data = {
@@ -82,7 +82,7 @@ const TimeLine = () => {
     ]
     return (
         <div ref={ref}>
-            <h2 className="text-primary dark:text-neutral-300 py-4 text-xl">Here is the timeline of my life's achievements:</h2>
+            <h2 className="text-primary dark:text-neutral-300 py-4 text-xl">Here is the timeline of my life&apos;s achievements:</h2>
             {data.map((EachYear, index) => (
                 <div key={index}>
                     <motion.h2

@@ -1,7 +1,7 @@
 "use client"
 
 import { useMotionTemplate, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from 'framer-motion'
 
 type Feature = {

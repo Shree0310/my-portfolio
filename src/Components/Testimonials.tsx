@@ -1,5 +1,4 @@
 import SectionHeading from "./SectionHeading";
-import SubHeading from "./SubHeading";
 import Marquee from "react-fast-marquee";
 
 const Testimonials = () => {

@@ -3,11 +3,9 @@ import { motion } from 'framer-motion'
 
 
 const ColorPaletteDemo = () => {
-    const [selectedColor, setSelectedColor] = useState(0);
 
     useState(() => {
         const timer = setInterval(() => {
-            setSelectedColor((prev) => ( prev + 1 )% colorPalettes.length);
         },1000);
         return () => clearInterval(timer);
     })
@@ -30,7 +28,7 @@ const ColorPaletteDemo = () => {
         <div className="bg-neutral-100 font-mono text-sm p-4 rounded-md">
             <div className="text-blue-900 font-bold text-xl">Design System Colors</div>
             <div className="py-4">
-                {colorPalettes.map((palette, index) => (
+                {colorPalettes.map((palette) => (
                     <motion.div
                         key={palette.name}
                         initial={{ scale: 0 }}

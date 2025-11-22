@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { IconBrandX, IconBrandLinkedinFilled, IconBrandGithubFilled } from '@tabler/icons-react';
-import NewPortfolio from "../NewPortfolio";
 
 const Footer = () => {
     return (

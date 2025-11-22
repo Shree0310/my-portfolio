@@ -32,7 +32,7 @@ const Navbar = () => {
         }
     ]
 
-    const [hovered, setHovered] = useState<Number | null>(null);
+    const [hovered, setHovered] = useState<number | null>(null);
 
     const {scrollY} = useScroll();
 

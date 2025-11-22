@@ -1,9 +1,6 @@
 import { getBlogs } from "@/utils/mdx";
-import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "./SectionHeading";
-import Heading from "./Heading";
-import SubHeading from "./SubHeading";
 import MotionDiv from "./MotionDiv";
 
 const LandingBlogs = async () => {
