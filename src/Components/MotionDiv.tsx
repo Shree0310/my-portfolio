@@ -1,9 +1,9 @@
 "use client"
-import { motion, AnimationProps } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
-const MotionDiv = (props: AnimationProps & {children?: React.ReactNode}) => {
-return <motion.div {...props} />
+const MotionDiv = (props: React.ComponentProps<typeof motion.div>) => {
+  return <motion.div {...props} />;
 }
 
 export default MotionDiv;

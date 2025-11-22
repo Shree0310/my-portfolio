@@ -14,6 +14,7 @@ const LandingBlogs = async () => {
         <div className="flex flex-col gap-4 pt-4 pb-10">
            {allBlogs.map((blog,idx) => (
             <MotionDiv
+            key={idx}
                 initial= {{
                     opacity: 0,
                 }}
