@@ -1,8 +1,5 @@
-import Heading from "@/Components/Heading";
 import Footer from "@/Components/Navbar/Footer";
 import NewPortfolio from "@/Components/NewPortfolio";
-import Projects2 from "@/Components/Project2";
-import SubHeading from "@/Components/SubHeading";
 import Testimonials from "@/Components/Testimonials";
 
 const TestimonialsPage = () =>{

@@ -1,18 +1,12 @@
 
-import { Content } from '@/Components/Content'
-import Header from '@/Components/Header'
 import Heading from '@/Components/Heading'
-import Introduction from '@/Components/Introduction'
 import LandingBlogs from '@/Components/Landing-blogs'
 import Footer from '@/Components/Navbar/Footer'
 import NewPortfolio from '@/Components/NewPortfolio'
 import Projects2 from '@/Components/Project2'
 import Roles from '@/Components/Roles'
-import Skills from '@/Components/Skills'
 import SubHeading from '@/Components/SubHeading'
 import Testimonials from '@/Components/Testimonials'
-import Card from '@/Components/ui/Card'
-import { motion } from 'framer-motion'
 import { projects } from "@/Components/Constants/projects";
 
 

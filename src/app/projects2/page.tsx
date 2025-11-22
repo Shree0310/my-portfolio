@@ -10,9 +10,9 @@ const Projects2Page =() => {
         <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
             <Heading>Sowrasree Banerjee</Heading>
                 <SubHeading>
-                    I'm a passionate Frontend Engineer based in Bangalore, India, with a deep love for building elegant and efficient web applications. 
+                    I&apos;m a passionate Frontend Engineer based in Bangalore, India, with a deep love for building elegant and efficient web applications. 
                     With 6 years of professional experience, 
-                    I've had the privilege of working on diverse projects—from AI-powered features to complex enterprise applications.
+                    I&apos;ve had the privilege of working on diverse projects—from AI-powered features to complex enterprise applications.
                 </SubHeading>
             <Projects2 projects={projects.slice(0,3)}/>
             <Footer/>
