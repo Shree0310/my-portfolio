@@ -37,9 +37,9 @@ export const Card = () => {
 
             transition={{
                 type: "spring",
-                stiffness: "100",
-                damping: "15",
-                mass: "1"
+                stiffness: 100,
+                damping: 15,
+                mass: 1
             }}
             className="flex-1 absolute inset-0 h-full w-full rounded-lg bg-white">
                 <Image className="h-full w-full" alt="nature" src={nature}/>
