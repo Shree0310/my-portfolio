@@ -6,11 +6,15 @@ import SubHeading from "@/Components/SubHeading";
 import Footer from "@/Components/Navbar/Footer";
 import { projects } from "@/Components/Constants/projects";
 import Testimonials from "@/Components/Testimonials";
+import Roles from "@/Components/Roles";
 
 const NewPortfolioPage = () => {
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className=" p-4 md:p-20 md:pb-10">
-         <Heading>Sowrasree Banerjee</Heading>
+        <div className="flex flex-grid gap-2">
+            <Heading>Sowrasree Banerjee</Heading>
+            <Roles/>
+        </div>
          <SubHeading>
             I'm a Frontend Engineer with 6 years of experience building scalable, performant web applications. 
             Currently at EPAM Systems working with Google, I specialize in React, Next.js, 

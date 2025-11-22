@@ -23,11 +23,13 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en">
         <body
-          className={`${inter.className} antialiased bg-neutral-200 dark:bg-neutral-700`}
+          className={`${inter.className} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
         >
-          <Toaster />
-          <Navbar/>
-          {children}
+          <main className="bg-background text-foreground">
+              <Toaster />
+              <Navbar/>
+              {children}
+          </main> 
         </body>
       </html>
     </ViewTransitions>
