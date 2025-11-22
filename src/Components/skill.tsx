@@ -1,51 +1,27 @@
 "use client"
 
-import { useMotionTemplate, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { motion } from 'framer-motion'
+import React from 'react'
 
 type Feature = {
-    title: string;
-    description: string;
-    content: React.ReactNode;
+  title: string
+  description: string
+  content: React.ReactNode
 }
 
-const Skill = ({feature} : { feature: Feature}) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const {scrollYProgress} = useScroll({
-        target: ref,
-        offset: ["start end", "end start"]
-    });
-
-    const translateContent = useSpring(
-        useTransform(scrollYProgress, [0, 1], [200, -300]),
-        {
-            stiffness: 100,
-            damping: 30,
-            mass: 1
-        }
-    );
-    const opacityContent = useTransform(scrollYProgress, [0,0.5,1], [0,1,0]);
-    const blur = useTransform(scrollYProgress, [0.8,1], [0,10]);
-    const scale = useTransform(scrollYProgress, [0.5,1], [1,0.8]);
-
-    return <div>
-        <div ref={ref} key={feature.title} className="grid grid-cols-2 pt-20">
-            <motion.div 
-                style={{
-                    filter: useMotionTemplate`blur(${blur}px)`,
-                    scale,
-                }}
-            className="flex flex-col gap-5">
-                <h2 className="text-2xl font-bold text-white">{feature.title}</h2>
-                <h2 className="text-neutral-300 text-lg">{feature.description}</h2>
-            </motion.div>
-            <motion.div
-                style={{
-                    y: translateContent,
-                    opacity: opacityContent
-                }}>{feature.content}</motion.div>
+const Skill: React.FC<{ feature: Feature }> = ({ feature }) => {
+  return (
+    <div className="bg-neutral-800/50 rounded-lg p-6 mb-4">
+      <div className="flex items-start justify-between">
+        <div>
+          <h3 className="text-xl font-semibold text-neutral-100">{feature.title}</h3>
+          <p className="text-sm text-neutral-300 mt-1">{feature.description}</p>
         </div>
+      </div>
+      <div className="mt-4">
+        {feature.content}
+      </div>
     </div>
+  )
 }
-export default Skill;
+
+export default Skill
