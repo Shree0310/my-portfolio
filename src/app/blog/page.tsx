@@ -17,7 +17,7 @@ const BlogsPage = async () => {
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
          <Heading>All Blogs</Heading>
-         <SubHeading>I'm Sowrasree Banerjee a passionate Frontend Engineer.
+         <SubHeading>I&apos;m Sowrasree Banerjee a passionate Frontend Engineer.
             I build scalable and efficient systems. I currently work as a Software Engineer at EPAM Systems with Google. </SubHeading>
         <div className="flex flex-col gap-4 py-10">
            {allBlogs.map((blog) => (

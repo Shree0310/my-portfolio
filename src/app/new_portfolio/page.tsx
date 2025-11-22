@@ -16,7 +16,7 @@ return <div className="min-h-screen flex items-start justify-start">
             <Roles/>
         </div>
          <SubHeading>
-            I'm a Frontend Engineer with 6 years of experience building scalable, performant web applications. 
+            I&apos;m a Frontend Engineer with 6 years of experience building scalable, performant web applications. 
             Currently at EPAM Systems working with Google, I specialize in React, Next.js, 
             and creating pixel-perfect interfaces that users love.
          </SubHeading>

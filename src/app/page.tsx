@@ -1,4 +1,3 @@
-
 import Heading from '@/Components/Heading'
 import LandingBlogs from '@/Components/Landing-blogs'
 import Footer from '@/Components/Navbar/Footer'
@@ -26,7 +25,7 @@ export default function Home() {
             <Roles/>
           </div>
           <SubHeading>
-            I'm a Frontend Engineer with 6 years of experience...
+            I&apos;m a Frontend Engineer with 6 years of experience...
           </SubHeading>
           <Projects2 projects={projects.slice(0,3)}/>
           <LandingBlogs/>

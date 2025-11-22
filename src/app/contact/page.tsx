@@ -1,6 +1,4 @@
 import NewPortfolio from "@/Components/NewPortfolio";
-import Projects2 from "@/Components/Project2";
-import LandingBlogs from "@/Components/Landing-blogs";
 import Heading from "@/Components/Heading";
 import SubHeading from "@/Components/SubHeading";
 import Footer from "@/Components/Navbar/Footer";
@@ -11,7 +9,7 @@ export default function ContactPage() {
         <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
          <Heading>Contact me</Heading>
          <SubHeading>
-            I'm open to freelancing offers, reach out to me to know more.
+            I&apos;m open to freelancing offers, reach out to me to know more.
          </SubHeading>
          <ContactForm/>
         <Footer/>
