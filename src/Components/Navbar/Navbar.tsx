@@ -7,6 +7,7 @@ import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';
 import { useState } from "react";
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { title } from "process";
 
 const Navbar = () => {
     const navItems = [
@@ -17,6 +18,10 @@ const Navbar = () => {
         {
             title: "Projects",
             href: '/projects2'
+        },
+        {
+            title: "Components",
+            href: '/'
         },
         {
             title: 'Contact',
@@ -53,7 +58,7 @@ const Navbar = () => {
         }
     })
 
-    const handleThemeChnage = ()=>{
+    const handleThemeChange = ()=>{
         setIsDrakMode(!isDarkMode)
         const currTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
         document.documentElement.classList.toggle("dark");
@@ -74,9 +79,9 @@ const Navbar = () => {
             <Link href="/">
                 <Image className="h-12 w-12 rounded-full" src={Profile_Pic} alt="profile_pic" height="100" width="100"/>
             </Link>
-            <div className="flex items-center p-2 ">
+            <div className="flex items-center gap-2 p-2 ">
                 
-                <button onClick={() => handleThemeChnage() } 
+                <button onClick={() => handleThemeChange() } 
                         className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl">
                    {isDarkMode ?  <FaSun/> :  <FaMoon/>}
                 </button>

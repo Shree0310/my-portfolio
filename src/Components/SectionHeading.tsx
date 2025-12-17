@@ -13,7 +13,7 @@ const SectionHeading = ({
     className?: string
 }) => {
     return <div>
-        <h2 className={cn("max-w-lg mt-4 p-1 my-2 text-sm md:text-sm border dark:text-neutral-300 border-y-neutral-400 bg-neutral-200 font-bold dark:bg-neutral-600 rounded-md inline-block", className)}>
+        <h2 className={cn("max-w-lg mt-4 py-1 px-2 my-2 text-sm md:text-sm border dark:text-neutral-300 border-y-neutral-700  font-bold  rounded-md inline-block", className)}>
             {children.split(" ").map((word,idx)=>(
                 <motion.span
                     initial={{
