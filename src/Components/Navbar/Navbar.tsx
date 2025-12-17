@@ -20,7 +20,7 @@ const Navbar = () => {
         },
         {
             title: "Components",
-            href: '/'
+            href: '/components'
         },
         {
             title: 'Contact',
