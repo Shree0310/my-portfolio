@@ -7,7 +7,6 @@ import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';
 import { useState } from "react";
 import { FaSun, FaMoon } from 'react-icons/fa'
-import { title } from "process";
 
 const Navbar = () => {
     const navItems = [
