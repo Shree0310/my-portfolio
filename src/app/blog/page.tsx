@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const BlogsPage = async () => {
     const allBlogs = await getBlogs();
     console.log("All Blogs:", allBlogs);
-return <div className="min-h-screen flex items-start justify-start">
+return <div className="min-h-screen ">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
          <Heading>All Blogs</Heading>
          <SubHeading>I&apos;m Sowrasree Banerjee a passionate Frontend Engineer.
