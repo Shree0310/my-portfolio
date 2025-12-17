@@ -23,7 +23,7 @@ export const projects: Project[]  = [
     {
         name: "Achievr",
         description: " A kanban board to track your personal and professional tasks, create new tasks and cycles.",
-        url: "https://achievr.sourashreeart.com/",
+        url: "https://achievr.sourashreeart.com/hero",
         image:"/Images/Achievr.png"
     }
 ]  
