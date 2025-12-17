@@ -25,5 +25,11 @@ export const projects: Project[]  = [
         description: " A kanban board to track your personal and professional tasks, create new tasks and cycles.",
         url: "https://achievr.sourashreeart.com/hero",
         image:"/Images/Achievr.png"
+    },
+    {
+        name: "Mind Craft Wellness",
+        description: "A website for a mental health practisioner from where user can book sessions.",
+        url: "https://mind-craft-wellness.vercel.app/",
+        image:"/Images/MindCraftWellness.png"
     }
 ]  

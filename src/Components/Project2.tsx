@@ -46,7 +46,7 @@ return <div className="py-10">
     <p className="text-primary dark:text-neutral-300 text-lg font-bold">Projects</p>
     <SectionHeading delay={0.2}>I love building web apps and products that impact millions of lives.</SectionHeading>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-4">
-        {projects.slice(0,3).map((project,idx) => (
+        {projects.map((project,idx) => (
         <motion.div 
             initial={{ opacity:0, filter: 'blur(10px)', y:10}}
             whileInView={{ opacity:1, filter: 'blur(0px)', y:0}}

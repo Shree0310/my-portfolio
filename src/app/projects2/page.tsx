@@ -14,7 +14,7 @@ const Projects2Page =() => {
                     With 6 years of professional experience, 
                     I&apos;ve had the privilege of working on diverse projects—from AI-powered features to complex enterprise applications.
                 </SubHeading>
-            <Projects2 projects={projects.slice(0,3)}/>
+            <Projects2 projects={projects.slice(0,4)}/>
             <Footer/>
         </NewPortfolio>
     </div>
