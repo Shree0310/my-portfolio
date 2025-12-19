@@ -7,8 +7,8 @@ const LandingBlogs = async () => {
     const allBlogs = await getBlogs();
 
     return <div>
-        <SectionHeading delay={0.2} className="text-primary dark:text-neutral-300">I love putting my thoughts down...</SectionHeading>
-        <div className="flex flex-col gap-4 pt-4 pb-10">
+        <SectionHeading delay={0.2} className="text-primary dark:text-neutral-300 ml-2">I love putting my thoughts down...</SectionHeading>
+        <div className="flex flex-col gap-4 pt-4 pb-10 ml-5">
            {allBlogs.map((blog,idx) => (
             <MotionDiv
             key={idx}

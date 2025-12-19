@@ -13,7 +13,7 @@ const WorkExperience = () => {
             title: "JS",
             size: "size-8",
             circle: "circle-1",
-            icon: <FaJs className="h-4 w-4 text-yellow-200"/>
+            icon: <FaJs className="h-4 w-4 text-yellow-500"/>
         },
         {
             title: "HTML",
@@ -35,8 +35,8 @@ const WorkExperience = () => {
         },
     ]
     return <div className="div">
-        <SectionHeading className="">I have worked at..</SectionHeading>
-        <div className="flex flex-col gap-4 pt-4 pb-10">
+        <SectionHeading className="ml-2">I have worked at..</SectionHeading>
+        <div className="flex flex-col gap-4 pt-4 pb-10 ml-5">
            {workExperiences.map((workEx,idx) => (
             <MotionDiv
             key={idx}
@@ -71,7 +71,7 @@ const WorkExperience = () => {
                         </div>
                         </div>
                     <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">{workEx.description}</p>
-                    <div className="flex justify-start mt-2 ml-5 md:ml-2">
+                    <div className="flex justify-start mt-2 md:ml-2">
                         {icons.map((item, idx) => (
                             <div 
                                 key={item.title} 
