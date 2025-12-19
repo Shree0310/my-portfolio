@@ -16,14 +16,16 @@ const BlogsPage = async () => {
     console.log("All Blogs:", allBlogs);
 return <div className="min-h-screen ">
     <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
-         <Heading>All Blogs</Heading>
-         <SubHeading>I&apos;m Sowrasree Banerjee a passionate Frontend Engineer.
-            I build scalable and efficient systems. I currently work as a Software Engineer at EPAM Systems with Google. </SubHeading>
-        <div className="flex flex-col gap-4 py-10">
+        <div className="m-12 rounded-4xl mx-auto bg-linear-to-br from-white via-cyan-100 to-teal-100
+         dark:from-black dark:via-neutral-950 dark:to-purple-800 opacity-90 h-96 w-96 md:h-[290px] md:w-5xl py-16 px-8 shadow-2xl">
+            <h1 className=" text-neutral-800 dark:text-neutral-300 text-5xl font-bold p-2">Technical Articles & Blog</h1>
+            <p className=" text-neutral-800 dark:text-neutral-400 text-lg font-normal p-2">Deep dive into frontend development work, design systems, animations and how to implement them in real work applications.</p>
+        </div>
+        <div className="flex flex-col gap-4 py-10 px-4">
            {allBlogs.map((blog) => (
             <Link className="" href={`/blog/${blog.slug}`} key={blog.slug}>
                 <div className="flex flex-col md:flex-row md:items-center justify-between">
-                    <h2 className="text-primary dark:text-neutral-300 font-bold tracking-tight text-sm pt-2 md:text-sm">{blog.title}</h2>
+                    <h2 className="text-primary dark:text-neutral-300 font-bold tracking-tight text-sm pt-2 md:text-lg">{blog.title}</h2>
                     <p className="text-secondary dark:text-neutral-500 font-bold tracking-tight text-sm pt-2 md:text-sm">{new Date(blog.date || '').toLocaleDateString('en-us',{
                          weekday: 'long', 
                          year: 'numeric',
