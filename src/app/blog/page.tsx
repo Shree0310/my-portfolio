@@ -22,7 +22,7 @@ return <div className="min-h-screen ">
         <div className="flex flex-col gap-4 py-10">
            {allBlogs.map((blog) => (
             <Link className="" href={`/blog/${blog.slug}`} key={blog.slug}>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <h2 className="text-primary dark:text-neutral-300 font-bold tracking-tight text-sm pt-2 md:text-sm">{blog.title}</h2>
                     <p className="text-secondary dark:text-neutral-500 font-bold tracking-tight text-sm pt-2 md:text-sm">{new Date(blog.date || '').toLocaleDateString('en-us',{
                          weekday: 'long', 
