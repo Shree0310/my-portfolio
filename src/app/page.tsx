@@ -7,6 +7,7 @@ import Roles from '@/Components/Roles'
 import SubHeading from '@/Components/SubHeading'
 import Testimonials from '@/Components/Testimonials'
 import { projects } from "@/Components/Constants/projects";
+import WorkExperience from '@/Components/WorkExperience'
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
             I&apos;m a Frontend Engineer with 6 years of experience...
           </SubHeading>
           <Projects2 projects={projects.slice(0,3)}/>
+          <WorkExperience/>
           <LandingBlogs/>
           <Testimonials/>
           <Footer/>
