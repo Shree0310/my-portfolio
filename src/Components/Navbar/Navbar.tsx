@@ -107,7 +107,7 @@ const Navbar = () => {
                     <IconMenu2/>
             </button>
             {isOpen && 
-                <div className="absolute inset-x-0 bg-white top-2  h-screen w-screen dark:bg-neutral-800 dark:text-neutral-100 rounded-4xl">
+                <div className="absolute inset-x-0 bg-white top-2  h-screen w-screen dark:bg-neutral-800 dark:text-neutral-100 text-neutral-900 rounded-4xl">
                     {/* moved close button to top-right corner and added padding + ring for visibility */}
                     <button
                         onClick={() => setIsOpen(false)}
@@ -119,7 +119,7 @@ const Navbar = () => {
                         {navItems.map((item, idx) => (
                             <Link 
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 text-2xl relative font-semibold" 
+                                className="p-2 text-2xl relative font-semibold " 
                                 href={item.href} 
                                 key={idx}
                                 onMouseEnter={()=> setHovered(idx)}
