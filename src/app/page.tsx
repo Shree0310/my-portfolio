@@ -21,7 +21,7 @@ export default function Home() {
       <div className="relative z-10 min-h-screen flex items-start justify-start">
         <NewPortfolio className="p-4 md:p-20 md:pb-10 shadow-xl diagonal-pattern">
           <div className="flex flex-grid gap-2">
-            <Heading>Sowrasree Banerjee</Heading>
+            <Heading className='md:visible'>Sowrasree Banerjee</Heading>
             <Roles/>
           </div>
           <SubHeading>
