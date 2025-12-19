@@ -23,8 +23,8 @@ const LandingBlogs = async () => {
                     delay: idx *0.1
                 }}>
                 <Link className="" href={`/blog/${blog.slug}`} key={blog.slug}>
-                    <div className="flex items-center justify-between">
-                        <h2 className="text-primary dark:text-white font-bold tracking-tight text-lg pt-2 md:text-lg">{blog.title}</h2>
+                    <div className="flex md:flex-row flex-col md:items-center md:justify-between">
+                        <h2 className="text-primary dark:text-white font-bold tracking-tight text-[16px] max-w-56 md:max-w-screen pt-2 md:text-lg">{blog.title}</h2>
                         <p className="text-secondary font-bold tracking-tight text-sm pt-2 md:text-sm">{new Date(blog.date || '').toLocaleDateString('en-us',{
                             weekday: 'long', 
                             year: 'numeric',

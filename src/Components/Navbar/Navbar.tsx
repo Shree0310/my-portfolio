@@ -43,6 +43,8 @@ const Navbar = () => {
 
     const [scrolled, setScrolled] = useState<boolean>(false);
 
+    const width = useTransform(scrollY, [0,100], ["50%", "40%"]);
+
     const y = useTransform(scrollY, [0,100], [0,10]);
 
     const [isDarkMode, setIsDrakMode] = useState(false);
@@ -69,13 +71,14 @@ const Navbar = () => {
         <motion.nav
         style = {{
             boxShadow:scrolled ? "var(--shadow-aceternity)" : "none",
+            
             y: y,
         }}
         transition={{
             duration:0.3,
             ease: easeInOut
         }}
-        className="relative inset-x-0 top-0 mx-auto z-50 w-full md:w-1/2 md:max-w-4xl md:rounded-4xl items-center flex justify-between p-2 bg-white dark:bg-neutral-800 left-0">
+        className="relative md:width:width, md:fixed inset-x-0 top-0 mx-auto z-50 w-full md:w-1/2 md:max-w-4xl rounded-4xl items-center flex justify-between p-2 bg-white dark:bg-neutral-800 left-0">
             <Link href="/">
                 <Image className="h-12 w-12 rounded-full" src={Profile_Pic} alt="profile_pic" height="100" width="100"/>
             </Link>
@@ -104,7 +107,7 @@ const Navbar = () => {
                     <IconMenu2/>
             </button>
             {isOpen && 
-                <div className="absolute inset-x-0 bg-white rounded-md top-2  h-screen w-screen dark:bg-neutral-800 dark:text-neutral-100">
+                <div className="absolute inset-x-0 bg-white top-2  h-screen w-screen dark:bg-neutral-800 dark:text-neutral-100 rounded-4xl">
                     {/* moved close button to top-right corner and added padding + ring for visibility */}
                     <button
                         onClick={() => setIsOpen(false)}

@@ -61,10 +61,10 @@ return <div className="py-10">
             className="from-transparent via-teal-600 to-transparent"
             />
             <Link href={project.url}>
-                <Image className="h-[200px] object-cover rounded-xl  transition duration-200 group-hover:blur-[3px]" alt="project_image" src={project.image} height={150} width={300}/>    
-                <h2 className="py-4 font-bold tracking-tight text-neutral-500 dark:text-neutral-300">{project.name}</h2>
-                <div className="text-secondary dark:text-neutral-400 text-sm">{project.description}</div>
-                <div className="flex justify-start mt-2">
+                <Image className="h-[200px] object-cover rounded-xl transition duration-200 group-hover:blur-[3px] mx-auto block" alt="project_image" src={project.image} height={200} width={300}/>    
+                <h2 className="py-4 font-bold tracking-tight text-neutral-500 dark:text-neutral-300 ml-5 md:ml-2">{project.name}</h2>
+                <div className="text-secondary max-w-56 dark:text-neutral-400 text-sm ml-5 md:ml-2">{project.description}</div>
+                <div className="flex justify-start mt-2 ml-5 md:ml-2">
                     {icons.map((item, idx) => (
                         <div 
                             key={item.title} 
