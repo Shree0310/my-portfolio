@@ -119,7 +119,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-2 p-2 ">
                 {navItems.map((item, idx) => (
                     <Link 
-                        className="p-2 text-sm relative" 
+                        className="p-2 text-sm relative dark:text-neutral-200 text-neutral-600" 
                         href={item.href} 
                         key={idx}
                         onMouseEnter={()=> setHovered(idx)}
@@ -137,7 +137,7 @@ const Navbar = () => {
                     <IconMenu2/>
                 </button>
                 <button onClick={SWITCH_THEME} 
-                        className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl px-2">
+                        className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-700 dark:bg-neutral-800 shadow-2xl px-2">
                     {mounted ? (isDarkMode ?  <FaSun size={10}/> :  <FaMoon size={10}/>) : <FaMoon size={10}/>}
                 </button>
             </div>

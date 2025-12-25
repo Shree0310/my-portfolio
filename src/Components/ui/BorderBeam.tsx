@@ -1,4 +1,4 @@
-"use clients"
+"use client"
 
 import { cn } from "@/lib/utils";
 import { motion, MotionStyle, Transition } from "framer-motion";
@@ -34,7 +34,10 @@ interface BorderBeamProps {
     reverse?: boolean;
 
     //the initial offset position (0-100)
-    initialOffset?: number, 
+    initialOffset?: number;
+
+    //the inset positioning (e.g., "-inset-3", "inset-0")
+    inset?: string;
 }
 
 export const BorderBeam = ({
@@ -47,10 +50,11 @@ export const BorderBeam = ({
     transition,
     style,
     reverse=false,
-    initialOffset = 0
+    initialOffset = 0,
+    inset = "-inset-3"
 }: BorderBeamProps) => {
     return (
-    <div className="pointer-events-none absolute -inset-3 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
+    <div className={cn("pointer-events-none absolute z-20 rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]", inset)}>
       <motion.div
         className={cn(
           "absolute aspect-square",
