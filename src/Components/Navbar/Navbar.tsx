@@ -51,8 +51,10 @@ const Navbar = () => {
     const {theme, setTheme, resolvedTheme} = useTheme();
 
     const [systemTheme, setSystemTheme] = useState<"light" | "dark">("dark");
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
         setSystemTheme(mediaQuery.matches ? "dark" : "light");
 
@@ -75,7 +77,8 @@ const Navbar = () => {
     })
 
     // Determine if dark mode is active based on resolved theme
-    const isDarkMode = resolvedTheme === "dark" || (theme === "system" && systemTheme === "dark");
+    // Only calculate after mounting to avoid hydration mismatch
+    const isDarkMode = mounted && (resolvedTheme === "dark" || (theme === "system" && systemTheme === "dark"));
 
     const SWITCH_THEME = () => {
         console.log(theme);
@@ -135,7 +138,7 @@ const Navbar = () => {
                 </button>
                 <button onClick={SWITCH_THEME} 
                         className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl px-2">
-                    {isDarkMode ?  <FaSun size={10}/> :  <FaMoon size={10}/>}
+                    {mounted ? (isDarkMode ?  <FaSun size={10}/> :  <FaMoon size={10}/>) : <FaMoon size={10}/>}
                 </button>
             </div>
             {isOpen && 
