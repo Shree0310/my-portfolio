@@ -51,7 +51,7 @@ const WorkExperience = () => {
                     delay: idx *0.1
                 }}>
                     <div className="flex md:flex-row flex-col md:items-center ">
-                        <h3 className="text-primary dark:text-white font-bold tracking-tight text-[16px] max-w-56 md:max-w-screen pt-2 ">{workEx.company}</h3>
+                        <h3 className="text-neutral-800 dark:text-white font-bold tracking-tight text-[16px] max-w-56 md:max-w-screen pt-2 ">{workEx.company}</h3>
                     </div>
                     <div className="flex flex-col md:flex-row gap-4 pt-2 justify-between">
                         <div className="div">

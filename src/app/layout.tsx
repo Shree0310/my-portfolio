@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/Components/Navbar/Navbar";
 import { ViewTransitions } from 'next-view-transitions'
 import { Toaster } from 'sonner';
+import { ThemeProvider } from 'next-themes';
 
 
 
@@ -21,15 +22,17 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${inter.className} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
         >
-          <main className="bg-background text-foreground">
-              <Toaster />
-              <Navbar/>
-              {children}
-          </main> 
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <main className="bg-background text-foreground">
+                <Toaster />
+                <Navbar/>
+                {children}
+            </main>
+          </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>

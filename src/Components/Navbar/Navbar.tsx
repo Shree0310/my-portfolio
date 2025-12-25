@@ -5,9 +5,10 @@ import NewPortfolio from "../NewPortfolio";
 import Profile_Pic from "../../../public/Images/Profile_Pic.jpeg";
 import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
     const navItems = [
@@ -47,7 +48,22 @@ const Navbar = () => {
 
     const y = useTransform(scrollY, [0,100], [0,10]);
 
-    const [isDarkMode, setIsDrakMode] = useState(false);
+    const {theme, setTheme, resolvedTheme} = useTheme();
+
+    const [systemTheme, setSystemTheme] = useState<"light" | "dark">("dark");
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        setSystemTheme(mediaQuery.matches ? "dark" : "light");
+
+        const handleThemeChange = (e: MediaQueryListEvent) => {
+            setSystemTheme(mediaQuery.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addEventListener("change", handleThemeChange);
+
+        return () => mediaQuery.removeEventListener("change", handleThemeChange);
+    }, []);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         console.log("scrolly", latest);
@@ -58,12 +74,27 @@ const Navbar = () => {
         }
     })
 
-    const handleThemeChange = ()=>{
-        setIsDrakMode(!isDarkMode)
-        const currTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", currTheme);
+    // Determine if dark mode is active based on resolved theme
+    const isDarkMode = resolvedTheme === "dark" || (theme === "system" && systemTheme === "dark");
+
+    const SWITCH_THEME = () => {
+        console.log(theme);
+        switch (theme) {
+            case "light": {
+                setTheme("dark");
+                return;
+            }
+            case "dark": {
+                setTheme("light");
+                return;
+            }
+            case "system": {
+                setTheme(systemTheme === "dark" ? "light" : "dark");
+                return;
+            }
+        }
     }
+    
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -83,10 +114,6 @@ const Navbar = () => {
                 <Image className="h-12 w-12 rounded-full" src={Profile_Pic} alt="profile_pic" height="100" width="100"/>
             </Link>
             <div className="hidden md:flex items-center gap-2 p-2 ">
-                <button onClick={() => handleThemeChange() } 
-                        className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl">
-                   {isDarkMode ?  <FaSun/> :  <FaMoon/>}
-                </button>
                 {navItems.map((item, idx) => (
                     <Link 
                         className="p-2 text-sm relative" 
@@ -97,15 +124,20 @@ const Navbar = () => {
                         {hovered===idx &&
                         (
                             <motion.span layoutId="hoverede-span" className="h-full w-full absolute inset-0 rounded-md bg-neutral-100 dark:bg-neutral-600"/>
-
                         )}
                         <span className="z-10 relative">{item.title}</span>
                     </Link>
                 ))}
             </div>
-            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+            <div className="flex gap-4 px-4">
+                <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
                     <IconMenu2/>
-            </button>
+                </button>
+                <button onClick={SWITCH_THEME} 
+                        className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl px-2">
+                    {isDarkMode ?  <FaSun size={10}/> :  <FaMoon size={10}/>}
+                </button>
+            </div>
             {isOpen && 
                 <div className="absolute inset-x-0 bg-white top-2  h-screen w-screen dark:bg-neutral-800 dark:text-neutral-100 text-neutral-900 rounded-4xl">
                     {/* moved close button to top-right corner and added padding + ring for visibility */}
@@ -132,11 +164,8 @@ const Navbar = () => {
                                 <span className="z-10 relative">{item.title}</span>
                                 </Link>
                             ))}
-                            <button onClick={() => handleThemeChange() } 
-                                        className="h-8 w-8 ring-1 flex justify-center items-center cursor-pointer ring-neutral-200 rounded-full bg-gray-100 dark:bg-neutral-800 shadow-2xl">
-                                {isDarkMode ?  <FaSun size={10}/> :  <FaMoon size={10}/>}
-                            </button>
-                            </div>
+                            
+                    </div>
                 </div>}
         </motion.nav>
     </NewPortfolio>
