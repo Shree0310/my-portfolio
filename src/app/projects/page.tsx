@@ -1,5 +1,5 @@
-import Header from '@/Components/Header';
-import Projects from '@/Components/Projects';
+import Header from '@/components/Header';
+import Projects from '@/components/Projects';
 import React from 'react';
 
 const ProjectsPage = () => {

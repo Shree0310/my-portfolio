@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion'
-import Button from "./ui/Button";
+import { Button } from "./ui/Button";
 
 const Introduction = () => {
     const CodeIcon = () => (
