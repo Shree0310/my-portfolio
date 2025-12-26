@@ -9,7 +9,7 @@ export default function ComponentsPage() {
         <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">
          <Heading>Overview</Heading>
          <SubHeading className="my-2">
-            I like experimenting and creating new components using my creativity...
+            I like experimenting and creating new components...
          </SubHeading>
          <Components/>
         <Footer/>

@@ -1,12 +1,12 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import ButtonUI, { BorderBeamButton, DisabledButton, LinkButton, SecondaryButton, SimpleButton } from "./Playground/Button";
+import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "./Playground/Button";
 
 const Components = () => {
     return <div className="div">
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Components</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
+        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
             <Card>                
                 <CardHeading><p>Button</p></CardHeading>
                 <ButtonUI/>
@@ -31,6 +31,14 @@ const Components = () => {
                 <CardHeading><p>Link Button</p></CardHeading>
                 <LinkButton/>
             </Card>
+            <Card>
+                <CardHeading><div>Gradient Button</div></CardHeading>
+                <IlluminoButton/>
+            </Card>
+            <Card>
+                <CardHeading><div>Animated Button</div></CardHeading>
+                <AnimatedButton/>
+            </Card>
         </div>
         </div>
 }
@@ -48,7 +56,7 @@ export const Card = ({
     </div>
 }
 
-export const CardHeading = ({as: Tag = "p",children, className}:{as?: "p",children?: React.ReactElement, className?: string}) => {
+export const CardHeading = ({as: Tag = "h1",children, className}:{as?: "h1",children?: React.ReactElement, className?: string}) => {
     return <Tag className={cn("p-2 dark:text-neutral-300  text-neutral-600 text-[16px] border-b dark:border-neutral-600 border-neutral-300 font-semibold", className)}>
         {children}
     </Tag>
