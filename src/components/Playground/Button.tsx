@@ -1,4 +1,4 @@
-import { Button } from "@/Components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import React from "react";
 import BorderBeam from "../ui/BorderBeam";

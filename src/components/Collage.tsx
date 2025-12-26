@@ -2,7 +2,7 @@ import React from "react";
 import {
   DraggableCardBody,
   DraggableCardContainer,
-} from "@/Components/ui/draggable-card";
+} from "@/components/ui/draggable-card";
 
 export function Collage() {
   const items = [

@@ -1,4 +1,4 @@
-import NewPortfolio from "@/Components/NewPortfolio";
+import NewPortfolio from "@/components/NewPortfolio";
 import { Metadata } from "next";
 import Image from "next/image";
 

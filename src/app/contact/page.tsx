@@ -1,8 +1,8 @@
-import NewPortfolio from "@/Components/NewPortfolio";
-import Heading from "@/Components/Heading";
-import SubHeading from "@/Components/SubHeading";
-import Footer from "@/Components/Navbar/Footer";
-import ContactForm from "@/Components/ContactForm";
+import NewPortfolio from "@/components/NewPortfolio";
+import Heading from "@/components/Heading";
+import SubHeading from "@/components/SubHeading";
+import Footer from "@/components/Navbar/Footer";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
     return <div>

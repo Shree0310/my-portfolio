@@ -1,10 +1,10 @@
-import NewPortfolio from "@/Components/NewPortfolio";
+import NewPortfolio from "@/components/NewPortfolio";
 import { Metadata } from "next";
 import { getBlogs } from "@/utils/mdx";
 import { Link } from 'next-view-transitions'
-import Heading from "@/Components/Heading";
-import SubHeading from "@/Components/SubHeading";
-import Footer from "@/Components/Navbar/Footer";
+import Heading from "@/components/Heading";
+import SubHeading from "@/components/SubHeading";
+import Footer from "@/components/Navbar/Footer";
 
 export const metadata: Metadata = {
     title: 'All Blogs - Sowrasree banerjee',

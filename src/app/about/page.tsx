@@ -1,9 +1,9 @@
-import { Collage } from "@/Components/Collage";
-import Heading from "@/Components/Heading";
-import Footer from "@/Components/Navbar/Footer";
-import NewPortfolio from "@/Components/NewPortfolio";
-import SubHeading from "@/Components/SubHeading";
-import TimeLine from "@/Components/Timeline";
+import { Collage } from "@/components/Collage";
+import Heading from "@/components/Heading";
+import Footer from "@/components/Navbar/Footer";
+import NewPortfolio from "@/components/NewPortfolio";
+import SubHeading from "@/components/SubHeading";
+import TimeLine from "@/components/Timeline";
 
 export default function AboutPage() {
     return <NewPortfolio className="min-h-[200vh] p-4 md:p-20 md:pb-10">

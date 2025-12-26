@@ -1,9 +1,9 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IconButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "./Playground/Button";
-import { BentoGrid } from "./Playground/Layouts";
-import { IDCard } from "./Playground/Cards";
+import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IconButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "@/components/Playground/Button";
+import { BentoGrid } from "@/components/Playground/Layouts";
+import { IDCard } from "@/components/Playground/Cards";
 
 const Components = () => {
     return <div className="div">

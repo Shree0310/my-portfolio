@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import NewPortfolio from "../NewPortfolio";
+import NewPortfolio from "@/components/NewPortfolio";
 import Profile_Pic from "../../../public/Images/Profile_Pic.jpeg";
 import {Link} from "next-view-transitions";
 import {easeInOut, motion, useMotionValueEvent, useScroll, useTransform} from 'framer-motion';

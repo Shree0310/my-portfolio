@@ -1,6 +1,6 @@
-import Footer from "@/Components/Navbar/Footer";
-import NewPortfolio from "@/Components/NewPortfolio";
-import Testimonials from "@/Components/Testimonials";
+import Footer from "@/components/Navbar/Footer";
+import NewPortfolio from "@/components/NewPortfolio";
+import Testimonials from "@/components/Testimonials";
 
 const TestimonialsPage = () =>{
 return <div>

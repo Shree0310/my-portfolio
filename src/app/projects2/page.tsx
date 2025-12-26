@@ -1,9 +1,9 @@
-import Heading from "@/Components/Heading";
-import NewPortfolio from "@/Components/NewPortfolio";
-import Projects2 from "@/Components/Project2";
-import SubHeading from "@/Components/SubHeading";
-import { projects } from "@/Components/Constants/projects";
-import Footer from "@/Components/Navbar/Footer";
+import Heading from "@/components/Heading";
+import NewPortfolio from "@/components/NewPortfolio";
+import Projects2 from "@/components/Project2";
+import SubHeading from "@/components/SubHeading";
+import { projects } from "@/components/Constants/projects";
+import Footer from "@/components/Navbar/Footer";
 
 const Projects2Page =() => {
     return <div className="div">

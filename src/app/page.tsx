@@ -1,13 +1,13 @@
-import Heading from '@/Components/Heading'
-import LandingBlogs from '@/Components/Landing-blogs'
-import Footer from '@/Components/Navbar/Footer'
-import NewPortfolio from '@/Components/NewPortfolio'
-import Projects2 from '@/Components/Project2'
-import Roles from '@/Components/Roles'
-import SubHeading from '@/Components/SubHeading'
-import Testimonials from '@/Components/Testimonials'
-import { projects } from "@/Components/Constants/projects";
-import WorkExperience from '@/Components/WorkExperience'
+import Heading from '@/components/Heading'
+import LandingBlogs from '@/components/Landing-blogs'
+import Footer from '@/components/Navbar/Footer'
+import NewPortfolio from '@/components/NewPortfolio'
+import Projects2 from '@/components/Project2'
+import Roles from '@/components/Roles'
+import SubHeading from '@/components/SubHeading'
+import Testimonials from '@/components/Testimonials'
+import { projects } from "@/components/Constants/projects";
+import WorkExperience from '@/components/WorkExperience'
 
 
 export default function Home() {

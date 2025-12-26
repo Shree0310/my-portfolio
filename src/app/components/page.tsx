@@ -1,8 +1,8 @@
-import Components from "@/Components/Components";
-import Heading from "@/Components/Heading";
-import Footer from "@/Components/Navbar/Footer";
-import NewPortfolio from "@/Components/NewPortfolio";
-import SubHeading from "@/Components/SubHeading";
+import Components from "@/components/Components";
+import Heading from "@/components/Heading";
+import Footer from "@/components/Navbar/Footer";
+import NewPortfolio from "@/components/NewPortfolio";
+import SubHeading from "@/components/SubHeading";
 
 export default function ComponentsPage() {
     return <div className="div">

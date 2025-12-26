@@ -1,12 +1,12 @@
-import NewPortfolio from "@/Components/NewPortfolio";
-import Projects2 from "@/Components/Project2";
-import LandingBlogs from "@/Components/Landing-blogs";
-import Heading from "@/Components/Heading";
-import SubHeading from "@/Components/SubHeading";
-import Footer from "@/Components/Navbar/Footer";
-import { projects } from "@/Components/Constants/projects";
-import Testimonials from "@/Components/Testimonials";
-import Roles from "@/Components/Roles";
+import NewPortfolio from "@/components/NewPortfolio";
+import Projects2 from "@/components/Project2";
+import LandingBlogs from "@/components/Landing-blogs";
+import Heading from "@/components/Heading";
+import SubHeading from "@/components/SubHeading";
+import Footer from "@/components/Navbar/Footer";
+import { projects } from "@/components/Constants/projects";
+import Testimonials from "@/components/Testimonials";
+import Roles from "@/components/Roles";
 
 const NewPortfolioPage = () => {
 return <div className="min-h-screen flex items-start justify-start">

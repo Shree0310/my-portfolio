@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion, easeInOut } from 'framer-motion';
 import Link from "next/link";
-import {projects as defaultProjects, Project} from "../Components/Constants/projects";
+import {projects as defaultProjects, Project} from "./Constants/projects";
 import SectionHeading from "./SectionHeading";
 import { FaReact } from 'react-icons/fa'
 import { RiTailwindCssFill } from 'react-icons/ri'
