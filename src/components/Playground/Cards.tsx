@@ -166,9 +166,11 @@ export const DropDownCard = ({className}:{className: string}) => {
 }
 
 export const BeamCard = ({className}:{className: string}) => {
-    return <div className={cn("h-60 w-86 border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+    return <div className={cn("h-60 w-86 relative border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                               "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",className)}>
-        <div className="flex justify-center gap-6 mt-8">
+                                <ConcentricCirclesBackground />
+                                
+        <div className="flex justify-center gap-10 mt-8 relative z-10">
             <div className="h-10 w-10 rounded-full flex justify-center items-center border border-neutral-400/20">
                 <Image src={Avatar1} alt="avatar" className="rounded-full h-8 w-8"/>
             </div>
@@ -179,25 +181,52 @@ export const BeamCard = ({className}:{className: string}) => {
                 <Image src={Avatar3} alt="avatar" className="rounded-full h-8 w-8"/>
             </div>
         </div>
-        <div className="flex flex-col ">
-            <div className="flex flex-row justify-center pr-12 gap-2 relative">
-                <svg width="50" height="45">
-                    <line x1="50"  x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
-                </svg>
-                <svg width="50" height="70">
-                    <line x1="50" x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
-                </svg>
-                <svg width="50" height="42">
-                    <line x1="50" x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
+            <div className="relative w-full h-18">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120">
+                    {/* Left vertical line */}
+                    <line x1="60" y1="0" x2="60" y2="45" stroke="url(#line-one-gradient)" strokeWidth="3" strokeLinecap="round" />
+                    {/* <rect x="0" y="0" width="312" height="33" fill="url(#line-one-gradient)"/> */}
+                    <defs>
+                        <motion.linearGradient
+                            gradientUnits="userSpaceOnUse"
+                            id="line-one-gradient"
+                            initial={{
+                                x1: "0%",
+                                x2:"10%"
+                            }}
+                            animate={{
+                                x1:"90%",
+                                x2:"100%"
+                            }}
+                           transition={{
+                            duration:4,
+                            repeat: Infinity,
+                            repeatType:"loop",
+                            ease:"easeInOut"
+                           }}
+
+                            >
+                            <stop stopColor="#737373"/>
+                            <stop offset="0.33" stopColor="#22d3ee"/>
+                            <stop offset="0.66" stopColor="#a855f7"/>
+                            <stop offset="1" stopColor="#737373"/>
+
+                        </motion.linearGradient>
+                    </defs>
+                    
+                    {/* Middle vertical line - extends to convergence point */}
+                    <line x1="200" y1="0" x2="200" y2="100" stroke="url(#line-one-gradient)"  strokeWidth="3" />
+                    
+                    {/* Right vertical line */}
+                    <line x1="340" y1="0" x2="340" y2="42" stroke="url(#line-one-gradient)" strokeWidth="3" />
+                    
+                    {/* Left diagonal - from left line to convergence point */}
+                    <line x1="60" y1="45" x2="200" y2="100" stroke="url(#line-one-gradient)" strokeWidth="3" />
+                    
+                    {/* Right diagonal - from right line to convergence point */}
+                    <line x1="340" y1="42" x2="200" y2="100" stroke="url(#line-one-gradient)" strokeWidth="3" />
                 </svg>
             </div>
-            <svg width="80" height="38" className="ml-24 absolute mt-8 overflow-hidden">
-                <line x1="16" x2="180" y1="10" y2="100" stroke="#d4d4d8" stroke-width="2" />
-            </svg>
-            <svg width="200" height="40" className="mb-8 ml-8 mt-8 absolute">
-                <line x1="200" y1="10" x2="10" y2="130" stroke="#d4d4d8" stroke-width="2" />
-            </svg>  
-        </div>
         {/* <div className="size-10 rounded-sm bg-neutral-100 relative overflow-hidden z-20 translate-x-6 p-px ">
             <div className="w-full h-full bg-white rounded-[3px] relative z-20"></div>
             <div className="absolute w-full h-full inset-0 bg-[conic-gradient(at_center,transparent,var(--color-cyan-500)_20%,var(--color-blue-500)_10%,transparent_30%)] animate-spin scale-[1.4]"></div>
@@ -209,3 +238,16 @@ export const BeamCard = ({className}:{className: string}) => {
         </div>
     </div>
 }
+
+export const ConcentricCirclesBackground = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("absolute inset-0 flex items-center justify-center pointer-events-none", className)}>
+      <div className="absolute blur-[1px]">
+        <div className="absolute left-1/2 top-1/2 -ml-[6.75rem] -mt-[6.75rem] size-[13.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-15" />
+        <div className="absolute left-1/2 top-1/2 -ml-[8.75rem] -mt-[8.75rem] size-[17.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-[0.125]" />
+        <div className="absolute left-1/2 top-1/2 -ml-[10.75rem] -mt-[10.75rem] size-[21.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-10" />
+        <div className="absolute left-1/2 top-1/2 -ml-[12.75rem] -mt-[12.75rem] size-[25.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-[0.075]" />
+      </div>
+    </div>
+  );
+};

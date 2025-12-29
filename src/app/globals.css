@@ -57,6 +57,20 @@
   background-size: 10px 10px;
 }
 
+.pattern-wavy {
+  background-image: 
+    radial-gradient(circle at 50% 100%, transparent 50px, rgb(115 115 115 / 0.15) 51px, rgb(115 115 115 / 0.15) 53px, transparent 54px);
+  background-size: 200px 200px;
+  background-repeat: repeat-y;
+}
+
+.dark .pattern-wavy {
+  background-image: 
+    radial-gradient(circle at 50% 100%, transparent 50px, rgb(163 163 163 / 0.1) 51px, rgb(163 163 163 / 0.1) 53px, transparent 54px);
+  background-size: 100px 100px;
+  background-repeat: repeat-y;
+}
+
 .prose {
   --tw-prose-body: theme('colors.neutral.700');
   --tw-prose-headings: theme('colors.neutral.900');
