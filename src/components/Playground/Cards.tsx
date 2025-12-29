@@ -166,9 +166,9 @@ export const DropDownCard = ({className}:{className: string}) => {
 }
 
 export const BeamCard = ({className}:{className: string}) => {
-    return <div className={cn("h-60 w-86 border mx-4 my-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+    return <div className={cn("h-60 w-86 border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                               "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",className)}>
-        <div className="flex justify-center gap-6 my-8">
+        <div className="flex justify-center gap-6 mt-8">
             <div className="h-10 w-10 rounded-full flex justify-center items-center border border-neutral-400/20">
                 <Image src={Avatar1} alt="avatar" className="rounded-full h-8 w-8"/>
             </div>
@@ -179,9 +179,32 @@ export const BeamCard = ({className}:{className: string}) => {
                 <Image src={Avatar3} alt="avatar" className="rounded-full h-8 w-8"/>
             </div>
         </div>
+        <div className="flex flex-col ">
+            <div className="flex flex-row justify-center pr-12 gap-2 relative">
+                <svg width="50" height="45">
+                    <line x1="50"  x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
+                </svg>
+                <svg width="50" height="70">
+                    <line x1="50" x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
+                </svg>
+                <svg width="50" height="42">
+                    <line x1="50" x2="50" y2="190" stroke="#d4d4d8" stroke-width="2" />
+                </svg>
+            </div>
+            <svg width="80" height="38" className="ml-24 absolute mt-8 overflow-hidden">
+                <line x1="16" x2="180" y1="10" y2="100" stroke="#d4d4d8" stroke-width="2" />
+            </svg>
+            <svg width="200" height="40" className="mb-8 ml-8 mt-8 absolute">
+                <line x1="200" y1="10" x2="10" y2="130" stroke="#d4d4d8" stroke-width="2" />
+            </svg>  
+        </div>
+        {/* <div className="size-10 rounded-sm bg-neutral-100 relative overflow-hidden z-20 translate-x-6 p-px ">
+            <div className="w-full h-full bg-white rounded-[3px] relative z-20"></div>
+            <div className="absolute w-full h-full inset-0 bg-[conic-gradient(at_center,transparent,var(--color-cyan-500)_20%,var(--color-blue-500)_10%,transparent_30%)] animate-spin scale-[1.4]"></div>
+        </div> */}
         <GlowingButton className=""/>
-        <div className="flex flex-col p-4">
-           <div className="text-xs text-neutral-900 dark:text-neutral-300 py-2">Auto-join</div> 
+        <div className="flex flex-col px-6 py-1">
+           <div className="text-xs text-neutral-900 dark:text-neutral-300 py-1">Auto-join</div> 
             <div className="text-xs text-neutral-600 dark:text-neutral-400">Let your users discover and join organizations based on their email domain.</div>
         </div>
     </div>
