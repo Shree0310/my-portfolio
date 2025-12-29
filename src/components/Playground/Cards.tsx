@@ -5,6 +5,9 @@ import { Button } from "../ui/Button";
 import { IconCircleHalf2 } from '@tabler/icons-react';
 import { IconCurrencyXrp } from '@tabler/icons-react';
 import  Avatar1  from "../../../public/Images/Avatar1.jpg";
+import  Avatar2  from "../../../public/Images/Avatar2.jpg";
+import  Avatar3  from "../../../public/Images/Avatar3.jpg";
+
 import Image from "next/image";
 import { IconPlus } from '@tabler/icons-react';
 import { motion, useInView } from 'framer-motion'
@@ -46,7 +49,7 @@ export const AnimatedCard = ({className}:{className: string}) => {
         <div className="flex items-center justify-center gap-2 p-4">
             <Button className={cn(" h-8 w-24 border border-neutral-500/20 dark:border-neutral-500 shadow-2xl rounded-lg",
                             "flex flex-row",
-                            "bg-neutral-100 dark:bg-neutral-600",
+                            "bg-neutral-100 dark:bg-neutral-800",
                             "pointer-events-none",
                             "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-[0_2px_3px_rgba(0,0,0,0.04),0_24px_68px_rgba(47,48,55,0.05),0_4px_6px_rgba(34,42,53,0.04),0_1px_1px_rgba(0,0,0,0.05)]",
 
@@ -165,6 +168,21 @@ export const DropDownCard = ({className}:{className: string}) => {
 export const BeamCard = ({className}:{className: string}) => {
     return <div className={cn("h-60 w-86 border mx-4 my-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                               "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",className)}>
-        <GlowingButton className="pb-12"/>
+        <div className="flex justify-center gap-6 my-8">
+            <div className="h-10 w-10 rounded-full flex justify-center items-center border border-neutral-400/20">
+                <Image src={Avatar1} alt="avatar" className="rounded-full h-8 w-8"/>
+            </div>
+            <div className="h-10 w-10 rounded-full flex justify-center items-center border border-neutral-400/20">
+                <Image src={Avatar2} alt="avatar" className="rounded-full h-8 w-8"/>
+            </div>
+            <div className="h-10 w-10 rounded-full flex justify-center items-center border border-neutral-400/20">
+                <Image src={Avatar3} alt="avatar" className="rounded-full h-8 w-8"/>
+            </div>
+        </div>
+        <GlowingButton className=""/>
+        <div className="flex flex-col p-4">
+           <div className="text-xs text-neutral-900 dark:text-neutral-300 py-2">Auto-join</div> 
+            <div className="text-xs text-neutral-600 dark:text-neutral-400">Let your users discover and join organizations based on their email domain.</div>
+        </div>
     </div>
 }

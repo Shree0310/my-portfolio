@@ -111,7 +111,7 @@ export const AnimatedButton = () => {
 }
 
 export const GlowingButton = ({className}:{className: string}) => {
-    return <div className={cn("div transform-style:[preserve-3d] flex  items-center justify-center h-full w-full", className)}>
+    return <div className={cn("div transform-style:[preserve-3d] flex  items-center justify-center", className)}>
         <motion.button 
             initial ={{
                 rotate:0,
