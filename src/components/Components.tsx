@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IconButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "@/components/Playground/Button";
 import { BentoGrid } from "@/components/Playground/Layouts";
-import { AnimatedCard, ContentCard, DropDownCard, IDCard } from "@/components/Playground/Cards";
+import { AnimatedCard, BeamCard, DropDownCard, IDCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
 
 const Components = () => {
@@ -55,9 +55,10 @@ const Components = () => {
             </Card>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Cards</h3>
-        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
 
-            <AnimatedCard className="col-span-2"/>
+            <AnimatedCard className="col-span-1"/>
+            <BeamCard className="col-span-1"/>
             <DropDownCard className=" col-span-1"/>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>

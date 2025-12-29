@@ -13,6 +13,7 @@ import { IconUsers } from '@tabler/icons-react';
 import { IconEyeDotted } from '@tabler/icons-react';
 import { IconBriefcase2 } from '@tabler/icons-react';
 import { IconMessageCircle } from '@tabler/icons-react';
+import { AnimatedButton, GlowingButton } from "./Button";
 
 
 export const IDCard = () => {
@@ -33,27 +34,10 @@ return <div className="flex flex-col">
 </div>
 }
 
-export const ContentCard = () => {
-return <div className="flex flex-col">
-    <div className="p-4 h-72 dark:bg-neutral-900 bg-neutral-100 shadow-xl rounded-lg border border-neutral-500/20 dark:border-neutral-600/60">
-        <div className="m-2 h-40 my-2 from-neutral-300  to-neutral-200 bg-linear-to-br dark:from-neutral-800 dark:to-neutral-700 
-                        divide-neutral-500 rounded-lg dark:text-neutral-200 text-neutral-600 font-semibold text-lg flex justify-center items-center">
-            Simple Card
-        </div>
-        <div className="my-1 mx-2 h-3 dark:bg-neutral-600 bg-neutral-300 rounded-3xl"></div>
-        <div className="grid grid-cols-3 gap-2">
-            <div className="my-1 ml-2 h-3 col-span-2"></div>
-            <div className="my-1 mr-2 h-3 col-span-1"></div>
-        </div>
-        <div className="my-1 mx-2 h-3 dark:bg-neutral-600 bg-neutral-300 rounded-3xl"></div>
-    </div>
-</div>
-}
-
 export const AnimatedCard = ({className}:{className: string}) => {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, {once: true, amount: 0.6})
-    return <div className={cn("w-84 h-124 rounded-xl border border-neutral-500/20 dark:border-neutral-600/60",
+    return <div className={cn("w-90 h-124 rounded-xl border border-neutral-500/20 dark:border-neutral-600/60",
                                 "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-[0_2px_3px_rgba(0,0,0,0.04),0_24px_68px_rgba(47,48,55,0.05),0_4px_6px_rgba(34,42,53,0.04),0_1px_1px_rgba(0,0,0,0.05)]",
                                  "flex flex-col p-4", className
     )}>
@@ -78,61 +62,64 @@ export const AnimatedCard = ({className}:{className: string}) => {
                             "relative"
 
         )}>
-            <motion.div 
-                className="absolute inset-0 h-full w-full divide-y divide-neutral-300/40 dark:divide-neutral-500/20"
-                initial={{
-                    opacity:0
-                }}
-                whileHover={{
-                    opacity:1,
-                    filter: isInView ? 'blur(10px)' : 'blur(0px)',
+                <motion.div 
+                    className="absolute inset-0 h-full w-full "
+                    initial={{
+                        opacity:0
+                    }}
+                    whileHover={{
+                        opacity:1,
+                        filter: isInView ? 'blur(10px)' : 'blur(0px)',
 
-                }}
-                transition={{
-                    duration:0.3,
-                }}>
-                <div className="flex flex-row p-3 gap-2">
-                     <div className="h-10 w-10 shrink-0 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
-                     <IconCircleHalf2 stroke={4} className="h-6 w-6 text-green-600" /></div>
-                    <div className="flex flex-col">
-                        <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Ruth Company</h3>
-                        <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
+                    }}
+                    transition={{
+                        duration:0.3,
+                    }}>
+                    <div className=" h-62 border border-neutral-500/20 dark:border-neutral-600/60 rounded-b-2xl divide-y divide-neutral-300/40 dark:divide-neutral-500/20">
+                        <div className="flex flex-row p-3 gap-2">
+                            <div className="h-10 w-10 shrink-0 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                            <IconCircleHalf2 stroke={4} className="h-6 w-6 text-green-600" /></div>
+                            <div className="flex flex-col">
+                                <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Ruth Company</h3>
+                                <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-row p-3 gap-2">
+                                <div className="h-10 w-10 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                                    <IconCurrencyXrp stroke={3} className="h-6 w-6 text-black dark:text-neutral-500" /></div>
+                                <div className="flex flex-col">
+                                    <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Steve Harrington</h3>
+                                    <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Hawkins Father</p>
+                                </div>
+                        </div>
+                        <div className="flex flex-row p-3 gap-2">
+                                <div className="h-7 w-10 my-1  flex shrink-0 justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                                    <Image src={Avatar1} height={28} width={38} alt="Avatatr1" className="rounded-lg"/>
+                                </div>
+                                <div className="flex flex-col">
+                                    <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Personal Information</h3>
+                                    <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
+                                </div>
+                        </div>
+                        <div className="flex flex-row px-6 py-4 gap-2 divide-y dark:divide-neutral-200">
+                            <div className="h-6 w-6 rounded-full flex shrink-0 justify-center items-center bg-neutral-200 shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                                <IconPlus stroke={4} className="h-4 w-4 text-neutral-500" /></div>
+                            <div className="flex flex-col">
+                                <h3 className="text-sm text-neutral-800  dark:text-neutral-300 font-semibold p-1">Create Workspace</h3>
+                            </div>
+                        </div>  
                     </div>
-                </div>
-                <div className="flex flex-row p-3 gap-2">
-                        <div className="h-10 w-10 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
-                            <IconCurrencyXrp stroke={3} className="h-6 w-6 text-black dark:text-neutral-500" /></div>
-                        <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Steve Harrington</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Hawkins Father</p>
-                        </div>
-                </div>
-                <div className="flex flex-row p-3 gap-2">
-                        <div className="h-7 w-10 my-1  flex shrink-0 justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
-                            <Image src={Avatar1} height={28} width={38} alt="Avatatr1" className="rounded-lg"/>
-                        </div>
-                        <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Personal Information</h3>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
-                        </div>
-                </div>
-                     <div className="flex flex-row px-6 py-4 gap-2 divide-y dark:divide-neutral-200">
-                        <div className="h-6 w-6 rounded-full flex shrink-0 justify-center items-center bg-neutral-200 shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
-                            <IconPlus stroke={4} className="h-4 w-4 text-neutral-500" /></div>
-                        <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800  dark:text-neutral-300 font-semibold p-1">Create Workspace</h3>
-                        </div>
-                    </div>               
-            </motion.div>
+                    <div className="flex-1 bg-linear-to-r from-cyan-200 via-pink-200 to-neutral-100"></div>             
+                </motion.div>
+            </div>
         </div>
-    </div>
 }
 
 export const DropDownCard = ({className}:{className: string}) => {
-    return <div className={cn("relative h-98 w-70 border rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+    return <div className={cn("relative ml-6 h-98 w-77 border rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                               "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",
-                            "flex justify-center items-center ")}>
-        <div className={cn("absolute h-101 w-73 rounded-lg border border-neutral-500/20 dark:border-neutral-600/60",
+                            "flex justify-center items-center p-4 mt-2")}>
+        <div className={cn("absolute h-100 w-80 rounded-lg border border-neutral-500/20 dark:border-neutral-600/60",
                                 "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-[0_2px_3px_rgba(0,0,0,0.04),0_24px_68px_rgba(47,48,55,0.05),0_4px_6px_rgba(34,42,53,0.04),0_1px_1px_rgba(0,0,0,0.05)]",
                                 "flex flex-col gap-2 p-4", className
         )}>
@@ -172,5 +159,12 @@ export const DropDownCard = ({className}:{className: string}) => {
                 <div className="text-xs text-neutral-500 dark:text-neutral-400">Connect with sales or support</div>
             </div>
         </div>
+    </div>
+}
+
+export const BeamCard = ({className}:{className: string}) => {
+    return <div className={cn("h-60 w-86 border mx-4 my-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+                              "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",className)}>
+        <GlowingButton className="pb-12"/>
     </div>
 }
