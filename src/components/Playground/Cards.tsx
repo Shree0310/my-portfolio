@@ -69,39 +69,40 @@ export const AnimatedCard = () => {
                             "relative"
 
         )}>
-            <div className="absolute inset-0 h-full w-full divide-y divide-neutral-200/40 dark:divide-y-200">
+            <div className="absolute inset-0 h-full w-full divide-y divide-neutral-200/40 dark:divide-neutral-500">
                 <div className="flex flex-row p-3 gap-2">
-                     <div className="h-10 w-10 shrink-0 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20">
+                     <div className="h-10 w-10 shrink-0 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
                      <IconCircleHalf2 stroke={4} className="h-6 w-6 text-green-600" /></div>
                     <div className="flex flex-col">
-                        <h3 className="text-sm text-neutral-800 font-semibold">Ruth Company</h3>
-                        <p className="text-sm text-neutral-600 font-normal">Mr. Secreatary</p>
+                        <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Ruth Company</h3>
+                        <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
                     </div>
                 </div>
                 <div className="flex flex-row p-3 gap-2">
-                        <div className="h-10 w-10 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20">
-                            <IconCurrencyXrp stroke={2} className="h-6 w-6 text-black" /></div>
+                        <div className="h-10 w-10 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                            <IconCurrencyXrp stroke={3} className="h-6 w-6 text-black dark:text-neutral-500" /></div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800 font-semibold">Steve Harrington</h3>
-                            <p className="text-sm text-neutral-600 font-normal">Hawkins Father</p>
+                            <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Steve Harrington</h3>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Hawkins Father</p>
                         </div>
                 </div>
                 <div className="flex flex-row p-3 gap-2">
-                        <div className="h-10 w-10  flex shrink-0 justify-center items-center rounded-lg shadow-lg border border-neutral-400/20">
-                            <Image src={Avatar1} height={32} width={32} alt="Avatatr1"/>
+                        <div className="h-7 w-10 my-1  flex shrink-0 justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                            <Image src={Avatar1} height={28} width={38} alt="Avatatr1" className="rounded-lg"/>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800 font-semibold">Personal Information</h3>
-                            <p className="text-sm text-neutral-600 font-normal">Mr. Secreatary</p>
+                            <h3 className="text-sm text-neutral-800 dark:text-neutral-300 font-semibold">Personal Information</h3>
+                            <p className="text-sm text-neutral-600 dark:text-neutral-500 font-normal">Mr. Secreatary</p>
                         </div>
                 </div>
-                <div className="flex flex-row p-6 gap-2">
-                        <div className="h-6 w-6 rounded-full flex shrink-0 justify-center items-center bg-neutral-200 shadow-lg border border-neutral-400/20">
-                            <IconPlus stroke={4} className="h-4 w-4 text-neutral-400" /></div>
+                     <div className="flex flex-row p-6 gap-2 divide-y dark:divide-neutral-200">
+                        <div className="h-6 w-6 rounded-full flex shrink-0 justify-center items-center bg-neutral-200 shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
+                            <IconPlus stroke={4} className="h-4 w-4 text-neutral-500" /></div>
                         <div className="flex flex-col">
-                            <h3 className="text-sm text-neutral-800 font-semibold">Create Workspace</h3>
+                            <h3 className="text-sm text-neutral-800  dark:text-neutral-300 font-semibold p-1">Create Workspace</h3>
                         </div>
-                </div>
+                    </div>
+               
             </div>
         </div>
     </div>
