@@ -66,7 +66,7 @@
 
 .dark .pattern-wavy {
   background-image: 
-    radial-gradient(circle at 50% 100%, transparent 50px, rgb(163 163 163 / 0.1) 51px, rgb(163 163 163 / 0.1) 53px, transparent 54px);
+    radial-gradient(circle at 50% 100%, transparent 50px, rgba(197, 190, 190, 0.1) 51px, rgba(212, 200, 200, 0.1) 53px, transparent 54px);
   background-size: 100px 100px;
   background-repeat: repeat-y;
 }

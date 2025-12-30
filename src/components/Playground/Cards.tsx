@@ -60,7 +60,6 @@ export const AnimatedCard = ({className}:{className: string}) => {
         </Button>
         </div>
         <div className={cn("py-4 h-72 rounded-xl border border-neutral-500/20 dark:border-neutral-600/60 border-dashed",
-                            "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-[0_2px_3px_rgba(0,0,0,0.04),0_24px_68px_rgba(47,48,55,0.05),0_4px_6px_rgba(34,42,53,0.04),0_1px_1px_rgba(0,0,0,0.05)]",
                             "flex flex-1 flex-col p-4",
                             "relative"
 
@@ -78,7 +77,9 @@ export const AnimatedCard = ({className}:{className: string}) => {
                     transition={{
                         duration:0.3,
                     }}>
-                    <div className=" h-62 border border-neutral-500/20 dark:border-neutral-600/60 rounded-b-2xl divide-y divide-neutral-300/40 dark:divide-neutral-500/20">
+                    <div className={cn(" h-62 border border-neutral-500/20 dark:border-neutral-600/60 rounded-b-2xl divide-y divide-neutral-300/40 dark:divide-neutral-500/20",
+                                    "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-[0_2px_3px_rgba(0,0,0,0.04),0_24px_68px_rgba(47,48,55,0.05),0_4px_6px_rgba(34,42,53,0.04),0_1px_1px_rgba(0,0,0,0.05)]",
+                    )}>
                         <div className="flex flex-row p-3 gap-2">
                             <div className="h-10 w-10 shrink-0 flex justify-center items-center rounded-lg shadow-lg border border-neutral-400/20 dark:border-neutral-300/30">
                             <IconCircleHalf2 stroke={4} className="h-6 w-6 text-green-600" /></div>
@@ -166,7 +167,7 @@ export const DropDownCard = ({className}:{className: string}) => {
 }
 
 export const BeamCard = ({className}:{className: string}) => {
-    return <div className={cn("h-60 w-86 relative border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+    return <div className={cn("group h-60 w-86 relative border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                               "dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity",className)}>
                                 <ConcentricCirclesBackground />
                                 
@@ -184,7 +185,7 @@ export const BeamCard = ({className}:{className: string}) => {
             <div className="relative w-full h-18">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120">
                     {/* Left vertical line */}
-                    <line x1="60" y1="0" x2="60" y2="45" stroke="url(#line-one-gradient)" strokeWidth="3" strokeLinecap="round" />
+                    <line x1="60" y1="0" x2="60" y2="45" stroke="url(#line-one-gradient)" strokeWidth="3" strokeLinecap="round" className="dark:text-neutral-500" />
                     {/* <rect x="0" y="0" width="312" height="33" fill="url(#line-one-gradient)"/> */}
                     <defs>
                         <motion.linearGradient
@@ -206,10 +207,10 @@ export const BeamCard = ({className}:{className: string}) => {
                            }}
 
                             >
-                            <stop stopColor="#737373"/>
+                            <stop stopColor="#d4d4d4"/>
                             <stop offset="0.33" stopColor="#22d3ee"/>
                             <stop offset="0.66" stopColor="#a855f7"/>
-                            <stop offset="1" stopColor="#737373"/>
+                            <stop offset="1" stopColor="#d4d4d4"/>
 
                         </motion.linearGradient>
                     </defs>
@@ -241,12 +242,13 @@ export const BeamCard = ({className}:{className: string}) => {
 
 export const ConcentricCirclesBackground = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("absolute inset-0 flex items-center justify-center pointer-events-none", className)}>
-      <div className="absolute blur-[1px]">
-        <div className="absolute left-1/2 top-1/2 -ml-[6.75rem] -mt-[6.75rem] size-[13.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-15" />
-        <div className="absolute left-1/2 top-1/2 -ml-[8.75rem] -mt-[8.75rem] size-[17.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-[0.125]" />
-        <div className="absolute left-1/2 top-1/2 -ml-[10.75rem] -mt-[10.75rem] size-[21.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-10" />
-        <div className="absolute left-1/2 top-1/2 -ml-[12.75rem] -mt-[12.75rem] size-[25.5rem] rounded-full border border-gray-500 dark:border-gray-600 opacity-[0.075]" />
+    <div className={cn("absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden group-hover:animate-pulse", className)}>
+      <div className="absolute blur-[1px] ">
+        <div className="absolute left-1/2 top-1/2 -ml-[6.75rem] -mt-[6.75rem] size-[13.5rem] rounded-full border border-gray-500 dark:border-gray-500 opacity-15" 
+             />
+        <div className="absolute left-1/2 top-1/2 -ml-35 -mt-[8.75rem] size-[17.5rem] rounded-full border border-gray-500 dark:border-gray-500 opacity-[0.125]" />
+        <div className="absolute left-1/2 top-1/2 -ml-[10.75rem] -mt-[10.75rem] size-[21.5rem] rounded-full border border-gray-500 dark:border-gray-500 opacity-10" />
+        <div className="absolute left-1/2 top-1/2 -ml-[12.75rem] -mt-[12.75rem] size-[25.5rem] rounded-full border border-gray-500 dark:border-gray-500 opacity-[0.075]" />
       </div>
     </div>
   );
