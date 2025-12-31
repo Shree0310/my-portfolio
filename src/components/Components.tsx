@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IconButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "@/components/Playground/Button";
 import { BentoGrid } from "@/components/Playground/Layouts";
-import { AnimatedCard, BeamCard, DropDownCard, IDCard } from "@/components/Playground/Cards";
+import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
 
 const Components = () => {
@@ -58,7 +58,10 @@ const Components = () => {
         <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
 
             <AnimatedCard className="col-span-1"/>
-            <BeamCard className="col-span-1"/>
+            <div className="div">
+                <BeamCard className="col-span-1"/>
+                <SecondaryBeamCard className=" col-span-1"/>
+            </div>
             <DropDownCard className=" col-span-1"/>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>

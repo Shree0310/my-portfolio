@@ -253,3 +253,9 @@ export const ConcentricCirclesBackground = ({ className }: { className?: string 
     </div>
   );
 };
+
+export const SecondaryBeamCard = ({className}:{className: string}) => {
+    return <div className={cn("h-60 w-86 border mx-4 mt-1 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
+                                "dark-shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity", className)}>
+                                </div>
+}
