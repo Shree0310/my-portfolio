@@ -134,7 +134,7 @@ export const GlowingButton = ({className}:{className: string}) => {
 }
 
 export const IconButton = () => {
-    return <div className={cn("perspective:[1000px] perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-10 ")}>
+    return <div className={cn("perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-10 ")}>
         <Button className="bg-blue-600 text-neutral-200 rounded-sm shadow-2xl h-10 w-10 hover:bg-blue-700 cursor-pointer">
             <IconHeart stroke={3} />
         </Button>
@@ -144,5 +144,11 @@ export const IconButton = () => {
         <Button className="bg-blue-600 text-neutral-200 rounded-sm shadow-2xl h-10 w-10 hover:bg-blue-700 cursor-pointer">
             <IconShare stroke={2} />
         </Button>
+    </div>
+}
+
+export const PulsatingButton = () => {
+    return <div className="perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-10">
+        <Button></Button>
     </div>
 }
