@@ -16,7 +16,7 @@ import { IconUsers } from '@tabler/icons-react';
 import { IconEyeDotted } from '@tabler/icons-react';
 import { IconBriefcase2 } from '@tabler/icons-react';
 import { IconMessageCircle } from '@tabler/icons-react';
-import { AnimatedButton, GlowingButton } from "./Button";
+import { AnimatedButton, GlowingButton, PulsatingButton } from "./Button";
 import SVGLines from "./SVGs/SVGLines";
 
 
@@ -259,7 +259,8 @@ export const SecondaryBeamCard = ({className}:{className: string}) => {
     return <div className={cn("relative h-60 w-86 border mx-4 mt-2 pr-6 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                                 "dark-shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity top-0 inset-x-0", className)}>
                                     <div className="flex justify-center items-center">
-                                         <SVGLines/>
+                                        <SVGLines/>
+                                        <PulsatingButton className='absolute flex justify-center '/>
                                     </div>
     </div>
 }

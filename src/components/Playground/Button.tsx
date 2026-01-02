@@ -6,6 +6,7 @@ import { easeInOut, motion } from 'framer-motion';
 import { IconHeart } from '@tabler/icons-react';
 import { IconTrash } from '@tabler/icons-react';
 import { IconShare } from '@tabler/icons-react';
+import { IconMail } from '@tabler/icons-react';
 
 const ButtonUI = ({children, className}:{children?:React.ReactElement, className?: string}) => {
     return <div className={cn(" flex items-center justify-center h-64 w-64 pb-10 ", className)}>
@@ -131,7 +132,7 @@ export const GlowingButton = ({className}:{className: string}) => {
             <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 inset-x-0 bottom-0 bg-linear-to-l from-transparent via-cyan-500 to-transparent h-2 w-full mx-auto blur-md"></span>
         </motion.button>
     </div>
-}
+}   
 
 export const IconButton = () => {
     return <div className={cn("perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-10 ")}>
@@ -147,8 +148,24 @@ export const IconButton = () => {
     </div>
 }
 
-export const PulsatingButton = () => {
-    return <div className="perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-10">
-        <Button></Button>
+export const PulsatingButton = ({className}:{className: string}) => {
+    return <div className={cn("perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-24 pl-4")}>
+        <motion.button 
+            initial={{
+                boxShadow: "0px 0px 0px "
+            }}
+            whileHover={{
+                boxShadow: "0px 10px 20px #4b5563"
+            }}
+            transition={{
+                duration:0.3,
+                ease: easeInOut
+            }}
+            className="absolute group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-36 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
+            <div className="flex gap-1"><IconMail stroke={2} />
+                <p className="text-xs">invite this person</p>
+            </div>
+            <span className="relative opacity-0 group-hover:opacity-100 transition-opacity duration-300 inset-x-0 bottom-0 bg-neutral-600 rounded-4xl py-3"></span>
+        </motion.button>
     </div>
 }
