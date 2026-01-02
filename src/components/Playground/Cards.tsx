@@ -16,7 +16,7 @@ import { IconUsers } from '@tabler/icons-react';
 import { IconEyeDotted } from '@tabler/icons-react';
 import { IconBriefcase2 } from '@tabler/icons-react';
 import { IconMessageCircle } from '@tabler/icons-react';
-import { AnimatedButton, GlowingButton, PulsatingButton } from "./Button";
+import { GlowingButton, PulsatingButton } from "./Button";
 import SVGLines from "./SVGs/SVGLines";
 
 

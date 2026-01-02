@@ -1,7 +1,6 @@
 "use client"
 
-import { motion, useInView } from 'framer-motion';
-import { PulsatingButton } from '../Button';
+import { motion } from 'framer-motion';
 
 const SVGLines = () => {
     return <div className="absolute top-0 left-0 w-full pointer-events-none">
