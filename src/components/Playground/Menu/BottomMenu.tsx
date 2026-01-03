@@ -10,6 +10,13 @@ import { IconCamera } from '@tabler/icons-react';
 import { Input } from '@/components/ui/input';
 import { IconSortAscending } from '@tabler/icons-react';
 import { IconAdjustmentsHorizontal } from '@tabler/icons-react';
+import { IconSettings } from '@tabler/icons-react';
+import { IconArrowBigUpLines } from '@tabler/icons-react';
+import { IconHelpCircle } from '@tabler/icons-react';
+import { IconArrowBigUpLine } from '@tabler/icons-react';
+import { IconCommand } from '@tabler/icons-react';
+import { IconInfoCircle } from '@tabler/icons-react';
+import { IconArrowBadgeRight } from '@tabler/icons-react';
 
 const BottomMenu = () => {
     const [plusClicked, setPlusClicked] = useState(false);
@@ -33,8 +40,7 @@ return <div className="flex flex-col justify-center items-center">
                     <div className="flex gap-2 p-2 hover:bg-neutral-200/40 hover:rounded-lg">
                         <IconCamera stroke={1} />
                         <p>Add Images</p>
-                    </div>
-                    
+                    </div>        
                 </div>}
                 { searchClicked && 
                 <div className='w-60 h-36 bg-white rounded-2xl border border-neutral-200 flex flex-col justify-center items-center gap-2'>
@@ -53,14 +59,40 @@ return <div className="flex flex-col justify-center items-center">
                     </div>         
                 </div>}
                 { bellClicked && 
-                <div className='w-44 h-44 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-4'>
-                    <div className="flex">
-                        
-                    </div>     
+                <div className='w-56 h-36 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-1 justify-start p-6 '>
+                        <h1 className='font-bold text-neutral-400 text-lg'>Notifications</h1>
+                        <p className='text-sm text-neutral-400'>0 unread</p>
                 </div>}
                 { userClicked && 
-                <div className='w-44 h-44 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-4'>
-                    
+                    <div className='w-60 h-48 bg-white rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-1 text-neutral-600 cursor-pointer'>
+                    <div className=" hover:bg-neutral-200/40 hover:rounded-lg p-2">
+                        
+                        <div className="flex justify-between gap-20">
+                            <div className="flex gap-2">
+                                <IconSettings stroke={1} className='' />
+                                <p >Settings</p>
+                            </div>
+                            <div className="flex p-1">
+                                <IconArrowBigUpLine stroke={1} className='h-4 w-4' />
+                                <IconCommand stroke={1} className='h-4 w-4'/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex gap-2 p-2 hover:bg-neutral-200/40 hover:rounded-lg">
+                        <IconArrowBigUpLines stroke={1}/>
+                        <p>Upgrade plan</p>
+                    </div>
+                    <div className="flex gap-2 p-2 hover:bg-neutral-200/40 hover:rounded-lg">
+                        <IconHelpCircle stroke={1} />
+                        <p>Get help</p>
+                    </div>
+                    <div className="flex gap-2 p-2 hover:bg-neutral-200/40 hover:rounded-lg">
+                        <IconInfoCircle stroke={1} />
+                        <div className="flex justify-between gap-12">
+                            <p>Learn more</p>
+                            {/* <IconArrowBadgeRight stroke={1} /> */}
+                        </div>
+                    </div>           
                 </div>}
                 { sunClicked && 
                 <div className='w-44 h-44 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-4'>
