@@ -151,21 +151,67 @@ export const IconButton = () => {
 export const PulsatingButton = ({className}:{className: string}) => {
     return <div className={cn("perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-24 pl-4")}>
         <motion.button 
-            initial={{
-                boxShadow: "0px 0px 0px "
-            }}
-            whileHover={{
-                boxShadow: "0px 10px 20px #4b5563"
-            }}
-            transition={{
-                duration:0.3,
-                ease: easeInOut
-            }}
-            className="absolute group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-36 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
-            <div className="flex gap-1"><IconMail stroke={2} />
-                <p className="text-xs">invite this person</p>
+            initial= 'initial'
+            whileHover='hover'
+            className="relative group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-36 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
+            <motion.div className="absolute inset-0 rounded-4xl bg-gray-400/60"
+                        variants={{
+                            initial: {
+                                scale: 1,
+                                opacity: 0
+                            },
+                            hover: {
+                                scale: 1.5,
+                                opacity: [0, 0.6, 0]
+                            }
+                        }}
+                        transition={{
+                            duration:1.2,
+                            repeat: Infinity,
+                            ease:'easeOut'
+                        }}>
+            </motion.div>
+             <motion.div
+                className="absolute inset-0 rounded-4xl bg-gray-400/60"
+                variants={{
+                    initial: {
+                    scale: 1,
+                    opacity: 0,
+                    },
+                    hover: {
+                    scale: 1.5,
+                    opacity: [0, 0.6, 0],
+                    },
+                }}
+                transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    ease: 'easeOut',
+                    delay: 0.4,
+                }}
+                />
+                 <motion.div
+                    className="absolute inset-0 rounded-4xl bg-gray-400/60"
+                    variants={{
+                        initial: {
+                        scale: 1,
+                        opacity: 0,
+                        },
+                        hover: {
+                        scale: 1.5,
+                        opacity: [0, 0.6, 0],
+                        },
+                    }}
+                    transition={{
+                        duration: 1.2,
+                        repeat: Infinity,
+                        ease: 'easeOut',
+                        delay: 0.8,
+                    }}
+                    />
+            <div className="flex gap-1 z-10"><IconMail stroke={2} />
+                <p className="text-xs">Invite this person</p>
             </div>
-            <span className="relative opacity-0 group-hover:opacity-100 transition-opacity duration-300 inset-x-0 bottom-0 bg-neutral-600 rounded-4xl py-3"></span>
         </motion.button>
     </div>
 }

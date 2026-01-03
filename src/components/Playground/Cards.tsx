@@ -261,6 +261,6 @@ export const SecondaryBeamCard = ({className}:{className: string}) => {
                                     <div className="flex justify-center items-center">
                                         <SVGLines/>
                                         <PulsatingButton className='absolute flex justify-center '/>
-                                    </div>
+                                     </div>
     </div>
 }
