@@ -153,7 +153,7 @@ export const PulsatingButton = ({className}:{className: string}) => {
         <motion.button 
             initial= 'initial'
             whileHover='hover'
-            className="relative group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-36 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
+            className="relative group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-40 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
             <motion.div className="absolute inset-0 rounded-4xl bg-gray-400/30"
                         variants={{
                             initial: {
@@ -209,8 +209,8 @@ export const PulsatingButton = ({className}:{className: string}) => {
                         delay: 2,
                     }}
                     />
-            <div className="flex gap-1 z-10"><IconMail stroke={2} />
-                <p className="text-xs">Invite this person</p>
+            <div className="flex gap-1 z-10"><IconMail width={16} height={16} stroke={2} />
+                <p className="text-xs font-normal">Invite this person</p>
             </div>
         </motion.button>
     </div>
