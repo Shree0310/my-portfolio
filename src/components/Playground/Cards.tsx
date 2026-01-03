@@ -258,9 +258,13 @@ export const ConcentricCirclesBackground = ({ className }: { className?: string 
 export const SecondaryBeamCard = ({className}:{className: string}) => {
     return <div className={cn("relative h-60 w-86 border mx-4 mt-2 pr-6 rounded-lg border-neutral-500/20 dark:border-neutral-600/60",
                                 "dark-shadow-[0_0_15px_rgba(255,255,255,0.1)] shadow-aceternity top-0 inset-x-0", className)}>
-                                    <div className="flex justify-center items-center">
-                                        <SVGLines/>
-                                        <PulsatingButton className='absolute flex justify-center '/>
-                                     </div>
-    </div>
+                <div className="relative flex justify-center items-center">
+                    <SVGLines/>
+                    <PulsatingButton className='absolute flex justify-center '/>
+                    <div className="absolute flex flex-col px-6 py-1 z-10 mt-30">
+                        <div className="text-xs text-neutral-900 dark:text-neutral-300 py-1">Invitations</div> 
+                        <div className="text-xs text-neutral-600 dark:text-neutral-400">Fuel your application's growth by making it simple for your customers to invite their team.</div>
+                    </div>
+                </div>
+            </div>
 }

@@ -154,7 +154,7 @@ export const PulsatingButton = ({className}:{className: string}) => {
             initial= 'initial'
             whileHover='hover'
             className="relative group p-4 text-neutral-100 bg-neutral-900 dark:text-neutral-100 dark:bg-neutral-800 rounded-4xl shadow-2xl h-8 w-36 py-3 flex items-center justify-center text-lg border border-neutral-500/10">
-            <motion.div className="absolute inset-0 rounded-4xl bg-gray-400/60"
+            <motion.div className="absolute inset-0 rounded-4xl bg-gray-400/30"
                         variants={{
                             initial: {
                                 scale: 1,
@@ -172,7 +172,7 @@ export const PulsatingButton = ({className}:{className: string}) => {
                         }}>
             </motion.div>
              <motion.div
-                className="absolute inset-0 rounded-4xl bg-gray-400/60"
+                className="absolute inset-0 rounded-4xl bg-gray-400/30"
                 variants={{
                     initial: {
                     scale: 1,
@@ -187,11 +187,11 @@ export const PulsatingButton = ({className}:{className: string}) => {
                     duration: 1.2,
                     repeat: Infinity,
                     ease: 'easeOut',
-                    delay: 0.4,
+                    delay: 1.8,
                 }}
                 />
                  <motion.div
-                    className="absolute inset-0 rounded-4xl bg-gray-400/60"
+                    className="absolute inset-0 rounded-4xl bg-gray-400/30"
                     variants={{
                         initial: {
                         scale: 1,
@@ -206,7 +206,7 @@ export const PulsatingButton = ({className}:{className: string}) => {
                         duration: 1.2,
                         repeat: Infinity,
                         ease: 'easeOut',
-                        delay: 0.8,
+                        delay: 2,
                     }}
                     />
             <div className="flex gap-1 z-10"><IconMail stroke={2} />
