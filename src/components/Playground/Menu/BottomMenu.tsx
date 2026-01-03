@@ -16,7 +16,8 @@ import { IconHelpCircle } from '@tabler/icons-react';
 import { IconArrowBigUpLine } from '@tabler/icons-react';
 import { IconCommand } from '@tabler/icons-react';
 import { IconInfoCircle } from '@tabler/icons-react';
-import { IconArrowBadgeRight } from '@tabler/icons-react';
+import { IconMoon } from '@tabler/icons-react';
+import { IconDeviceDesktop } from '@tabler/icons-react';
 
 const BottomMenu = () => {
     const [plusClicked, setPlusClicked] = useState(false);
@@ -94,9 +95,20 @@ return <div className="flex flex-col justify-center items-center">
                         </div>
                     </div>           
                 </div>}
-                { sunClicked && 
-                <div className='w-44 h-44 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-4'>
-                    
+                {sunClicked && 
+                    <div className='w-80 h-16 m-6 bg-white rounded-2xl border border-neutral-200 flex flex-row justify-center items-center gap-1 text-neutral-600'>
+                    <div className="flex justify-center gap-2 px-3 hover:bg-neutral-200/40 hover:rounded-3xl py-2">
+                        <IconSun stroke={1} className='h-5 w-5 m-0.5'/>
+                        <p className=''>Light</p>
+                    </div>
+                    <div className="flex justify-center gap-2 py-2 px-3 hover:bg-neutral-200/40 hover:rounded-3xl">
+                        <IconMoon stroke={1} className='h-5 w-5 m-0.5'/>
+                        <p>Dark</p>
+                    </div>
+                    <div className="flex justify-center gap-2 py-2 px-3 hover:bg-neutral-200/40 hover:rounded-3xl">
+                        <IconDeviceDesktop stroke={1} className='h-5 w-5 m-0.5'/>
+                        <p>System</p>
+                    </div>        
                 </div>}
             </div>
                 
