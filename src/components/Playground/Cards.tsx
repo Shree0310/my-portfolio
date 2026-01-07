@@ -65,7 +65,6 @@ export const AnimatedCard = ({className}:{className: string}) => {
                             "relative"
 
         )}>
-            <p className="flex justify-center items-center">Hover here</p>
                 <motion.div 
                     className="absolute inset-0 h-full w-full "
                     initial={{
