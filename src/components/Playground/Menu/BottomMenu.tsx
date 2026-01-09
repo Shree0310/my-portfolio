@@ -18,6 +18,7 @@ import { IconCommand } from '@tabler/icons-react';
 import { IconInfoCircle } from '@tabler/icons-react';
 import { IconMoon } from '@tabler/icons-react';
 import { IconDeviceDesktop } from '@tabler/icons-react';
+import { easeInOut, motion } from 'framer-motion';
 
 const BottomMenu = () => {
     const [activePopup, setActivePopup] = useState<string | null>(null);
@@ -50,7 +51,24 @@ return <div className="flex flex-col justify-center items-center mb-24">
 export default BottomMenu;
 
 export const PlusPopup = () => {
-    return  <div className='w-44 h-44 m-6 mt-8 bg-white rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-4 text-neutral-600'>
+    return  <motion.div 
+                initial={{
+                    y:100,
+                    x:10,
+                    scale:0.3
+                }}
+                animate={{
+                    y:1,
+                    x:1,
+                    scale:1
+                }}
+                transition={{
+                    ease:'easeOut',
+                    duration:0.3,
+                    type: 'spring',
+                    stiffness:100
+                }}
+                className='w-44 h-44 m-6 mt-8 bg-white rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-4 text-neutral-600'>
                     <div className="flex gap-2 hover:bg-neutral-200/40 hover:rounded-lg p-2">
                         <IconLink stroke={1} />
                         <p>Add files</p>
@@ -63,7 +81,7 @@ export const PlusPopup = () => {
                         <IconCamera stroke={1} />
                         <p>Add Images</p>
                     </div>        
-                </div>
+                </motion.div>
 }
 
 export const SearchPopup = () => {
