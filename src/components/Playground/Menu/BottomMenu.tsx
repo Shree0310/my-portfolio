@@ -87,11 +87,11 @@ export const SearchPopup = () => {
                 <div className="flex flex-col gap-2 justify-center items-center text-neutral-500">
                     <Input className=' h-10 border border-neutral-300 shadow-md focus:border-0 rounded-xl'/>
                     <div className="flex flex-row gap-2">
-                        <div className="flex flex-row gap-2 border border-neutral-300/50 rounded-xl px-3 py-2 shadow-sm bg-neutral-200/60">
+                        <div className="flex flex-row gap-2 border border-neutral-300/50 rounded-xl px-3 py-2 shadow-sm cursor-pointer bg-neutral-200/60 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200">
                             <IconSortAscending stroke={1} />
                             <p>Sort</p>
                         </div>
-                        <div className="flex flex-row gap-2 border border-neutral-300/50 rounded-xl px-3 py-2 shadow-sm bg-neutral-200/60">
+                        <div className="flex flex-row gap-2 border border-neutral-300/50 rounded-xl px-3 py-2 shadow-sm cursor-pointer bg-neutral-200/60 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200">
                             <IconAdjustmentsHorizontal stroke={1} />
                             <p>Filter</p>
                         </div>
