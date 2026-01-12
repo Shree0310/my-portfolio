@@ -37,12 +37,12 @@ return <div className="flex flex-col justify-center items-center mb-24">
             </div>
                 
         <div className="flex ">
-            <div className="relative w-60 h-14 bg-white rounded-2xl border border-neutral-200 flex flex-row gap-1 justify-center items-center cursor-pointer">
-                <div className='p-2 text-neutral-600 hover:bg-neutral-200 hover:rounded-lg'><IconPlus stroke={1} height={24} width={24} onClick={() => togglePopup('plus')}/></div>
-                <div className='p-2 text-neutral-600 hover:bg-neutral-200 hover:rounded-lg'><IconSearch stroke={1} height={24} width={24} onClick={() => togglePopup('search')}/></div>
-                <div className='p-2 text-neutral-600 hover:bg-neutral-200 hover:rounded-lg'><IconBell stroke={1} height={24} width={24} onClick={() => togglePopup('bell')}/></div>
-                <div className='p-2 text-neutral-600 hover:bg-neutral-200 hover:rounded-lg'><IconUserPlus stroke={1} height={24} width={24} onClick={() => togglePopup('user') } /></div>
-                <div className='p-2 text-neutral-600 hover:bg-neutral-200 hover:rounded-lg'><IconSun stroke={1} height={24} width={24} onClick={() => togglePopup('sun')}/></div>
+            <div className="relative w-60 h-14 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 flex flex-row gap-1 justify-center items-center cursor-pointer">
+                <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconPlus stroke={1} height={24} width={24} onClick={() => togglePopup('plus')}/></div>
+                <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconSearch stroke={1} height={24} width={24} onClick={() => togglePopup('search')}/></div>
+                <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconBell stroke={1} height={24} width={24} onClick={() => togglePopup('bell')}/></div>
+                <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconUserPlus stroke={1} height={24} width={24} onClick={() => togglePopup('user') } /></div>
+                <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconSun stroke={1} height={24} width={24} onClick={() => togglePopup('sun')}/></div>
             </div>
         </div>
 </div>
@@ -65,10 +65,8 @@ export const PlusPopup = () => {
                 transition={{
                     ease:'easeOut',
                     duration:0.3,
-                    type: 'spring',
-                    stiffness:100
                 }}
-                className='w-44 h-44 m-6 mt-8 bg-white rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-4 text-neutral-600'>
+                className='w-44 h-44 m-6 mt-8  rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-4 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200'>
                     <div className="flex gap-2 hover:bg-neutral-200/40 hover:rounded-lg p-2">
                         <IconLink stroke={1} />
                         <p>Add files</p>
@@ -85,7 +83,7 @@ export const PlusPopup = () => {
 }
 
 export const SearchPopup = () => {
-    return  <div className='w-60 h-36 m-6 mt-16 bg-white rounded-2xl border border-neutral-200 flex flex-col justify-center items-center gap-2'>
+    return  <div className='w-60 h-36 m-6 mt-16 rounded-2xl border border-neutral-200 flex flex-col justify-center items-center gap-2'>
                 <div className="flex flex-col gap-2 justify-center items-center text-neutral-500">
                     <Input className=' h-10 border border-neutral-300 shadow-md focus:border-0 rounded-xl'/>
                     <div className="flex flex-row gap-2">
@@ -103,14 +101,14 @@ export const SearchPopup = () => {
 }
 
 export const BellPopup = () => {
-    return <div className='w-56 h-36 m-6 mt-16 bg-white rounded-2xl border border-neutral-200 flex flex-col gap-1 justify-start p-6 '>
+    return <div className='w-56 h-36 m-6 mt-16 rounded-2xl border border-neutral-200 flex flex-col gap-1 justify-start p-6 '>
                         <h1 className='font-bold text-neutral-400 text-lg'>Notifications</h1>
                         <p className='text-sm text-neutral-400'>0 unread</p>
             </div>
 }
 
 export const UserPopup = () => {
-    return  <div className='w-60 h-48 m-4 bg-white rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-1 text-neutral-600 cursor-pointer'>
+    return  <div className='w-60 h-48 m-4 rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-1 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200 cursor-pointer'>
                     <div className=" hover:bg-neutral-200/40 hover:rounded-lg p-2">
                         
                         <div className="flex justify-between gap-20">
@@ -143,18 +141,18 @@ export const UserPopup = () => {
 }
 
 export const SunPopup = () => {
-    return <div className='w-80 h-16 m-6 mt-36 bg-white rounded-2xl border border-neutral-200 flex flex-row justify-center items-center gap-1 text-neutral-600 cursor-pointer'>
+    return <div className='w-80 h-16 m-6 mt-36  rounded-2xl border border-neutral-200 flex flex-row justify-center items-center gap-1 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200 cursor-pointer'>
                     <div className="flex justify-center gap-2 px-3 hover:bg-neutral-200/40 hover:rounded-2xl py-2">
-                        <IconSun stroke={1} className='h-5 w-5 m-0.5'/>
-                        <p className=''>Light</p>
+                        <IconSun stroke={1} className='h-5 w-5 m-0.5 text-neutral-800 dark:text-neutral-400'/>
+                        <p className='text-neutral-800 dark:text-neutral-400'>Light</p>
                     </div>
                     <div className="flex justify-center gap-2 py-2 px-3 hover:bg-neutral-200/40 hover:rounded-2xl">
-                        <IconMoon stroke={1} className='h-5 w-5 m-0.5'/>
-                        <p>Dark</p>
+                        <IconMoon stroke={1} className='h-5 w-5 m-0.5 text-neutral-800 dark:text-neutral-400'/>
+                        <p className='text-neutral-800 dark:text-neutral-400'>Dark</p>
                     </div>
                     <div className="flex justify-center gap-2 py-2 px-3 hover:bg-neutral-200/40 hover:rounded-2xl">
-                        <IconDeviceDesktop stroke={1} className='h-5 w-5 m-0.5'/>
-                        <p>System</p>
+                        <IconDeviceDesktop stroke={1} className='h-5 w-5 m-0.5 text-neutral-800 dark:text-neutral-400'/>
+                        <p className='text-neutral-800 dark:text-neutral-400'>System</p>
                     </div>        
             </div>
 }

@@ -66,7 +66,7 @@ const Components = () => {
             <DropDownCard className=" col-span-1"/>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
-        <div className="p-10 h-96 bg-neutral-100 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+        <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
             <BottomMenu/>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>
