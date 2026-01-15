@@ -153,7 +153,7 @@ export const UserPopup = () => {
                     ease:'easeInOut',
                     duration:0.3
                 }}
-                className='w-60 h-48 rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-1 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200 cursor-pointer'>
+                className='w-60 h-48 mt-4 rounded-2xl border border-neutral-200 flex flex-col p-2 justify-center gap-1 text-neutral-600 dark:text-neutral-400 hover:dark:text-neutral-200 cursor-pointer'>
                     <div className=" hover:bg-neutral-200/40 hover:rounded-lg p-2">
                         
                         <div className="flex justify-between gap-20">
