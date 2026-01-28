@@ -6,6 +6,7 @@ import { BentoGrid } from "@/components/Playground/Layouts";
 import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
 import BottomMenu from "./Playground/Menu/BottomMenu";
+import DisconnectedTabs from "./Playground/Tabs/DisconnectedTabs";
 
 const Components = () => {
     return <div className="div">
@@ -66,8 +67,13 @@ const Components = () => {
             <DropDownCard className=" col-span-1"/>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
-        <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-            <BottomMenu/>
+        <div className="flex flex-row gap-2">
+            <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                <BottomMenu/>
+            </div>
+            <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                <DisconnectedTabs/>
+            </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>
         <div className="p-10 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
