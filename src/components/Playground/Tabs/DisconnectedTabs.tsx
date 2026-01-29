@@ -9,7 +9,7 @@ const DisconnectedTabs = () => {
     return <div className="flex flex-row justify-center items-center gap-4 w-100 h-14 mt-24">
         <div 
             className=
-                {`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md
+                {`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md 
                   ${isExpandedTab === 'Alerts' ? "w-36 px-8" : "w-16"}`
                 }
             onClick={() => setIsExpandedTab(isExpandedTab === 'Alerts' ? null : 'Alerts')}>
