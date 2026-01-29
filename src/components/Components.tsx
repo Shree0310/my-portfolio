@@ -68,7 +68,7 @@ const Components = () => {
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
         <div className="flex flex-row gap-2">
-            <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+            <div className="p-10 h-96 w-100  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
                 <BottomMenu/>
             </div>
             <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">

@@ -28,7 +28,7 @@ const BottomMenu = () => {
     };
 
 return <div className="flex flex-col justify-center items-center mb-24">
-            <div className="flex h-56 ml-10">
+            <div className="flex h-56">
                { activePopup === 'plus' && <PlusPopup/> }
                {activePopup === 'search' && <SearchPopup/>}
                {activePopup === 'bell' && <BellPopup/>}
@@ -36,7 +36,7 @@ return <div className="flex flex-col justify-center items-center mb-24">
                { activePopup === 'sun' && <SunPopup/>}
             </div>
                 
-        <div className="flex ml-10">
+        <div className="flex ">
             <div className="relative w-60 h-14 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 flex flex-row gap-1 justify-center items-center cursor-pointer">
                 <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconPlus stroke={1} height={24} width={24} onClick={() => togglePopup('plus')}/></div>
                 <div className='p-2 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:rounded-lg'><IconSearch stroke={1} height={24} width={24} onClick={() => togglePopup('search')}/></div>
