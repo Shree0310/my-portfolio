@@ -1,16 +1,27 @@
 import { IconBellFilled } from '@tabler/icons-react';
 import { IconMailFilled } from '@tabler/icons-react';
 import { IconCalendarWeek } from '@tabler/icons-react';
+import { easeIn, easeInOut, motion } from 'framer-motion';
+
 import { useState } from 'react';
 
 const DisconnectedTabs = () => {
     const [isExpandedTab, setIsExpandedTab] = useState<string | null>(null);
 
     return <div className="flex flex-row justify-center items-center gap-4 w-100 h-14 mt-24">
-        <div 
+        <motion.div 
+            animate={{ 
+                        width: isExpandedTab === 'Alerts' ? 144 : 64 
+                    }}
+            transition={{
+                type: "spring",
+                stiffness:300,
+                damping:20
+            }}
+            whileTap={{ scale: 1.1}}
             className=
                 {`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md 
-                  ${isExpandedTab === 'Alerts' ? "w-36 px-8" : "w-16"}`
+                  `
                 }
             onClick={() => setIsExpandedTab(isExpandedTab === 'Alerts' ? null : 'Alerts')}>
             
@@ -20,9 +31,20 @@ const DisconnectedTabs = () => {
                     <p className='text-lg font-semibold text-green-700'>Alerts</p>
                 </div> : <IconBellFilled  stroke={2} className='text-green-700' />
                 }
-        </div>
-        <div className={`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md
-                  ${isExpandedTab === 'Messages' ? "w-36 px-8" : "w-16"}`
+        </motion.div>
+        <motion.div
+            animate={{
+                width:isExpandedTab === 'Messages' ? 144 : 64,
+                y:1
+            }} 
+            transition={{
+                type:"spring",
+                stiffness:300,
+                damping:20
+            }}
+            whileTap={{ scale:1.1 }}
+            className={`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md
+                  `
                 }
                 onClick={() => setIsExpandedTab(isExpandedTab === 'Messages' ? null : 'Messages')}>
             { isExpandedTab === 'Messages'? 
@@ -31,8 +53,18 @@ const DisconnectedTabs = () => {
             <p className='text-lg font-semibold text-blue-600'>Messages</p>
             </div> : <IconMailFilled  stroke={2} className='text-blue-600' />
             }           
-        </div>
-        <div className={`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md
+        </motion.div>
+        <motion.div
+            animate={{
+                width: isExpandedTab === 'Events' ? 144 : 64
+            }}
+            whileTap={{ scale: 1.1 }}
+            transition={{
+                type:"spring",
+                stiffness: 300,
+                damping:10,
+            }}
+            className={`w-16 h-16 flex justify-center items-center rounded-full cursor-pointer bg-neutral-100 dark:bg-neutral-800 shadow-md
                   ${isExpandedTab === 'Events' ? "w-36 px-8" : "w-16"}`
                 }
                 onClick={() => setIsExpandedTab(isExpandedTab === 'Events' ? null : 'Events')}>
@@ -42,7 +74,7 @@ const DisconnectedTabs = () => {
                 <p className='text-lg font-semibold text-red-600'>Events</p>
             </div> : <IconCalendarWeek  stroke={2} className='text-red-600' />
             }  
-        </div>
+        </motion.div>
     </div>
 }
 export default DisconnectedTabs;
