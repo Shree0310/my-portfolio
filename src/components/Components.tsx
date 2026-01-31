@@ -7,6 +7,7 @@ import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from 
 import { InputDefault } from "./Playground/Inputs";
 import BottomMenu from "./Playground/Menu/BottomMenu";
 import DisconnectedTabs from "./Playground/Tabs/DisconnectedTabs";
+import ContexualAIBar from "./Playground/Bar/ContexualAIBar";
 
 const Components = () => {
     return <div className="div">
@@ -79,6 +80,12 @@ const Components = () => {
                     <DisconnectedTabs/>
                 </div>
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Disconnected Tabs</p>
+            </div>
+             <div className="flex flex-col">
+                <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                    <ContexualAIBar/>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Contexual AI Bar</p>
             </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>
