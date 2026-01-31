@@ -6,6 +6,8 @@ import { IconMicrophone2 } from '@tabler/icons-react';
 import { IconActivity } from '@tabler/icons-react';
 import { useState } from 'react';
 import { IconArrowRight } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
+
 
 const ContexualAIBar = () => {
 
@@ -26,19 +28,48 @@ const ContexualAIBar = () => {
                 </div>
             </div>
             {isMusicMode ?
-                (<div className="flex gap-2 p-4">
+                (<motion.div 
+                    initial={{
+                        opacity:0,
+                        scale:0.8
+                    }}
+                    animate={{
+                        opacity:1,
+                        scale:1
+                    }}
+                    transition={{
+                        type:"spring",
+                        stiffness:200,
+                        damping:20,
+                    }}
+                    whileTap={{ scale:0.95 }}
+                    className="flex gap-2 p-4">
                     <IconScissors stroke={2} className='w-8 h-8 text-black dark:text-neutral-400'/>
                     <IconClockHour5Filled className='w-8 h-8 text-black dark:text-neutral-400' />
                     <IconMicrophone2 stroke={2} className='w-8 h-8 text-black dark:text-neutral-400' />
                     <IconActivity stroke={2} className='w-8 h-8 text-black dark:text-neutral-400'/>
-                </div>)
+                </motion.div>)
                 : (
-                    <div className="w-14 h-14 p-3 m-1 flex justify-center rounded-full dark:bg-neutral-800 bg-white">
-                        <IconArrowRight stroke={2} className='w-8 h-8 text-black dark:text-neutral-400'/>
-                    </div>
+                    <motion.div 
+                        initial={{
+                            opacity:0,
+                            scale:0.8
+                        }}
+                        animate={{
+                            opacity:1,
+                            scale:1
+                        }}
+                        transition={{
+                            type:"spring",
+                            stiffness:200,
+                            damping:20,
+                        }}
+                        whileTap={{ scale:0.95 }}
+                        className="w-14 h-14 p-3 m-1 flex justify-center rounded-full dark:bg-neutral-800 bg-white">
+                            <IconArrowRight stroke={2} className='w-8 h-8 text-black dark:text-neutral-400'/>
+                    </motion.div>
                 )
-            }
-            
+            }     
         </div>
     </div>
 }

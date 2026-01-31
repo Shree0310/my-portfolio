@@ -1,7 +1,7 @@
 import { IconBellFilled } from '@tabler/icons-react';
 import { IconMailFilled } from '@tabler/icons-react';
 import { IconCalendarWeek } from '@tabler/icons-react';
-import { easeIn, easeInOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { useState } from 'react';
 
