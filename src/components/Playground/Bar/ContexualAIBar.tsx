@@ -6,13 +6,14 @@ import { IconMicrophone2 } from '@tabler/icons-react';
 import { IconActivity } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons-react';
-import { motion } from 'framer-motion';
+import { delay, easeOut, motion } from 'framer-motion';
 
 
 const ContexualAIBar = () => {
 
     const [isMusicMode, setIsMusicMode] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
+    const [selectedIcon, setSelectedIcon] = useState<string | null>();
 
     useEffect(() => {
         if(!isMusicMode && inputRef.current) {
@@ -23,42 +24,70 @@ const ContexualAIBar = () => {
     const iconAnimation = {
         initial:{
                     opacity:0,
-                    scale:0.8
+                    filter:'blur(10px)',
+                    scale:0.8,
+                },
+        whileInView:{
+                    filter:'blur(0px)',
                 },
         animate:{
                     opacity:1,
                     scale:1
                 },
         transition:{
-                    type:"spring" as const,
-                    stiffness:200,
+                    duration: 0.1,
+                    type:'spring' as const,
                     damping:20,
+                    ease:"easeIn" as const
                 },
         whileTap:{  scale:0.95 }
     }
 
     return <div className="flex flex-row justify-center items-center">
-        <div className="relative">
+        <motion.div 
+            initial={{
+                x:0,
+                y:0
+            }}
+            transition={{
+                duration:0.3,
+                ease: easeOut
+            }}
+            whileTap={{
+                x:10,
+                y:5
+            }}
+            className="relative">
             <input 
                 ref={inputRef}
                 disabled={isMusicMode}
                 style={{ textIndent: isMusicMode ? '0' : '120px' }}
-                className={`h-18 w-76 rounded-4xl dark:bg-neutral-800 bg-neutral-100 shadow-lg p-1
+                className={`h-18  rounded-4xl dark:bg-neutral-800 bg-neutral-100 shadow-lg p-1 focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0
                     disabled:cursor-not-allowed
-                    ${isMusicMode ? "pl-32" : "pl-1"}`}
+                    ${isMusicMode ? "pl-32 w-76" : "pl-1 w-96"}`}
             />
             
             {/* Icons layered on top */}
             <div className={`absolute inset-0 flex pointer-events-none
                     ${isMusicMode === false ? "justify-between gap-8 p-1": "p-1"}`}>
                 <div className="flex w-28 h-full rounded-4xl dark:bg-neutral-900 bg-white shadow-sm p-2 pointer-events-auto">
-                    <div className="w-12 h-12 p-3 rounded-full dark:bg-neutral-800 bg-neutral-100">
+                    <div className={`w-12 h-12 p-3 hover:rounded-full dark:bg-neutral-900 bg-white hover:dark:bg-neutral-800 hover:bg-neutral-100
+                        ${selectedIcon === 'playlist' ? "rounded-full dark:bg-neutral-800 bg-neutral-100 " : ""}`}>
                         <IconPlaylist stroke={2}
-                            onClick={() => setIsMusicMode(!isMusicMode)} 
+                            onClick={() => {
+                                        setIsMusicMode(false); 
+                                        setSelectedIcon("playlist");
+                                    }} 
                             className='flex justify-center items-center w-7 h-7 text-black dark:text-neutral-400 cursor-pointer'/>
                     </div>
-                    <div className="py-2 px-2">
-                        <IconSparkles stroke={1.75} className='w-8 h-8 text-black dark:text-neutral-400' />
+                    <div className={`py-2 px-2 hover:rounded-full dark:bg-neutral-900 bg-white hover:dark:bg-neutral-800 hover:bg-neutral-100
+                        ${selectedIcon === 'sparkles' ? "rounded-full dark:bg-neutral-800 bg-neutral-100 " : ""}`}>
+                        <IconSparkles stroke={1.75}
+                            onClick={() => {
+                                        setIsMusicMode(true); 
+                                        setSelectedIcon("sparkles");
+                                    }} 
+                            className='w-8 h-8 text-black dark:text-neutral-400' />
                     </div>
                 </div>
                 {isMusicMode ?
@@ -84,7 +113,7 @@ const ContexualAIBar = () => {
                     )
                 }     
             </div>
-        </div>
+        </motion.div>
     </div>
 }
 
