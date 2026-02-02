@@ -20,6 +20,23 @@ const ContexualAIBar = () => {
         }
     },[isMusicMode]);
 
+    const iconAnimation = {
+        initial:{
+                    opacity:0,
+                    scale:0.8
+                },
+        animate:{
+                    opacity:1,
+                    scale:1
+                },
+        transition:{
+                    type:"spring" as const,
+                    stiffness:200,
+                    damping:20,
+                },
+        whileTap:{  scale:0.95 }
+    }
+
     return <div className="flex flex-row justify-center items-center">
         <div className="relative">
             <input 
@@ -45,43 +62,22 @@ const ContexualAIBar = () => {
                     </div>
                 </div>
                 {isMusicMode ?
-                    (<motion.div 
-                        initial={{
-                            opacity:0,
-                            scale:0.8
-                        }}
-                        animate={{
-                            opacity:1,
-                            scale:1
-                        }}
-                        transition={{
-                            type:"spring",
-                            stiffness:200,
-                            damping:20,
-                        }}
-                        whileTap={{ scale:0.95 }}
-                        className="flex gap-2 p-4 pointer-events-auto">
-                        <IconScissors stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer'/>
-                        <IconClockHour5Filled className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer' />
-                        <IconMicrophone2 stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer' />
-                        <IconActivity stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer'/>
+                    (<motion.div {...iconAnimation} className="flex gap-2 p-4 pointer-events-auto">
+                        <motion.div {...iconAnimation} className="div">
+                            <IconScissors stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer'/>
+                        </motion.div> 
+                        <motion.div {...iconAnimation} className="div">
+                            <IconClockHour5Filled className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer' />
+                        </motion.div>
+                        <motion.div {...iconAnimation} className="div">
+                            <IconMicrophone2 stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer' />
+                        </motion.div> 
+                        <motion.div {...iconAnimation} className="div">
+                            <IconActivity stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer'/>
+                        </motion.div>                      
                     </motion.div>)
                     : (
-                        <motion.div 
-                            initial={{
-                                opacity:0,
-                                scale:0.8
-                            }}
-                            animate={{
-                                opacity:1,
-                                scale:1
-                            }}
-                            transition={{
-                                type:"spring",
-                                stiffness:200,
-                                damping:20,
-                            }}
-                            whileTap={{ scale:0.95 }}
+                        <motion.div {...iconAnimation}
                             className="w-14 h-14 p-3 m-1 flex justify-center rounded-full dark:bg-neutral-800 bg-white pointer-events-auto">
                                 <IconArrowRight stroke={2} className='w-8 h-8 text-black dark:text-neutral-400 cursor-pointer'/>
                         </motion.div>
