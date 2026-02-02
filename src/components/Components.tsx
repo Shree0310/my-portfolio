@@ -11,6 +11,37 @@ import ContexualAIBar from "./Playground/Bar/ContexualAIBar";
 
 const Components = () => {
     return <div className="div">
+        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Cards</h3>
+        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
+
+            <AnimatedCard className="col-span-1"/>
+            <div className="div">
+                <BeamCard className="col-span-1"/>
+                <SecondaryBeamCard className=" col-span-1"/>
+            </div>
+            <DropDownCard className=" col-span-1"/>
+        </div>
+        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
+        <div className="grid grid-cols-2 gap-4 mx-2">
+            <div className="flex flex-col">
+                 <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                <BottomMenu/>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Bottom Menu</p>
+            </div>
+           <div className="flex flex-col">
+                <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                    <DisconnectedTabs/>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Disconnected Tabs</p>
+            </div>
+             <div className="flex flex-col">
+                <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                    <ContexualAIBar/>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Contexual AI Input</p>
+            </div>
+        </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
         <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
             <Card>                
@@ -56,37 +87,6 @@ const Components = () => {
                 <CardHeading><p>Text input (default)</p></CardHeading>
                 <InputDefault/>
             </Card>
-        </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Cards</h3>
-        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
-
-            <AnimatedCard className="col-span-1"/>
-            <div className="div">
-                <BeamCard className="col-span-1"/>
-                <SecondaryBeamCard className=" col-span-1"/>
-            </div>
-            <DropDownCard className=" col-span-1"/>
-        </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
-        <div className="grid grid-cols-2 gap-4 mx-2">
-            <div className="flex flex-col">
-                 <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                <BottomMenu/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Bottom Menu</p>
-            </div>
-           <div className="flex flex-col">
-                <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <DisconnectedTabs/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Disconnected Tabs</p>
-            </div>
-             <div className="flex flex-col">
-                <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <ContexualAIBar/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Contexual AI Bar (Still Building)</p>
-            </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>
         <div className="p-10 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
