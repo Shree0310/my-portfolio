@@ -18,6 +18,7 @@ const ContexualAIBar = () => {
         <div className="relative">
             <input 
                 disabled={isMusicMode}
+                style={{ textIndent: isMusicMode ? '0' : '120px' }}
                 className={`h-18 w-76 rounded-4xl dark:bg-neutral-800 bg-neutral-100 shadow-lg p-1
                     disabled:cursor-not-allowed
                     ${isMusicMode ? "pl-32" : "pl-1"}`}
