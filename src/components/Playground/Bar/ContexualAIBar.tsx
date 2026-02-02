@@ -4,7 +4,7 @@ import { IconScissors } from '@tabler/icons-react';
 import { IconClockHour5Filled } from '@tabler/icons-react';
 import { IconMicrophone2 } from '@tabler/icons-react';
 import { IconActivity } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 
@@ -12,11 +12,18 @@ import { motion } from 'framer-motion';
 const ContexualAIBar = () => {
 
     const [isMusicMode, setIsMusicMode] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
+    useEffect(() => {
+        if(!isMusicMode && inputRef.current) {
+            inputRef.current.focus();
+        }
+    },[isMusicMode]);
 
     return <div className="flex flex-row justify-center items-center">
         <div className="relative">
             <input 
+                ref={inputRef}
                 disabled={isMusicMode}
                 style={{ textIndent: isMusicMode ? '0' : '120px' }}
                 className={`h-18 w-76 rounded-4xl dark:bg-neutral-800 bg-neutral-100 shadow-lg p-1
