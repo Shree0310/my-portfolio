@@ -1,6 +1,6 @@
 import { IconMicrophoneFilled } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import WaveFormAnimation from './WaveFormAnimation';
 import { IconPlayerStopFilled } from '@tabler/icons-react';
 
@@ -9,7 +9,69 @@ const VoiceChatAI = () => {
     //Store the speech to text results
     const [transcript, setTranscript] = useState('');
     //Store the temporary results while speaking
-    const [interimTransript, setInterimTranscript] = useState('')
+    const [interimTransript, setInterimTranscript] = useState('');
+
+    //Using ref to store the speech recognition object
+    const recognitionRef = useRef<any>(null);
+
+    useEffect(() => {
+        if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+            console.error('Speech recognition not supported in this browser');
+            alert('Speech recognition is not supported in your browser. Please use Chrome or Edge.');
+            return;
+        }
+
+        const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        // Configure speech recognition settings
+        recognition.continuous = true; // Keep listening until manually stopped
+        recognition.interimResults = true; // Get results while still speaking
+        recognition.lang = 'en-US'; // Language (you can change this: 'es-ES', 'fr-FR', etc.)
+        recognition.maxAlternatives = 1; // Number of alternative results
+
+        recognition.onresult = (event: any) => {
+            let interim ='';
+            let final = '';
+
+            for(let i= event.resultIndex; i<event.resultIndex; i++) {
+                const transcriptPiece = event.results[i][0].transcript;
+
+                if(event.results[i].isFinal){
+                    final += transcriptPiece + ' ';
+                }
+                else{
+                    interim += transcriptPiece;
+                }
+            }
+            if(final) {
+                setTranscript(prev =>prev + final)
+            }
+            setInterimTranscript(interim);
+        };
+
+        // Event handler: Called when an error occurs
+        recognition.onerror = (event: any) => {
+            console.error('Speech recognition error:', event.error);
+            setIsListening(false);
+        };
+
+        // Event handler: Called when recognition stops
+        recognition.onend = () => {
+            console.log('Speech recognition ended');
+            setIsListening(false);
+        };
+
+        recognitionRef.current = recognition;
+
+        console.log('Speech recognition initialized and configured');
+    },[]);
+
+    const toggleListening = () => {
+        if(!recognitionRef.current){
+            console.log('Speech Recognition not initialised');
+        }
+    }
 
     return <div className="flex px-2 justify-center items-center">
         {isListening ?
