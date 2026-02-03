@@ -5,13 +5,13 @@ import WaveFormAnimation from './WaveFormAnimation';
 import { IconPlayerStopFilled } from '@tabler/icons-react';
 
 const VoiceChatAI = () => {
-    const [isSpeakDialogOpen, setIsSpeakDialogOpen] = useState(false);
+    const [isListening, setIsListening] = useState(false);
 
     return <div className="flex px-2 justify-center items-center">
-        {isSpeakDialogOpen ?
+        {isListening ?
             (<div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                 <div className="flex flex-col justify-center items-center gap-4">
-                    <WaveFormAnimation isAnimating={isSpeakDialogOpen}/>
+                    <WaveFormAnimation isAnimating={isListening}/>
                     <p className='text-neutral-500 dark:text-neutral-400'>Text generated from audio</p>
                     <div className="relative flex justify-center items-center w-12 h-12 rounded-full bg-indigo-300/40 dark:bg-indigo-400 cursor-pointer">
                         <div className='absolute w-5 h-5 rounded-full bg-indigo-600' ></div>
@@ -21,7 +21,7 @@ const VoiceChatAI = () => {
             ):(
                 <div className="flex justify-center gap-2 items-center flex-row h-18 w-45 border dark:border-neutral-500 shadow-md rounded-4xl bg-white dark:bg-black p-2">
                     <motion.button
-                        onClick={() => setIsSpeakDialogOpen(!isSpeakDialogOpen)}
+                        onClick={() => setIsListening(!isListening)}
                         initial='initial'
                         whileHover= 'hover'
                         className="relative group flex justify-center items-center h-10 w-10 rounded-full bg-black dark:bg-neutral-200 p-3 my-2 py-2 cursor-pointer">
