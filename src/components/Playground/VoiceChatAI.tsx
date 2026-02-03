@@ -10,6 +10,8 @@ const VoiceChatAI = () => {
     const [transcript, setTranscript] = useState('');
     //Store the temporary results while speaking
     const [interimTranscript, setInterimTranscript] = useState('');
+    const [error, setError] = useState<string | null>(null); // Track errors
+
 
     //Using ref to store the speech recognition object
     const recognitionRef = useRef<any>(null);
@@ -57,14 +59,38 @@ const VoiceChatAI = () => {
         };
 
         // Event handler: Called when recognition stops
-        recognition.onend = () => {
-            console.log('Speech recognition ended');
+        recognition.onend = (event: any) => {
+            console.error('Speech recognition error:', event.error);
+            
+            // Handle different error types
+            switch(event.error) {
+                case 'no-speech':
+                    setError('No speech detected. Please try again.');
+                    break;
+                case 'audio-capture':
+                    setError('No microphone found. Please check your microphone.');
+                    break;
+                case 'not-allowed':
+                    setError('Microphone permission denied. Please allow microphone access.');
+                    break;
+                default:
+                    setError(`Error: ${event.error}`);
+            }
+            
             setIsListening(false);
         };
 
         recognitionRef.current = recognition;
 
         console.log('Speech recognition initialized and configured');
+
+        // Cleanup function: runs when component unmounts
+        return () => {
+            if (recognitionRef.current) {
+                recognitionRef.current.stop();
+                recognitionRef.current = null;
+            }
+        };
     },[]);
 
     const toggleListening = () => {
@@ -74,16 +100,26 @@ const VoiceChatAI = () => {
 
         if(isListening){
             //stop listening
-            recognitionRef.current.stop();
-            setIsListening(false);
-            console.log("stopped listening");
+            try{
+                recognitionRef.current.stop();
+                setIsListening(false);
+                console.log("stopped listening");
+            } catch(error) {
+                console.error('Error stopping recognition:', error);
+                setError('Failed to stop recording.');
+            }
         } else {
             //start listening
-            setTranscript('');
-            setInterimTranscript('');
-            recognitionRef.current.start();
-            setIsListening(true);
-            console.log("started listening");
+            try{
+                setTranscript('');
+                setInterimTranscript('');
+                recognitionRef.current.start();
+                setIsListening(true);
+                console.log("started listening");
+            }catch(error){
+                console.error('Error starting recognition:', error);
+                setError('Failed to start recording. Please try again.');
+            }
         }
     };
 
@@ -92,7 +128,7 @@ const VoiceChatAI = () => {
             (<div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                 <div className="flex flex-col justify-center items-center gap-4">
                     <WaveFormAnimation isAnimating={isListening}/>
-                    <p className='text-neutral-500 dark:text-neutral-400'>
+                    <p className='text-neutral-500 dark:text-neutral-400 text-center px-4'>
                         {interimTranscript || transcript || 'Listening...'}
                     </p>
                     <div 
