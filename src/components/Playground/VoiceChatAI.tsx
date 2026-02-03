@@ -1,17 +1,21 @@
 import { IconMicrophoneFilled } from '@tabler/icons-react';
-import { easeOut, hover, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import WaveFormAnimation from './WaveFormAnimation';
-
+import { IconPlayerStopFilled } from '@tabler/icons-react';
 
 const VoiceChatAI = () => {
     const [isSpeakDialogOpen, setIsSpeakDialogOpen] = useState(false);
 
     return <div className="flex px-2 justify-center items-center">
         {isSpeakDialogOpen ?
-            (<div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-black p-2">
-                <div className="mb-24">
+            (<div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
+                <div className="flex flex-col justify-center items-center gap-4">
                     <WaveFormAnimation isAnimating={isSpeakDialogOpen}/>
+                    <p className='text-neutral-500 dark:text-neutral-400'>Text generated from audio</p>
+                    <div className="relative flex justify-center items-center w-12 h-12 rounded-full bg-indigo-300/40 dark:bg-indigo-400 cursor-pointer">
+                        <div className='absolute w-5 h-5 rounded-full bg-indigo-600' ></div>
+                    </div>
                 </div>
             </div>
             ):(
