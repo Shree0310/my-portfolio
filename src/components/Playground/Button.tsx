@@ -148,7 +148,7 @@ export const IconButton = () => {
     </div>
 }
 
-export const PulsatingButton = ({className}:{className: string}) => {
+export const PulsatingButton = ({className, children}:{className?: string; children?: React.ReactNode}) => {
     return <div className={cn("perspective:[1000px] transform-style:[preserve-3d] flex flex-row gap-2 items-center justify-center h-64 w-64 pb-24 pl-4")}>
         <motion.button 
             initial= 'initial'
@@ -211,6 +211,7 @@ export const PulsatingButton = ({className}:{className: string}) => {
                     />
             <div className="flex gap-1 z-10"><IconMail width={16} height={16} stroke={2} />
                 <p className="text-xs font-normal">Invite this person</p>
+                {children}
             </div>
         </motion.button>
     </div>

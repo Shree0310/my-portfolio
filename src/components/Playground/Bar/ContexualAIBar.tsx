@@ -6,7 +6,7 @@ import { IconMicrophone2 } from '@tabler/icons-react';
 import { IconActivity } from '@tabler/icons-react';
 import { useEffect, useRef, useState } from 'react';
 import { IconArrowRight } from '@tabler/icons-react';
-import { delay, easeOut, motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 
 
 const ContexualAIBar = () => {
