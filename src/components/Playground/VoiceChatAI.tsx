@@ -188,7 +188,7 @@ const VoiceChatAI = () => {
         )}
         
         {isListening ?
-            (<div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
+            (<div className="flex justify-center gap-2 items-center flex-row h-72 w-72 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                 <div className="flex flex-col justify-center items-center gap-4">
                     <WaveFormAnimation isAnimating={isListening}/>
                     <p className='text-neutral-500 dark:text-neutral-400 text-center px-4'>
@@ -202,7 +202,7 @@ const VoiceChatAI = () => {
                 </div>
             </div>
             ):isProcessing ? (
-                <div className="flex justify-center gap-2 items-center flex-row h-64 w-64 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
+                <div className="flex justify-center gap-2 items-center flex-row h-72 w-72 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                     <div className="flex flex-col justify-center items-center gap-4">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
                         <p className='text-neutral-500 dark:text-neutral-400 text-center px-4'>
@@ -211,13 +211,8 @@ const VoiceChatAI = () => {
                     </div>
                 </div>
             ): aiResponse ? (
-                <div className="flex justify-center gap-2 items-center flex-row h-64 w-96 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-6 overflow-hidden">
+                <div className="flex justify-center gap-2 items-center flex-row h-72 w-96 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-6 overflow-hidden">
                     <div className="flex flex-col justify-between items-start gap-4 w-full overflow-y-auto flex-1">
-                        {/* <div className="flex flex-col gap-2 w-full">
-                            <p className='text-xs text-neutral-400 dark:text-neutral-500 font-semibold'>You said:</p>
-                            <p className='text-sm text-neutral-600 dark:text-neutral-300 italic line-clamp-2'>"{transcript}"</p>
-                        </div> */}
-                        {/* <div className="w-full h-px bg-neutral-200 dark:bg-neutral-700"></div> */}
                         <div className="flex flex-col gap-2 w-full">
                             <p className='text-xs text-neutral-400 dark:text-neutral-500 font-semibold'>AI Response:</p>
                             <p className='text-xs text-neutral-700 dark:text-neutral-200 leading-relaxed'>{aiResponse}</p>
@@ -227,7 +222,7 @@ const VoiceChatAI = () => {
                                 setAiResponse('');
                                 setTranscript('');
                             }}
-                            className="mt-1 px-2 py-2 bg-indigo-600 text-white rounded-lg text-xs hover:bg-indigo-700 transition-colors shrink-0"
+                            className="mt-1 px-2 py-2 my-3 bg-indigo-600 text-white rounded-lg text-xs hover:bg-indigo-700 transition-colors shrink-0"
                         >
                             Ask Again
                         </button>
