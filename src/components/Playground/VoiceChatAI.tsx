@@ -204,7 +204,27 @@ const VoiceChatAI = () => {
             ):isProcessing ? (
                 <div className="flex justify-center gap-2 items-center flex-row h-72 w-72 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                     <div className="flex flex-col justify-center items-center gap-4">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+                            <svg width="200" height="100" viewBox="0 0 100 100">
+                                <motion.path
+                                    d="M0,50 Q25,20 50,50 T100,50"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    fill="none"
+                                    animate={{
+                                    d: [
+                                        "M0,50 Q25,20 50,50 T100,50",
+                                        "M0,50 Q25,80 50,50 T100,50"
+                                    ]
+                                    }}
+                                    transition={{ 
+                                    duration: 1.5, 
+                                    repeat: Infinity,
+                                    repeatType: "reverse",
+                                    ease: "easeInOut"
+                                    }}
+                                    className="text-indigo-600"
+                                />
+                            </svg>                      
                         <p className='text-neutral-500 dark:text-neutral-400 text-center px-4'>
                             AI is thinking...
                         </p>
