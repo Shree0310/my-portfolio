@@ -64,7 +64,7 @@ const Components = () => {
                         <ContactShadows position={[0,-2.5,0]} opacity={0.5} scale={50} blur={1} far={10} resolution={256} color="#000000"/>
                     </Canvas>
                 </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Voice AI Chat (In Progress...)</p>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
             </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
