@@ -9,6 +9,10 @@ import BottomMenu from "./Playground/Menu/BottomMenu";
 import DisconnectedTabs from "./Playground/Tabs/DisconnectedTabs";
 import ContexualAIBar from "./Playground/Bar/ContexualAIBar";
 import VoiceChatAI from "./Playground/VoiceChatAI";
+import Model from "../../public/Earth";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
 
 const Components = () => {
     return <div className="div">
@@ -45,6 +49,20 @@ const Components = () => {
             <div className="flex flex-col">
                 <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
                     <VoiceChatAI/>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Voice AI Chat (In Progress...)</p>
+            </div>
+            <div className="flex flex-col">
+                <div className="p-10 h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                    <Canvas className="h-96">
+                        <ambientLight intensity={1}/>
+                        <OrbitControls enableZoom={false}/>
+                        <Suspense fallback={null}>
+                            <Model/>
+                        </Suspense>
+                        <Environment preset="sunset"/>
+                        <ContactShadows position={[0,-2.5,0]} opacity={0.5} scale={50} blur={1} far={10} resolution={256} color="#000000"/>
+                    </Canvas>
                 </div>
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Voice AI Chat (In Progress...)</p>
             </div>

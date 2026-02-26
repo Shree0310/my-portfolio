@@ -94,3 +94,7 @@
 .dark .prose strong {
   color: theme('colors.neutral.100');
 }
+
+.canvas{
+  height: 360px !important;
+}
