@@ -160,7 +160,7 @@ const VoiceLoader = () => {
               <ambientLight intensity={0.2} />
               <WaveMesh/>
               <OrbGlow /> 
-              <OrbRing color='#4338ca'/>
+              {/* <OrbRing color='#4338ca'/> */}
             </Canvas>
         </div>
       </div>
