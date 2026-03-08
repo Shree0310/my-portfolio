@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import WaveFormAnimation from './WaveFormAnimation';
 import { IconPlayerStopFilled } from '@tabler/icons-react';
+import VoiceLoader from './VoiceLoader';
 
 const VoiceChatAI = () => {
     const [isListening, setIsListening] = useState(false);
@@ -190,7 +191,10 @@ const VoiceChatAI = () => {
         {isListening ?
             (<div className="flex justify-center gap-2 items-center flex-row h-72 w-72 border dark:border-neutral-500 shadow-md rounded-2xl bg-white dark:bg-neutral-800 p-2">
                 <div className="flex flex-col justify-center items-center gap-4">
-                    <WaveFormAnimation isAnimating={isListening}/>
+                    {/* <WaveFormAnimation isAnimating={isListening}/> */}
+                    <div className='from-indigo-100 via-blue-100 rounded-full bg-linear-to-br p-4'>
+                        <VoiceLoader/>
+                    </div>
                     <p className='text-neutral-500 dark:text-neutral-400 text-center px-4'>
                         {interimTranscript || transcript || 'Listening...'}
                     </p>
