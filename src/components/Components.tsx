@@ -13,6 +13,7 @@ import Model from "../../public/Earth";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
+import ImageCards from "./Playground/ImageCards";
 
 const Components = () => {
     return <div className="div">
@@ -63,6 +64,12 @@ const Components = () => {
                         <Environment preset="sunset"/>
                         <ContactShadows position={[0,-2.5,0]} opacity={0.5} scale={50} blur={1} far={10} resolution={256} color="#000000"/>
                     </Canvas>
+                </div>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
+            </div>
+            <div className="flex flex-col">
+                <div className="p-10 h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                    <ImageCards/>
                 </div>
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
             </div>
