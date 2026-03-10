@@ -68,10 +68,10 @@ const Components = () => {
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
             </div>
             <div className="flex flex-col">
-                <div className="p-10 h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
+                <div className="h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
                     <ImageCards/>
                 </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
+                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</p>
             </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
