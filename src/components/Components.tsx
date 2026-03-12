@@ -14,6 +14,7 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, ContactShadows } from "@react-three/drei";
 import ImageCards from "./Playground/ImageCards";
+import ExpandingCards from "./Playground/ExpandingCards";
 
 const Components = () => {
     return <div className="div">
@@ -72,6 +73,12 @@ const Components = () => {
                     <ImageCards/>
                 </div>
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</p>
+            </div>
+        </div>
+        <h1 className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</h1>
+        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="col-span-3">
+                <ExpandingCards/>
             </div>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
