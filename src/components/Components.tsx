@@ -75,8 +75,8 @@ const Components = () => {
                 <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</p>
             </div>
         </div>
-        <h1 className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</h1>
-        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h1 className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Expandable Cards</h1>
+        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
             <div className="col-span-3">
                 <ExpandingCards/>
             </div>
