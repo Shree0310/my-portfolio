@@ -90,9 +90,6 @@ const ExpandingCards = () => {
                             filter:'blur(0px)',
                             opacity: 1
                         }}
-                        transition={{
-                            delay: 0.3
-                        }}
                         layoutId={`card-des-${currentCard.title}`} 
                         className="text-sm dark:text-neutral-400 text-neutral-600 px-4 flex items-center mt-6 overflow-hidden">
                         {currentCard.content()}
