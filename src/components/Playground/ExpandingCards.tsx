@@ -83,12 +83,9 @@ const ExpandingCards = () => {
                     <motion.h1 layoutId={`card-title-${currentCard.title}`} className="text-lg font-bold dark:text-neutral-200 text-neutral-600 px-4 pt-6">{currentCard.title}</motion.h1>
                     <motion.div
                         initial={{
-                            filter: 'blur(10px)',
-                            opacity: 0
-                        }} 
+                            filter: 'blur(10px)',                        }} 
                         animate={{
                             filter:'blur(0px)',
-                            opacity: 1
                         }}
                         layoutId={`card-des-${currentCard.title}`} 
                         className="text-sm dark:text-neutral-400 text-neutral-600 px-4 flex items-center mt-6 overflow-hidden">
