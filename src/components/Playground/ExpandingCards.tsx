@@ -1,6 +1,3 @@
-import  peony  from "../../../public/Images/peony.jpg";
-import  leaves  from "../../../public/Images/leaves.jpg";
-import Image from "next/image";
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from "react";
 
