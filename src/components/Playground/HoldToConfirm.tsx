@@ -1,10 +1,27 @@
-import { animate, motion, useMotionValue, useTransform, Variants } from 'framer-motion';
+import { animate, AnimatePresence, motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useRef, useState, PointerEvent } from "react";
 
 type HoldToConfirmProps = {
     text: string,
     confirmTimeout?: number,
     onConfirm?: VoidFunction
+}
+
+type Direction = "back" | "forward";
+
+const textVariants: Variants = {
+    initial: (direction: Direction) => ({
+        y: direction === "forward" ? "-30%" : "30%",
+        opacity: 0
+    }),
+    target: {
+        y: "0%",
+        opacity: 1,
+    },
+    exit: (direction: Direction) => ({
+        y: direction === "forward" ? "30%" : "-30%",
+        opacity: 0
+    })
 }
 
 const buttonVariants : Variants = {
@@ -37,6 +54,9 @@ const buttonVariants : Variants = {
     const fillRightOffset = useTransform(progress, (v) => `${(1 - v) * 100}%`);
 
     const text = state === "idle" ? textFromProps : state === "inProgress" ? "Hold to confirm" : "Release to complete"
+
+    const textDirection: Direction = state === 'idle' ? 'back' : 'forward';
+
 
     const startCountDown = () => {
         setState("inProgress");
@@ -73,7 +93,10 @@ const buttonVariants : Variants = {
         }
     };
 
-
+    // This is used in 'completion' animation
+    const fillerConfirmAnimationProgress = useMotionValue(0);
+    const fillLeftOffset = useTransform(fillerConfirmAnimationProgress, (v) => `${v * 100}%`);
+  
     return (
         <div className="bg-neutral-100 rounded-lg shadow-md p-8 flex items-center justify-center">
             <motion.button 
@@ -94,13 +117,19 @@ const buttonVariants : Variants = {
                     delay:0.1
                 }}>
                 <motion.div 
-                    style={{ right: fillRightOffset }} 
+                    style={{ right: fillRightOffset, left: fillLeftOffset }} 
                     className="absolute inset-0 bg-red-700 pointer-events-none"
                 />     
+                <AnimatePresence custom={textDirection} initial={false} mode='popLayout'>
                 {/* Text layer - stays centered */}
-                <span className="relative z-10 pointer-events-none select-none">
+                <motion.div 
+                    key={text}
+                    variants={textVariants}
+                    custom={textDirection}
+                    className="relative z-10 pointer-events-none select-none">
                     {text}
-                </span>          
+                </motion.div>   
+                </AnimatePresence>       
             </motion.button>
         </div>
     )
