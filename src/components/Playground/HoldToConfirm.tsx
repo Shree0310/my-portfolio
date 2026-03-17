@@ -1,10 +1,31 @@
-import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
+import { animate, motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useRef, useState, PointerEvent } from "react";
 
 type HoldToConfirmProps = {
     text: string,
     confirmTimeout?: number,
     onConfirm?: VoidFunction
+}
+
+const buttonVariants : Variants = {
+    idle: {
+        x: 0,
+        rotate: 0,
+        transition: {
+            duration: 0.1
+        }
+    },
+    shaking: {
+        x: [-10, 10], //KeyFrames: From -10 to 10 pixels
+        rotate: [-3, 3], //KeyFrames: From -3 to 3 degrees
+        //To make the button shaky indefinitely
+        transition: {
+            repeatType: "mirror",
+            repeat: Infinity,
+            duration: 0.1,
+            ease: "easeInOut"
+        }
+    }
 }
 
  const HoldToConfirmFoundation = ({ text:textFromProps, confirmTimeout=2, onConfirm}:HoldToConfirmProps) => {
@@ -66,8 +87,8 @@ type HoldToConfirmProps = {
                 }}
                 onPointerMove={pointerMove}
                 onContextMenuCapture={(e) => e.preventDefault()}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                variants={buttonVariants}
+                animate={ state === "inProgress" ? "shaking": "idle" }
                 transition={{
                     ease:"easeInOut",
                     delay:0.1
