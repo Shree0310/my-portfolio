@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Signika } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import { ViewTransitions } from 'next-view-transitions'
 import { Toaster } from 'sonner';
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   description: "A perfect portfolio website ",
 };
 
+export const signika = Signika({
+  subsets: ["latin"],
+  variable: "--font-signika"
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +29,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${inter.className} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
+          className={`${inter.className} ${signika.variable} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <main className="bg-background text-foreground">

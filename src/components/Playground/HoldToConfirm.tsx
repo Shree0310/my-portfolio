@@ -33,8 +33,8 @@ const buttonVariants : Variants = {
         }
     },
     shaking: {
-        x: [-10, 10], //KeyFrames: From -10 to 10 pixels
-        rotate: [-3, 3], //KeyFrames: From -3 to 3 degrees
+        x: [-5, 5], //KeyFrames: From -10 to 10 pixels
+        rotate: [-1, 1], //KeyFrames: From -3 to 3 degrees
         //To make the button shaky indefinitely
         transition: {
             repeatType: "mirror",
@@ -58,28 +58,43 @@ const buttonVariants : Variants = {
     const textDirection: Direction = state === 'idle' ? 'back' : 'forward';
 
 
-    const startCountDown = () => {
-        setState("inProgress");
-        animate(progress, 1, {duration: confirmTimeout, ease: 'linear'}).then(() => {
-            if(progress.get() != 1) return;
-            setState("complete");
-        })
-    }
+    const startCountdown = () => {
+        setState('inProgress');
+        // Generates array like [100, 50, 100, 50, 100, 50, ...]
+        const pattern = new Array(confirmTimeout * 10)
+        .fill(0)
+        .map((_, ind) => (ind % 2 === 0 ? 100 : 50));
+        navigator.vibrate?.(pattern);
+        animate(progress, 1, { duration: confirmTimeout, ease: 'linear' }).then(
+        () => {
+            if (progress.get() !== 1) return;
+            setState('complete');
+            navigator.vibrate(0); // Stop vibrating
+        }
+        );
+    };
 
-    const cancelCountDown = () => {
+    const cancelCountdown = () => {
+        navigator.vibrate?.(0);
         progress.stop();
-        setState("idle");
-        animate(progress, 0, {duration: 0.2, ease:"linear"})
-    }
+        setState('idle');
+        animate(progress, 0, { duration: 0.2, ease: 'linear' });
+    };
 
     const pointerUp = (e: PointerEvent) => {
         const target = document.elementFromPoint(e.clientX, e.clientY);
         if (progress.get() === 1 && ref.current?.contains(target)) {
+        animate(fillerConfirmAnimationProgress, 1, {
+            duration: 0.2,
+            ease: 'linear',
+        }).then(() => {
+            fillerConfirmAnimationProgress.jump(0);
             progress.jump(0);
-            setState("idle");
+            setState('idle');
             onConfirm?.();
+        });
         } else {
-            cancelCountDown();
+        cancelCountdown();
         }
     };
 
@@ -89,7 +104,7 @@ const buttonVariants : Variants = {
         
         const target = document.elementFromPoint(e.clientX, e.clientY);
         if (!ref.current?.contains(target)) {
-            cancelCountDown();
+            cancelCountdown();
         }
     };
 
@@ -103,10 +118,10 @@ const buttonVariants : Variants = {
                 className="relative overflow-hidden min-w-48 select-none touch-none whitespace-nowrap leading-5 focus:outline-4 bg-red-500/80 hover:bg-red-600 border-red-800 border shadow-sm shadow-red-800 text-white font-semibold text-sm text-center cursor-pointer rounded-md py-2 px-3"
                 ref={ref}
                 onPointerUp={pointerUp}
-                onPointerDown={startCountDown}
-                onPointerCancel={cancelCountDown}
+                onPointerDown={startCountdown}
+                onPointerCancel={cancelCountdown}
                 onPointerLeave={(e) => {
-                    if(e.pointerType === 'mouse') cancelCountDown();
+                    if(e.pointerType === 'mouse') cancelCountdown();
                 }}
                 onPointerMove={pointerMove}
                 onContextMenuCapture={(e) => e.preventDefault()}
