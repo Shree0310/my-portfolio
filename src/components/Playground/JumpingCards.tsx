@@ -112,7 +112,7 @@ const JumpingCards = () => {
             }
         }
     ]
-    return <div ref={ref} className="max-w-5xl mx-auto w-full h-96 relative ml-20">
+    return <div ref={ref} className="max-w-5xl mx-auto w-full h-96 relative ml-12">
         {cards.map((card,index) => (
             <motion.div
                 key={index}
