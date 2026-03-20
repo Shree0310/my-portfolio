@@ -1,11 +1,11 @@
 import type { ButtonSize, ButtonRadius } from "./types";
 
 export const sizeClasses: Record<ButtonSize, string> = {
-    sm: "h-8 w-20 text-xs px-3",
-    md: "h-10 w-24 text-sm px-4",
-    lg: "h-12 w-28 text-base px-5",
-    xl: "h-14 w-32 text-lg px-6",
-}
+  sm: "h-8 min-w-fit text-xs px-3",
+  md: "h-10 min-w-fit text-sm px-4",
+  lg: "h-12 min-w-fit text-base px-5",
+  xl: "h-14 min-w-fit text-lg px-6",
+};
 
 export const iconSizeClasses: Record<ButtonSize, string> = {
   sm: "h-8 w-8",

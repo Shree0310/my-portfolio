@@ -6,7 +6,7 @@ export type LinkColor = "sky" | "orange" | "green" | "red" | "violet";
 export type GlowColor = "indigo" | "cyan" | "violet" | "pink" | "emerald" | "orange";
 
 export interface BaseButtonProps {
-    children?: React.ReactNode,
+    children?: string,
     className?: string,
     textColor?: string,
     size?: ButtonSize,
@@ -27,11 +27,12 @@ export interface GradientButtonProps extends BaseButtonProps {
 export interface BorderBeamButtonProps extends BaseButtonProps {
     beamDuration?: number,
     beamSize?: number,
-    beamFrom?: string,
-    beamTo?: string
+    beamColorFrom?: string,
+    beamColorTo?: string,
+    reverse?: boolean
 }
 
-export interface HoverListButtonProps extends BaseButtonProps {
+export interface HoverLiftButtonProps extends BaseButtonProps {
     liftDistance?: number,
     duration?: number,
 }
@@ -49,7 +50,7 @@ export interface LinkButtonProps extends BaseButtonProps {
     color?: LinkColor
 }
 
-export interface IluminoButtonProps extends BaseButtonProps {
+export interface IlluminoButtonProps extends BaseButtonProps {
     glowColor?: string,
     bgColor?: string,
     hoverBgColor?: string

@@ -1,7 +1,6 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import ButtonUI, { AnimatedButton, BorderBeamButton, DisabledButton, IconButton, IlluminoButton, LinkButton, SecondaryButton, SimpleButton } from "@/components/Playground/Button";
 import { BentoGrid } from "@/components/Playground/Layouts";
 import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
@@ -18,6 +17,17 @@ import ExpandingCards from "./Playground/ExpandingCards";
 import LiquidEffect from "./Playground/LiquidEffect";
 import HoldToConfirmFoundation from "./Playground/HoldToConfirm";
 import JumpingCards from "./Playground/JumpingCards";
+import GradientButton from "./Playground/Buttons/GradientButton";
+import BorderBeamButton from "./Playground/Buttons/BorderBeamButton";
+import HoverLiftButton from "./Playground/Buttons/HoverLiftButton";
+import SecondaryButton from "./Playground/Buttons/SecondaryButton";
+import DisabledButton from "./Playground/Buttons/DisabledButton";
+import LinkButton from "./Playground/Buttons/LinkButton";
+import IlluminoButton from "./Playground/Buttons/IlluminoButton";
+import Animated3DButton from "./Playground/Buttons/Animated3DButton";
+import { IconButton, HeartButton, TrashButton, ShareButton } from "./Playground/Buttons/IconButton";
+import { IconStar } from "@tabler/icons-react";
+
 
 const Components = () => {
     return <div className="div">
@@ -106,39 +116,64 @@ const Components = () => {
         <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
             <Card>                
                 <CardHeading><p>Button</p></CardHeading>
-                <ButtonUI/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <GradientButton/>
+                </div>
             </Card>
             <Card>                
                 <CardHeading><p>Border Beam Button</p></CardHeading>
-                <BorderBeamButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <BorderBeamButton/>
+                </div>
             </Card>
             <Card>                
                 <CardHeading><p>Usual</p></CardHeading>
-                <SimpleButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <HoverLiftButton/>
+                </div>
             </Card>
             <Card>                
                 <CardHeading><p>Secondary Button</p></CardHeading>
-                <SecondaryButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <SecondaryButton/>
+                </div>
             </Card>
             <Card>                
                 <CardHeading><p>Disabled Button</p></CardHeading>
-                <DisabledButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <DisabledButton/>
+                </div>
             </Card>
             <Card>
                 <CardHeading><p>Link Button</p></CardHeading>
-                <LinkButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                     <div className="flex flex-col">
+                        <LinkButton color="sky">Primary</LinkButton>
+                        <LinkButton color="orange">Secondary</LinkButton>
+                        <LinkButton color="green">Success</LinkButton>
+                        <LinkButton color="red">Danger</LinkButton>
+                    </div>
+                </div>
             </Card>
             <Card>
                 <CardHeading><div>Gradient Button</div></CardHeading>
-                <IlluminoButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <IlluminoButton/>
+                </div>
             </Card>
             <Card>
                 <CardHeading><div>Animated Button</div></CardHeading>
-                <AnimatedButton/>
+                <div className="h-64 w-64 pb-10  flex items-center justify-center">
+                    <Animated3DButton/>
+                </div>
             </Card>
             <Card>
                 <CardHeading><div>Icon Button</div></CardHeading>
-                <IconButton/>
+                <div className="h-64 w-64 pb-10  flex items-center gap-4 justify-center">
+                    <HeartButton />
+                    <TrashButton />
+                    <ShareButton />
+                </div>
             </Card>
         </div>
         <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Inputs</h3>
