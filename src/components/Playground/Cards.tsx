@@ -16,8 +16,9 @@ import { IconUsers } from '@tabler/icons-react';
 import { IconEyeDotted } from '@tabler/icons-react';
 import { IconBriefcase2 } from '@tabler/icons-react';
 import { IconMessageCircle } from '@tabler/icons-react';
-import { GlowingButton, PulsatingButton } from "./Button";
+import { PulsatingButton } from "./Button";
 import SVGLines from "./SVGs/SVGLines";
+import GlowingButton from "./Buttons/GlowingButton";
 
 
 export const IDCard = () => {
@@ -233,7 +234,9 @@ export const BeamCard = ({className}:{className: string}) => {
             <div className="w-full h-full bg-white rounded-[3px] relative z-20"></div>
             <div className="absolute w-full h-full inset-0 bg-[conic-gradient(at_center,transparent,var(--color-cyan-500)_20%,var(--color-blue-500)_10%,transparent_30%)] animate-spin scale-[1.4]"></div>
         </div> */}
-        <GlowingButton className=""/>
+        <div className="flex justify-center items-center">
+            <GlowingButton />
+        </div>
         <div className="flex flex-col px-6 py-1">
            <div className="text-xs text-neutral-900 dark:text-neutral-300 py-1">Auto-join</div> 
             <div className="text-xs text-neutral-600 dark:text-neutral-400">Let your users discover and join organizations based on their email domain.</div>
