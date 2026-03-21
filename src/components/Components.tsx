@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { BentoGrid } from "@/components/Playground/Layouts";
-import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
 import BottomMenu from "./Playground/Menu/BottomMenu";
 import DisconnectedTabs from "./Playground/Tabs/DisconnectedTabs";
@@ -30,6 +29,13 @@ import { IconButton, HeartButton, TrashButton, ShareButton } from "./Playground/
 import { IconStar } from "@tabler/icons-react";
 import Navbar from "./Navbar/Navbar";
 import ComponentsSidebar from "./ComponentLibrary/ComponentsSidebar";
+import AnimatedCard from "./Playground/Cards/AnimatedCard";
+import BeamCard from "./Playground/Cards/BeamCard";
+import Avatar1 from "../../public/Images/Avatar1.jpg";
+import Avatar2 from "../../public/Images/Avatar2.jpg";
+import Avatar3 from "../../public/Images/Avatar3.jpg";
+import SecondaryBeamCard from "./Playground/Cards/SecondaryBeamCard";
+import MenuCard from "./Playground/Cards/MenuCard";
 
 const Components = () => {
     const [activeSection, setActiveSection] = useState("all");
@@ -54,15 +60,15 @@ const Components = () => {
                         <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
                             <AnimatedCard className="col-span-1"/>
                             <div className="div">
-                                <BeamCard className="col-span-1"/>
+                                <BeamCard avatars={[Avatar1.src, Avatar2.src, Avatar3.src]} />
                                 <SecondaryBeamCard className="col-span-1"/>
                             </div>
-                            <DropDownCard className="col-span-1"/>
+                            <MenuCard className="col-span-1"/>
                         </div>
 
                         <SubHeading>Cards Animation</SubHeading>
                         <ComponentContainer>
-                            <div className="col-span-3">
+                            <div className="col-span-3 h-180">
                                 <JumpingCards/>
                             </div>
                         </ComponentContainer>
