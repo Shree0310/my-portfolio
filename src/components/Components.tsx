@@ -1,6 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { BentoGrid } from "@/components/Playground/Layouts";
 import { AnimatedCard, BeamCard, DropDownCard, IDCard, SecondaryBeamCard } from "@/components/Playground/Cards";
 import { InputDefault } from "./Playground/Inputs";
@@ -27,186 +28,288 @@ import IlluminoButton from "./Playground/Buttons/IlluminoButton";
 import Animated3DButton from "./Playground/Buttons/Animated3DButton";
 import { IconButton, HeartButton, TrashButton, ShareButton } from "./Playground/Buttons/IconButton";
 import { IconStar } from "@tabler/icons-react";
-
+import Navbar from "./Navbar/Navbar";
+import ComponentsSidebar from "./ComponentLibrary/ComponentsSidebar";
 
 const Components = () => {
-    return <div className="div">
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Cards</h3>
-        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
+    const [activeSection, setActiveSection] = useState("all");
 
-            <AnimatedCard className="col-span-1"/>
-            <div className="div">
-                <BeamCard className="col-span-1"/>
-                <SecondaryBeamCard className=" col-span-1"/>
-            </div>
-            <DropDownCard className=" col-span-1"/>
+    const showSection = (section: string) => 
+        activeSection === "all" || activeSection === section;
+
+    return (
+        <div className="flex min-h-screen bg-white dark:bg-neutral-950">
+            <ComponentsSidebar 
+                activeSection={activeSection} 
+                onSectionChange={setActiveSection} 
+            />
+            
+            <main className="flex-1 p-6 overflow-auto">
+                <Navbar/>
+                
+                {/* Cards Section */}
+                {showSection("cards") && (
+                    <>
+                        <SectionHeading>Cards</SectionHeading>
+                        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
+                            <AnimatedCard className="col-span-1"/>
+                            <div className="div">
+                                <BeamCard className="col-span-1"/>
+                                <SecondaryBeamCard className="col-span-1"/>
+                            </div>
+                            <DropDownCard className="col-span-1"/>
+                        </div>
+
+                        <SubHeading>Cards Animation</SubHeading>
+                        <ComponentContainer>
+                            <div className="col-span-3">
+                                <JumpingCards/>
+                            </div>
+                        </ComponentContainer>
+
+                        <SubHeading>Expandable Cards</SubHeading>
+                        <ComponentContainer>
+                            <div className="col-span-3">
+                                <ExpandingCards/>
+                            </div>
+                        </ComponentContainer>
+                    </>
+                )}
+
+                {/* Menu Section */}
+                {showSection("menu") && (
+                    <>
+                        <SectionHeading>Menu</SectionHeading>
+                        <div className="grid grid-cols-2 gap-4 mx-2">
+                            <PreviewCard label="Bottom Menu">
+                                <BottomMenu/>
+                            </PreviewCard>
+                            <PreviewCard label="Disconnected Tabs">
+                                <DisconnectedTabs/>
+                            </PreviewCard>
+                            <PreviewCard label="Contexual AI Input" centered>
+                                <ContexualAIBar/>
+                            </PreviewCard>
+                            <PreviewCard label="Voice AI Chat (In Progress...)" centered>
+                                <VoiceChatAI/>
+                            </PreviewCard>
+                            <PreviewCard label="Earth 3D" centered className="bg-blue-100 dark:bg-neutral-900">
+                                <Canvas className="h-96">
+                                    <ambientLight intensity={1}/>
+                                    <OrbitControls enableZoom={false}/>
+                                    <Suspense fallback={null}>
+                                        <Model/>
+                                    </Suspense>
+                                    <Environment preset="sunset"/>
+                                    <ContactShadows position={[0,-2.5,0]} opacity={0.5} scale={50} blur={1} far={10} resolution={256} color="#000000"/>
+                                </Canvas>
+                            </PreviewCard>
+                            <PreviewCard label="Card Stack" centered className="bg-blue-100 dark:bg-neutral-900">
+                                <ImageCards/>
+                            </PreviewCard>
+                            <PreviewCard label="Liquid Effect" centered className="bg-blue-100 dark:bg-neutral-900">
+                                <LiquidEffect />
+                            </PreviewCard>
+                            <PreviewCard label="Hold to confirm" centered className="bg-gradient-to-r from-yellow-100/50 to-blue-100/50 dark:bg-neutral-900 dark:from-neutral-900 dark:to-neutral-900">
+                                <HoldToConfirmFoundation text='Delete Project'/>
+                            </PreviewCard>
+                        </div>
+                    </>
+                )}
+
+                {/* Buttons Section */}
+                {showSection("buttons") && (
+                    <>
+                        <SectionHeading>Buttons</SectionHeading>
+                        <ComponentContainer>
+                            <Card>                
+                                <CardHeading>Button</CardHeading>
+                                <CardContent>
+                                    <GradientButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>                
+                                <CardHeading>Border Beam Button</CardHeading>
+                                <CardContent>
+                                    <BorderBeamButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>                
+                                <CardHeading>Usual</CardHeading>
+                                <CardContent>
+                                    <HoverLiftButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>                
+                                <CardHeading>Secondary Button</CardHeading>
+                                <CardContent>
+                                    <SecondaryButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>                
+                                <CardHeading>Disabled Button</CardHeading>
+                                <CardContent>
+                                    <DisabledButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeading>Link Button</CardHeading>
+                                <CardContent>
+                                    <div className="flex flex-col">
+                                        <LinkButton color="sky">Primary</LinkButton>
+                                        <LinkButton color="orange">Secondary</LinkButton>
+                                        <LinkButton color="green">Success</LinkButton>
+                                        <LinkButton color="red">Danger</LinkButton>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeading>Illumino Button</CardHeading>
+                                <CardContent>
+                                    <IlluminoButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeading>Animated Button</CardHeading>
+                                <CardContent>
+                                    <Animated3DButton/>
+                                </CardContent>
+                            </Card>
+                            <Card>
+                                <CardHeading>Icon Button</CardHeading>
+                                <CardContent className="gap-4">
+                                    <HeartButton />
+                                    <TrashButton />
+                                    <ShareButton />
+                                </CardContent>
+                            </Card>
+                        </ComponentContainer>
+                    </>
+                )}
+
+                {/* Inputs Section */}
+                {showSection("inputs") && (
+                    <>
+                        <SectionHeading>Inputs</SectionHeading>
+                        <ComponentContainer>
+                            <Card>                
+                                <CardHeading>Text input (default)</CardHeading>
+                                <InputDefault/>
+                            </Card>
+                        </ComponentContainer>
+                    </>
+                )}
+
+                {/* Layouts Section */}
+                {showSection("layouts") && (
+                    <>
+                        <SectionHeading>Layouts</SectionHeading>
+                        <ComponentContainer>
+                            <BentoGrid/>
+                        </ComponentContainer>
+                    </>
+                )}
+            </main>
         </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Menu</h3>
-        <div className="grid grid-cols-2 gap-4 mx-2">
-            <div className="flex flex-col">
-                 <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                <BottomMenu/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Bottom Menu</p>
-            </div>
-           <div className="flex flex-col">
-                <div className="p-10 h-96  border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <DisconnectedTabs/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Disconnected Tabs</p>
-            </div>
-             <div className="flex flex-col">
-                <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <ContexualAIBar/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Contexual AI Input</p>
-            </div>
-            <div className="flex flex-col">
-                <div className="p-10 h-96 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <VoiceChatAI/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Voice AI Chat (In Progress...)</p>
-            </div>
-            <div className="flex flex-col">
-                <div className="p-10 h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <Canvas className="h-96">
-                        <ambientLight intensity={1}/>
-                        <OrbitControls enableZoom={false}/>
-                        <Suspense fallback={null}>
-                            <Model/>
-                        </Suspense>
-                        <Environment preset="sunset"/>
-                        <ContactShadows position={[0,-2.5,0]} opacity={0.5} scale={50} blur={1} far={10} resolution={256} color="#000000"/>
-                    </Canvas>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Earth 3D</p>
-            </div>
-            <div className="flex flex-col">
-                <div className="h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <ImageCards/>
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Card Stack</p>
-            </div>
-            <div className="flex flex-col">
-                <div className="h-96 bg-blue-200 dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <LiquidEffect />
-                </div>
-                <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Liquid Effect</p>
-            </div>
-            <div className="flex flex-col">
-                <div className="h-96 to-blue-200/50 from-yellow-100/50 bg-linear-to-r dark:bg-neutral-900 flex justify-center items-center border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-                    <HoldToConfirmFoundation text='Delete Project'/>
-                </div>
-            <p className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Hold to confirm</p>
-            </div>
-        </div>
-        <h1 className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Cards Animation</h1>
-         <div className="p-10 grid grid-cols-1 md:grid-cols-3 h-200 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
-            <div className="col-span-3">
-                <JumpingCards/>
-            </div>
-        </div>
-        <h1 className="text-[16px] p-4 text-neutral-700 dark:text-neutral-300">Expandable Cards</h1>
-         <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
-            <div className="col-span-3">
-                <ExpandingCards/>
-            </div>
-        </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Buttons</h3>
-        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-900 rounded-md shadow-2xl">
-            <Card>                
-                <CardHeading><p>Button</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <GradientButton/>
-                </div>
-            </Card>
-            <Card>                
-                <CardHeading><p>Border Beam Button</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <BorderBeamButton/>
-                </div>
-            </Card>
-            <Card>                
-                <CardHeading><p>Usual</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <HoverLiftButton/>
-                </div>
-            </Card>
-            <Card>                
-                <CardHeading><p>Secondary Button</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <SecondaryButton/>
-                </div>
-            </Card>
-            <Card>                
-                <CardHeading><p>Disabled Button</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <DisabledButton/>
-                </div>
-            </Card>
-            <Card>
-                <CardHeading><p>Link Button</p></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                     <div className="flex flex-col">
-                        <LinkButton color="sky">Primary</LinkButton>
-                        <LinkButton color="orange">Secondary</LinkButton>
-                        <LinkButton color="green">Success</LinkButton>
-                        <LinkButton color="red">Danger</LinkButton>
-                    </div>
-                </div>
-            </Card>
-            <Card>
-                <CardHeading><div>Gradient Button</div></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <IlluminoButton/>
-                </div>
-            </Card>
-            <Card>
-                <CardHeading><div>Animated Button</div></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center justify-center">
-                    <Animated3DButton/>
-                </div>
-            </Card>
-            <Card>
-                <CardHeading><div>Icon Button</div></CardHeading>
-                <div className="h-64 w-64 pb-10  flex items-center gap-4 justify-center">
-                    <HeartButton />
-                    <TrashButton />
-                    <ShareButton />
-                </div>
-            </Card>
-        </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Inputs</h3>
-        <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-            <Card>                
-                <CardHeading><p>Text input (default)</p></CardHeading>
-                <InputDefault/>
-            </Card>
-        </div>
-        <h3 className="text-xl py-6 font-semibold dark:text-neutral-300 text-neutral-600">Layouts</h3>
-        <div className="p-10 gap-6 border border-neutral-300 dark:border-neutral-600 rounded-md shadow-2xl">
-            <BentoGrid/>
-        </div>
-        </div>
-        
+    );
 }
+
 export default Components;
 
-export const Card = ({
-        children, 
+// ============================================
+// SHARED UI COMPONENTS
+// ============================================
+
+const SectionHeading = ({ children }: { children: React.ReactNode }) => (
+    <h3 className="text-xl py-6 font-semibold text-neutral-700 dark:text-neutral-300">
+        {children}
+    </h3>
+);
+
+const SubHeading = ({ children }: { children: React.ReactNode }) => (
+    <h4 className="text-base p-4 text-neutral-600 dark:text-neutral-400">
+        {children}
+    </h4>
+);
+
+const ComponentContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+    <div className={cn(
+        "p-10 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-md shadow-lg",
+        "bg-neutral-50 dark:bg-neutral-900",
+        "border border-neutral-200 dark:border-neutral-700",
         className
-    }: {
-        children?: React.ReactNode, 
-        className?: string
-    }) => {
-    return <div className={cn("dark:bg-neutral-800 h-72 w-72 rounded-md shadow-2xl border border-neutral-300 dark:border-neutral-600",className)}>
+    )}>
         {children}
     </div>
-}
+);
 
-export const CardHeading = ({as: Tag = "h1",children, className}:{as?: "h1",children?: React.ReactElement, className?: string}) => {
-    return <Tag className={cn("p-2 dark:text-neutral-300  text-neutral-600 text-[16px] border-b dark:border-neutral-600 border-neutral-300 font-semibold", className)}>
+const PreviewCard = ({ 
+    children, 
+    label, 
+    centered = false,
+    className 
+}: { 
+    children: React.ReactNode; 
+    label: string;
+    centered?: boolean;
+    className?: string;
+}) => (
+    <div className="flex flex-col">
+        <div className={cn(
+            "p-10 h-96 rounded-md shadow-lg",
+            "bg-white dark:bg-neutral-900",
+            "border border-neutral-200 dark:border-neutral-700",
+            centered && "flex justify-center items-center",
+            className
+        )}>
+            {children}
+        </div>
+        <p className="text-sm p-4 text-neutral-600 dark:text-neutral-400">{label}</p>
+    </div>
+);
+
+export const Card = ({
+    children, 
+    className
+}: {
+    children?: React.ReactNode; 
+    className?: string;
+}) => (
+    <div className={cn(
+        "h-72 w-72 rounded-md shadow-lg",
+        "bg-white dark:bg-neutral-800",
+        "border border-neutral-200 dark:border-neutral-700",
+        className
+    )}>
         {children}
-    </Tag>
+    </div>
+);
 
-}
+export const CardHeading = ({
+    children, 
+    className
+}: {
+    children?: React.ReactNode; 
+    className?: string;
+}) => (
+    <h5 className={cn(
+        "p-2 text-base font-semibold",
+        "text-neutral-700 dark:text-neutral-300",
+        "border-b border-neutral-200 dark:border-neutral-700",
+        className
+    )}>
+        {children}
+    </h5>
+);
+
+const CardContent = ({ 
+    children, 
+    className 
+}: { 
+    children: React.ReactNode; 
+    className?: string;
+}) => (
+    <div className={cn("h-64 w-64 pb-10 flex items-center justify-center", className)}>
+        {children}
+    </div>
+);
