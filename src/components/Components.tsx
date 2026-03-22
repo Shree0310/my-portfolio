@@ -26,7 +26,6 @@ import LinkButton from "./Playground/Buttons/LinkButton";
 import IlluminoButton from "./Playground/Buttons/IlluminoButton";
 import Animated3DButton from "./Playground/Buttons/Animated3DButton";
 import { IconButton, HeartButton, TrashButton, ShareButton } from "./Playground/Buttons/IconButton";
-import { IconStar } from "@tabler/icons-react";
 import Navbar from "./Navbar/Navbar";
 import ComponentsSidebar from "./ComponentLibrary/ComponentsSidebar";
 import AnimatedCard from "./Playground/Cards/AnimatedCard";
@@ -68,7 +67,7 @@ const Components = () => {
 
                         <SubHeading>Cards Animation</SubHeading>
                         <ComponentContainer>
-                            <div className="col-span-3 h-180">
+                            <div className="col-span-3 h-180 mt-6 ml-6">
                                 <JumpingCards/>
                             </div>
                         </ComponentContainer>
@@ -116,7 +115,7 @@ const Components = () => {
                             <PreviewCard label="Liquid Effect" centered className="bg-blue-100 dark:bg-neutral-900">
                                 <LiquidEffect />
                             </PreviewCard>
-                            <PreviewCard label="Hold to confirm" centered className="bg-gradient-to-r from-yellow-100/50 to-blue-100/50 dark:bg-neutral-900 dark:from-neutral-900 dark:to-neutral-900">
+                            <PreviewCard label="Hold to confirm" centered className="bg-linear-to-r from-yellow-100/50 to-blue-100/50 dark:bg-neutral-900 dark:from-neutral-900 dark:to-neutral-900">
                                 <HoldToConfirmFoundation text='Delete Project'/>
                             </PreviewCard>
                         </div>
@@ -207,14 +206,14 @@ const Components = () => {
                 )}
 
                 {/* Layouts Section */}
-                {showSection("layouts") && (
+                {/* {showSection("layouts") && (
                     <>
                         <SectionHeading>Layouts</SectionHeading>
                         <ComponentContainer>
                             <BentoGrid/>
                         </ComponentContainer>
                     </>
-                )}
+                )} */}
             </main>
         </div>
     );

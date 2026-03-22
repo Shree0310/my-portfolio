@@ -141,7 +141,7 @@ const JumpingCards = ({
   const isCurrentActive = (card: JumpingCardItem) => card.id === activeId;
 
   return (
-    <div ref={ref} className={cn("max-w-5xl mx-auto w-full h-40 relative ml-12", className)}>
+    <div ref={ref} className={cn("max-w-5xl mx-auto w-full h-40 relative ml-12 mt-16", className)}>
       {cards.map((card) => (
         <motion.div
           key={card.id}
