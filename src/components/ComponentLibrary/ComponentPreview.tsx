@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { IconCopy, IconCheck } from "@tabler/icons-react";
+import { Highlight, themes } from "prism-react-renderer";
 
 interface ComponentPreviewProps {
   title: string;
@@ -96,10 +97,26 @@ export const ComponentPreview = ({
             {children}
           </div>
         ) : (
-          <div className="relative overflow-hidden rounded-lg bg-neutral-950">
-            <pre className="overflow-x-auto p-4 text-sm">
-              <code className="text-neutral-300">{code}</code>
-            </pre>
+          <div className="relative overflow-hidden rounded-lg">
+            <Highlight theme={themes.nightOwl} code={code.trim()} language="tsx">
+              {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <pre
+                  className={cn(className, "overflow-x-auto p-4 text-sm")}
+                  style={style}
+                >
+                  {tokens.map((line, i) => (
+                    <div key={i} {...getLineProps({ line })}>
+                      <span className="mr-4 inline-block w-8 select-none text-right text-neutral-500">
+                        {i + 1}
+                      </span>
+                      {line.map((token, key) => (
+                        <span key={key} {...getTokenProps({ token })} />
+                      ))}
+                    </div>
+                  ))}
+                </pre>
+              )}
+            </Highlight>
           </div>
         )}
       </div>
