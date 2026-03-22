@@ -35,6 +35,7 @@ import Avatar2 from "../../public/Images/Avatar2.jpg";
 import Avatar3 from "../../public/Images/Avatar3.jpg";
 import SecondaryBeamCard from "./Playground/Cards/SecondaryBeamCard";
 import MenuCard from "./Playground/Cards/MenuCard";
+import ButtonsShowcase from "./ButtonsLibrary/ButtonShowcase";
 
 const Components = () => {
     const [activeSection, setActiveSection] = useState("all");
@@ -124,72 +125,7 @@ const Components = () => {
 
                 {/* Buttons Section */}
                 {showSection("buttons") && (
-                    <>
-                        <SectionHeading>Buttons</SectionHeading>
-                        <ComponentContainer>
-                            <Card>                
-                                <CardHeading>Button</CardHeading>
-                                <CardContent>
-                                    <GradientButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>                
-                                <CardHeading>Border Beam Button</CardHeading>
-                                <CardContent>
-                                    <BorderBeamButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>                
-                                <CardHeading>Usual</CardHeading>
-                                <CardContent>
-                                    <HoverLiftButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>                
-                                <CardHeading>Secondary Button</CardHeading>
-                                <CardContent>
-                                    <SecondaryButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>                
-                                <CardHeading>Disabled Button</CardHeading>
-                                <CardContent>
-                                    <DisabledButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeading>Link Button</CardHeading>
-                                <CardContent>
-                                    <div className="flex flex-col">
-                                        <LinkButton color="sky">Primary</LinkButton>
-                                        <LinkButton color="orange">Secondary</LinkButton>
-                                        <LinkButton color="green">Success</LinkButton>
-                                        <LinkButton color="red">Danger</LinkButton>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeading>Illumino Button</CardHeading>
-                                <CardContent>
-                                    <IlluminoButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeading>Animated Button</CardHeading>
-                                <CardContent>
-                                    <Animated3DButton/>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeading>Icon Button</CardHeading>
-                                <CardContent className="gap-4">
-                                    <HeartButton />
-                                    <TrashButton />
-                                    <ShareButton />
-                                </CardContent>
-                            </Card>
-                        </ComponentContainer>
-                    </>
+                   <ButtonsShowcase/>
                 )}
 
                 {/* Inputs Section */}
