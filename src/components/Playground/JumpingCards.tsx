@@ -44,8 +44,9 @@ export interface JumpingCardsProps {
 const defaultCards: JumpingCardItem[] = [
   {
     id: "working-knowledge",
-    title: "Working Knowledge",
-    description: "Frameworks, principles, and models I've learned and developed that you will be able to immediately apply to your practice.",
+    title: "Deck of Cards",
+    description:
+      "Frameworks, principles, and models packaged like a deck: shuffle, pick, and apply instantly.",
     image: "/Images/interiors1.jpg",
     bgColor: "bg-orange-600",
     textColor: "text-white",
@@ -54,8 +55,9 @@ const defaultCards: JumpingCardItem[] = [
   },
   {
     id: "practical-demo",
-    title: "Practical Demonstration",
-    description: "Detailed walkthroughs of designing interfaces, identifying opportunities, and improving through refinement.",
+    title: "Card Craft",
+    description:
+      "Walkthroughs for designing interfaces, spotting opportunities, and refining into polished outcomes.",
     image: "/Images/interiors2.jpg",
     bgColor: "bg-stone-200",
     textColor: "text-stone-600",
@@ -64,8 +66,9 @@ const defaultCards: JumpingCardItem[] = [
   },
   {
     id: "ai-collab",
-    title: "Collaborating with AI",
-    description: "Video lessons on practical, specific methods of working with AI to get exacting results. Tools covered include Claude Code and v0.",
+    title: "AI Shuffler",
+    description:
+      "Practical methods for teaming up with AI—prompt patterns, iteration loops, and real outputs.",
     image: "/Images/interiors3.jpg",
     bgColor: "bg-sky-500",
     textColor: "text-white",
@@ -74,8 +77,9 @@ const defaultCards: JumpingCardItem[] = [
   },
   {
     id: "means-methods",
-    title: "Means & Methods",
-    description: "General tips and techniques to apply to your daily work to achieve excellence in interface design and assembly.",
+    title: "Suit Strategy",
+    description:
+      "Daily techniques for turning small iterations into consistent excellence in UI design.",
     image: "/Images/interiors4.jpg",
     bgColor: "bg-emerald-400",
     textColor: "text-stone-600",
@@ -84,8 +88,9 @@ const defaultCards: JumpingCardItem[] = [
   },
   {
     id: "interface-kit",
-    title: "Interface Kit",
-    description: "Screencasts, highlights, and deep dives that showcase the end-to-end journey for designing and building.",
+    title: "Playbook",
+    description:
+      "Screencasts, highlights, and deep dives that show end-to-end journeys from idea to shipped UI.",
     image: "/Images/interiors5.jpg",
     bgColor: "bg-stone-700",
     textColor: "text-white",
@@ -134,21 +139,22 @@ const JumpingCards = ({
     };
   }, []);
 
-  const cardWidthEffective = isMobile ? Math.round(cardWidth * 0.78) : cardWidth;
-  const cardHeightEffective = isMobile ? Math.round(cardHeight * 0.78) : cardHeight;
-  const expandedWidthEffective = isMobile ? Math.round(expandedWidth * 0.78) : expandedWidth;
-  const expandedHeightEffective = isMobile ? Math.round(expandedHeight * 0.78) : expandedHeight;
+  const cardScale = isMobile ? 0.62 : 1;
+  const cardWidthEffective = Math.round(cardWidth * cardScale);
+  const cardHeightEffective = Math.round(cardHeight * cardScale);
+  const expandedWidthEffective = Math.round(expandedWidth * cardScale);
+  const expandedHeightEffective = Math.round(expandedHeight * cardScale);
 
-  const xNoActiveMultiplier = isMobile ? 0.55 : 1;
-  const xAnyActiveMultiplier = isMobile ? 0.35 : 0.6;
-  const xAnyActiveOffset = isMobile ? 110 : 210;
-  const xActiveOffset = isMobile ? 240 : 320;
+  const xNoActiveMultiplier = isMobile ? 0.32 : 1;
+  const xAnyActiveMultiplier = isMobile ? 0.22 : 0.6;
+  const xAnyActiveOffset = isMobile ? 60 : 210;
+  const xActiveOffset = isMobile ? 150 : 320;
 
   const yNoActiveMultiplier = isMobile ? 0.9 : 1;
-  const yAnyActive = isMobile ? 260 : 360;
+  const yAnyActive = isMobile ? 220 : 360;
   const yActive = isMobile ? 0 : 10;
 
-  const rotateMultiplier = isMobile ? 0.15 : 0.2;
+  const rotateMultiplier = isMobile ? 0.12 : 0.2;
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -179,7 +185,8 @@ const JumpingCards = ({
     <div
       ref={ref}
       className={cn(
-        "max-w-5xl mx-auto w-full relative ml-0 sm:ml-12 mt-8 sm:mt-16 min-h-[420px] sm:min-h-[460px]",
+        "max-w-5xl mx-auto w-full relative mt-8 sm:mt-16 px-2 sm:px-4",
+        "min-h-[600px] sm:min-h-[640px]",
         className
       )}
     >
@@ -193,7 +200,7 @@ const JumpingCards = ({
           <motion.button
             onClick={() => handleCardClick(card)}
             initial={{
-              y: isMobile ? 280 : 400,
+              y: isMobile ? 240 : 400,
               x: 0,
               scale: 0,
               filter: "blur(10px)"

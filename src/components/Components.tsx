@@ -35,20 +35,30 @@ import Avatar2 from "../../public/Images/Avatar2.jpg";
 import Avatar3 from "../../public/Images/Avatar3.jpg";
 import SecondaryBeamCard from "./Playground/Cards/SecondaryBeamCard";
 import MenuCard from "./Playground/Cards/MenuCard";
-import ButtonsShowcase from "./ButtonsLibrary/ButtonShowcase";
+import ButtonsPreviewOnly from "./ButtonsLibrary/ButtonsPreviewOnly";
+import { useRouter } from "next/navigation";
 
 const Components = () => {
     const [activeSection, setActiveSection] = useState("all");
+    const router = useRouter();
 
     const showSection = (section: string) => 
         activeSection === "all" || activeSection === section;
+
+    const handleSectionChange = (section: string) => {
+        // Dedicated component library routes (preview + copyable code)
+        if (section === "cards") return router.push("/components/cards");
+        if (section === "buttons") return router.push("/components/buttons");
+        if (section === "all") return router.push("/components");
+        setActiveSection(section);
+    };
 
     return (
         <div className="flex min-h-screen bg-white dark:bg-neutral-950">
             <div className="hidden md:block">
                 <ComponentsSidebar 
                     activeSection={activeSection} 
-                    onSectionChange={setActiveSection} 
+                    onSectionChange={handleSectionChange} 
                 />
             </div>
             
@@ -70,7 +80,7 @@ const Components = () => {
 
                         <SubHeading>Cards Animation</SubHeading>
                         <ComponentContainer>
-                            <div className="col-span-3 h-180 mt-6 ml-0 sm:ml-6">
+                            <div className="col-span-3 min-h-[720px] sm:min-h-[820px] mt-6 ml-0 sm:ml-6 overflow-visible">
                                 <JumpingCards/>
                             </div>
                         </ComponentContainer>
@@ -128,7 +138,7 @@ const Components = () => {
                 {/* Buttons Section */}
                 {showSection("buttons") && (
                    <div className="pt-16 sm:pt-20">
-                        <ButtonsShowcase/>
+                        <ButtonsPreviewOnly/>
                    </div>
                 )}
 

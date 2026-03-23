@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "@/lib/utils";
 import { motion, easeInOut } from "framer-motion";
 import type { GlowingButtonProps } from "./types";
