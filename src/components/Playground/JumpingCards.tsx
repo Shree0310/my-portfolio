@@ -110,10 +110,45 @@ const JumpingCards = ({
   onCardClick,
 }: JumpingCardsProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const activeCard = cards.find((c) => c.id === activeId);
   const isAnyActive = activeId !== null;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+
+    // Safari fallback for older browsers.
+    // eslint-disable-next-line deprecation/deprecation
+    if (mq.addEventListener) mq.addEventListener("change", update);
+    else mq.addListener(update);
+
+    return () => {
+      // eslint-disable-next-line deprecation/deprecation
+      if (mq.removeEventListener) mq.removeEventListener("change", update);
+      else mq.removeListener(update);
+    };
+  }, []);
+
+  const cardWidthEffective = isMobile ? Math.round(cardWidth * 0.78) : cardWidth;
+  const cardHeightEffective = isMobile ? Math.round(cardHeight * 0.78) : cardHeight;
+  const expandedWidthEffective = isMobile ? Math.round(expandedWidth * 0.78) : expandedWidth;
+  const expandedHeightEffective = isMobile ? Math.round(expandedHeight * 0.78) : expandedHeight;
+
+  const xNoActiveMultiplier = isMobile ? 0.55 : 1;
+  const xAnyActiveMultiplier = isMobile ? 0.35 : 0.6;
+  const xAnyActiveOffset = isMobile ? 110 : 210;
+  const xActiveOffset = isMobile ? 240 : 320;
+
+  const yNoActiveMultiplier = isMobile ? 0.9 : 1;
+  const yAnyActive = isMobile ? 260 : 360;
+  const yActive = isMobile ? 0 : 10;
+
+  const rotateMultiplier = isMobile ? 0.15 : 0.2;
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -141,7 +176,13 @@ const JumpingCards = ({
   const isCurrentActive = (card: JumpingCardItem) => card.id === activeId;
 
   return (
-    <div ref={ref} className={cn("max-w-5xl mx-auto w-full h-40 relative ml-12 mt-16", className)}>
+    <div
+      ref={ref}
+      className={cn(
+        "max-w-5xl mx-auto w-full relative ml-0 sm:ml-12 mt-8 sm:mt-16 min-h-[420px] sm:min-h-[460px]",
+        className
+      )}
+    >
       {cards.map((card) => (
         <motion.div
           key={card.id}
@@ -152,18 +193,26 @@ const JumpingCards = ({
           <motion.button
             onClick={() => handleCardClick(card)}
             initial={{
-              y: 400,
+              y: isMobile ? 280 : 400,
               x: 0,
               scale: 0,
               filter: "blur(10px)"
             }}
             animate={{
-              x: isCurrentActive(card) ? 320 : (isAnyActive ? card.config.x * 0.6 + 210 : card.config.x),
-              y: isCurrentActive(card) ? 10 : (isAnyActive ? 360 : card.config.y),
-              rotate: isCurrentActive(card) ? 0 : card.config.rotate * 0.2,
+              x: isCurrentActive(card)
+                ? xActiveOffset
+                : isAnyActive
+                  ? card.config.x * xAnyActiveMultiplier + xAnyActiveOffset
+                  : card.config.x * xNoActiveMultiplier,
+              y: isCurrentActive(card)
+                ? yActive
+                : isAnyActive
+                  ? yAnyActive
+                  : card.config.y * yNoActiveMultiplier,
+              rotate: isCurrentActive(card) ? 0 : card.config.rotate * rotateMultiplier,
               scale: isCurrentActive(card) ? 1 : (isAnyActive ? 0.7 : 1),
-              width: isCurrentActive(card) ? expandedWidth : cardWidth,
-              height: isCurrentActive(card) ? expandedHeight : cardHeight,
+              width: isCurrentActive(card) ? expandedWidthEffective : cardWidthEffective,
+              height: isCurrentActive(card) ? expandedHeightEffective : cardHeightEffective,
               filter: "blur(0px)"
             }}
             transition={{
@@ -196,10 +245,10 @@ const JumpingCards = ({
             </div>
 
             {/* Content */}
-            <div className="p-8 text-left flex-1 flex flex-col justify-between">
+            <div className="p-6 sm:p-8 text-left flex-1 flex flex-col justify-between">
               <motion.div
                 layoutId={card.id + "-title"}
-                className="text-3xl p-2 text-left font-semibold"
+                className="text-2xl sm:text-3xl p-2 text-left font-semibold"
               >
                 {card.title}
               </motion.div>
@@ -210,7 +259,7 @@ const JumpingCards = ({
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="text-sm text-left"
+                    className="text-xs sm:text-sm text-left"
                   >
                     {activeCard.description}
                   </motion.p>

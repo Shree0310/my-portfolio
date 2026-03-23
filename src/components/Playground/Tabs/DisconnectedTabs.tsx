@@ -8,7 +8,7 @@ import { useState } from 'react';
 const DisconnectedTabs = () => {
     const [isExpandedTab, setIsExpandedTab] = useState<string | null>(null);
 
-    return <div className="flex flex-row justify-center items-center gap-4 w-100 h-14 mt-24">
+    return <div className="flex flex-row justify-center items-center gap-4 w-full h-14 mt-0">
         <motion.div 
             animate={{ 
                         width: isExpandedTab === 'Alerts' ? 144 : 64 

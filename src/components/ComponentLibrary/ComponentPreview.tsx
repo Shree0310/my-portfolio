@@ -97,12 +97,12 @@ export const ComponentPreview = ({
             {children}
           </div>
         ) : (
-          <div className="relative overflow-hidden rounded-lg">
+          <div className="relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 min-h-[200px]">
             <Highlight theme={themes.nightOwl} code={code.trim()} language="tsx">
               {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <pre
-                  className={cn(className, "overflow-x-auto p-4 text-sm")}
-                  style={style}
+                  className={cn(className, "overflow-x-auto p-4 text-xs sm:text-sm")}
+                  style={{ ...style, background: "transparent", backgroundColor: "transparent" }}
                 >
                   {tokens.map((line, i) => (
                     <div key={i} {...getLineProps({ line })}>

@@ -43,7 +43,7 @@ export const ComponentsSidebar = ({
     <aside
       className={cn(
         "sticky top-0 h-screen border-r border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 transition-all duration-300",
-        isCollapsed ? "w-16" : "w-68",
+        isCollapsed ? "w-16" : "w-64",
         className
       )}
     >

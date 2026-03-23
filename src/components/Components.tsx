@@ -45,21 +45,23 @@ const Components = () => {
 
     return (
         <div className="flex min-h-screen bg-white dark:bg-neutral-950">
-            <ComponentsSidebar 
-                activeSection={activeSection} 
-                onSectionChange={setActiveSection} 
-            />
+            <div className="hidden md:block">
+                <ComponentsSidebar 
+                    activeSection={activeSection} 
+                    onSectionChange={setActiveSection} 
+                />
+            </div>
             
-            <main className="flex-1 p-6 overflow-auto">
+            <main className="flex-1 min-w-0 p-4 sm:p-6 overflow-auto">
                 <Navbar/>
                 
                 {/* Cards Section */}
                 {showSection("cards") && (
                     <>
                         <SectionHeading>Cards</SectionHeading>
-                        <div className="p-4 relative grid grid-cols-1 gap-2 md:grid-cols-3">
+                        <div className="p-4 relative grid grid-cols-1 gap-4 md:grid-cols-3">
                             <AnimatedCard className="col-span-1"/>
-                            <div className="div">
+                            <div>
                                 <BeamCard avatars={[Avatar1.src, Avatar2.src, Avatar3.src]} />
                                 <SecondaryBeamCard className="col-span-1"/>
                             </div>
@@ -68,7 +70,7 @@ const Components = () => {
 
                         <SubHeading>Cards Animation</SubHeading>
                         <ComponentContainer>
-                            <div className="col-span-3 h-180 mt-6 ml-6">
+                            <div className="col-span-3 h-180 mt-6 ml-0 sm:ml-6">
                                 <JumpingCards/>
                             </div>
                         </ComponentContainer>
@@ -86,11 +88,11 @@ const Components = () => {
                 {showSection("menu") && (
                     <>
                         <SectionHeading>Menu</SectionHeading>
-                        <div className="grid grid-cols-2 gap-4 mx-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <PreviewCard label="Bottom Menu">
                                 <BottomMenu/>
                             </PreviewCard>
-                            <PreviewCard label="Disconnected Tabs">
+                            <PreviewCard label="Disconnected Tabs" centered>
                                 <DisconnectedTabs/>
                             </PreviewCard>
                             <PreviewCard label="Contexual AI Input" centered>
@@ -100,7 +102,7 @@ const Components = () => {
                                 <VoiceChatAI/>
                             </PreviewCard>
                             <PreviewCard label="Earth 3D" centered className="bg-blue-100 dark:bg-neutral-900">
-                                <Canvas className="h-96">
+                                <Canvas className="h-72 sm:h-96">
                                     <ambientLight intensity={1}/>
                                     <OrbitControls enableZoom={false}/>
                                     <Suspense fallback={null}>
@@ -125,7 +127,9 @@ const Components = () => {
 
                 {/* Buttons Section */}
                 {showSection("buttons") && (
-                   <ButtonsShowcase/>
+                   <div className="pt-16 sm:pt-20">
+                        <ButtonsShowcase/>
+                   </div>
                 )}
 
                 {/* Inputs Section */}
@@ -162,20 +166,20 @@ export default Components;
 // ============================================
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-xl py-6 font-semibold text-neutral-700 dark:text-neutral-300">
+    <h3 className="text-lg sm:text-xl py-4 sm:py-6 font-semibold text-neutral-700 dark:text-neutral-300">
         {children}
     </h3>
 );
 
 const SubHeading = ({ children }: { children: React.ReactNode }) => (
-    <h4 className="text-base p-4 text-neutral-600 dark:text-neutral-400">
+    <h4 className="text-base p-3 sm:p-4 text-neutral-600 dark:text-neutral-400">
         {children}
     </h4>
 );
 
 const ComponentContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => (
     <div className={cn(
-        "p-10 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-md shadow-lg",
+        "p-4 sm:p-6 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-6 rounded-md shadow-lg",
         "bg-neutral-50 dark:bg-neutral-900",
         "border border-neutral-200 dark:border-neutral-700",
         className
@@ -197,7 +201,7 @@ const PreviewCard = ({
 }) => (
     <div className="flex flex-col">
         <div className={cn(
-            "p-10 h-96 rounded-md shadow-lg",
+            "p-6 sm:p-10 h-80 sm:h-96 rounded-md shadow-lg",
             "bg-white dark:bg-neutral-900",
             "border border-neutral-200 dark:border-neutral-700",
             centered && "flex justify-center items-center",
@@ -217,7 +221,7 @@ export const Card = ({
     className?: string;
 }) => (
     <div className={cn(
-        "h-72 w-72 rounded-md shadow-lg",
+        "h-64 sm:h-72 w-full max-w-xs rounded-md shadow-lg",
         "bg-white dark:bg-neutral-800",
         "border border-neutral-200 dark:border-neutral-700",
         className
@@ -250,7 +254,7 @@ const CardContent = ({
     children: React.ReactNode; 
     className?: string;
 }) => (
-    <div className={cn("h-64 w-64 pb-10 flex items-center justify-center", className)}>
+    <div className={cn("h-56 sm:h-64 w-full max-w-xs pb-10 flex items-center justify-center", className)}>
         {children}
     </div>
 );

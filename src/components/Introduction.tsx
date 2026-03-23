@@ -42,15 +42,15 @@ const Introduction = () => {
     },[]);
     return (
         <div className="bg-[#3e1f47]">
-            <div className="grid grid-cols-1 min-h-2/3 pt-10">
-            <div className="flex flex-wrap justify-center items-center px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 min-h-2/3 pt-10 gap-8 px-4 sm:px-6 md:px-16">
+            <div className="flex flex-wrap justify-center md:justify-start items-center">
                 <div className="max-h-lg">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.4 }}
                         >
-                        <h1 className="text-4xl text-neutral-300 font-bold mb-4">
+                        <h1 className="text-3xl sm:text-4xl text-neutral-300 font-bold mb-4 leading-tight">
                             Hi, I am {' '}
                             <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">Sowrasree</span>
                         </h1>
@@ -65,15 +65,15 @@ const Introduction = () => {
                                     skills[currentSkill].color === "purple" ? "text-purple-400" :
                                     'text-yellow-400' 
                                   }`}>
-                               <span className="text-xl font-bold mb-4">{skills[currentSkill].name} Developer</span>                    
+                               <span className="text-lg sm:text-xl font-bold mb-4">{skills[currentSkill].name} Developer</span>                    
                             </motion.span>   
                         </AnimatePresence>       
                     </motion.div>
-                    <p className="text-neutral-300 backdrop-opacity-80 leading-relaxed mb-4 max-w-lg mx-auto text center pt-4">
+                    <p className="text-neutral-300 backdrop-opacity-80 leading-relaxed mb-4 max-w-lg mx-auto md:mx-0 text-center md:text-left pt-4">
                         I craft digital experiences that blend beautiful design with robust functionality.
                         Passionate about modern web technologies and creating applications that make a difference.
                     </p>
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                       <Button>View My Work</Button>
                         {/* <motion.button
                             whileHover={{ scale: 1.05 }}
@@ -92,18 +92,18 @@ const Introduction = () => {
                         <Button>Download CV</Button>
                     </div>
                 </div>
-            <div className="flex items-center justify-center p-8">
+            <div className="flex items-center justify-center p-4 sm:p-8">
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="relative"
                 >
-                <div className="w-80 h-80 relative">
+                <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 relative">
                     {skills.map((skill, index) => (
                     <motion.div
                         key={skill.name}
-                        className={`absolute w-24 h-24 rounded-full flex items-center justify-center text-white ${
+                        className={`absolute w-16 h-16 sm:w-24 sm:h-24 rounded-full flex items-center justify-center text-white ${
                         skill.color === 'blue' ? 'bg-blue-500' :
                         skill.color === 'purple' ? 'bg-purple-500' :
                         'bg-yellow-500'
@@ -123,9 +123,9 @@ const Introduction = () => {
                     ))}
                     
                     {/* Connecting Lines */}
-                    <svg className="absolute inset-0 w-full h-full">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300" preserveAspectRatio="none">
                     <motion.path
-                        d="M 120 80 Q 200 160 80 240"
+                        d="M 120 90 Q 210 170 90 240"
                         stroke="rgba(59, 130, 246, 0.3)"
                         strokeWidth="2"
                         fill="none"

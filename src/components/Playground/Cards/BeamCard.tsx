@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
+import { useId } from "react";
 import type { BeamCardProps, ConcentricCirclesProps } from "./types";
 import { baseCardStyles, cardShadowClasses, defaultBeamColors } from "./variants";
 import GlowingButton from "../Buttons/GlowingButton";
@@ -49,7 +50,9 @@ export const BeamCard = ({
   beamColors = defaultBeamColors,
   animationDuration = 4,
 }: BeamCardProps) => {
-  const gradientId = `beam-gradient-${Math.random().toString(36).substr(2, 9)}`;
+  // Stable across server + client renders (prevents hydration mismatch for SVG IDs)
+  const reactId = useId();
+  const gradientId = `beam-gradient-${reactId.replace(/:/g, "")}`;
 
   return (
     <div
