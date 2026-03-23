@@ -116,6 +116,7 @@ const JumpingCards = ({
 }: JumpingCardsProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const ref = useRef<HTMLDivElement>(null);
 
   const activeCard = cards.find((c) => c.id === activeId);
@@ -123,7 +124,9 @@ const JumpingCards = ({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(max-width: 639px)");
+    // Treat "mobile-ish" widths as mobile for fallback styling.
+    // (We still clamp/scale to actual container size below.)
+    const mq = window.matchMedia("(max-width: 767px)");
     const update = () => setIsMobile(mq.matches);
     update();
 
@@ -139,7 +142,15 @@ const JumpingCards = ({
     };
   }, []);
 
-  const cardScale = isMobile ? 0.62 : 1;
+  const fallbackScale = isMobile ? 0.62 : 1;
+  const widthScale =
+    containerSize.width > 0
+      ? (containerSize.width * 0.92) / expandedWidth
+      : fallbackScale;
+  const heightScale =
+    containerSize.height > 0 ? (containerSize.height * 0.9) / expandedHeight : 1;
+  const cardScale = Math.max(0.5, Math.min(1, widthScale, heightScale));
+
   const cardWidthEffective = Math.round(cardWidth * cardScale);
   const cardHeightEffective = Math.round(cardHeight * cardScale);
   const expandedWidthEffective = Math.round(expandedWidth * cardScale);
@@ -147,14 +158,37 @@ const JumpingCards = ({
 
   const xNoActiveMultiplier = isMobile ? 0.32 : 1;
   const xAnyActiveMultiplier = isMobile ? 0.22 : 0.6;
-  const xAnyActiveOffset = isMobile ? 60 : 210;
-  const xActiveOffset = isMobile ? 150 : 320;
+  const xAnyActiveOffset = isMobile ? 45 : 210;
+  const xActiveOffset = isMobile ? 120 : 320;
 
   const yNoActiveMultiplier = isMobile ? 0.9 : 1;
-  const yAnyActive = isMobile ? 220 : 360;
+  const yAnyActive = isMobile ? 210 : 360;
   const yActive = isMobile ? 0 : 10;
 
   const rotateMultiplier = isMobile ? 0.12 : 0.2;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!ref.current) return;
+
+    const el = ref.current;
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const cr = entry.contentRect;
+      setContainerSize({
+        width: cr.width,
+        height: cr.height,
+      });
+    });
+
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const clamp = (value: number, min: number, max: number) => {
+    return Math.min(max, Math.max(min, value));
+  };
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -186,7 +220,8 @@ const JumpingCards = ({
       ref={ref}
       className={cn(
         "max-w-5xl mx-auto w-full relative mt-8 sm:mt-16 px-2 sm:px-4",
-        "min-h-[600px] sm:min-h-[640px]",
+        "min-h-[680px] sm:min-h-[720px]",
+        "overflow-hidden",
         className
       )}
     >
@@ -206,16 +241,40 @@ const JumpingCards = ({
               filter: "blur(10px)"
             }}
             animate={{
-              x: isCurrentActive(card)
-                ? xActiveOffset
-                : isAnyActive
-                  ? card.config.x * xAnyActiveMultiplier + xAnyActiveOffset
-                  : card.config.x * xNoActiveMultiplier,
-              y: isCurrentActive(card)
-                ? yActive
-                : isAnyActive
-                  ? yAnyActive
-                  : card.config.y * yNoActiveMultiplier,
+              x: (() => {
+                const widthToUse = isCurrentActive(card)
+                  ? expandedWidthEffective
+                  : cardWidthEffective;
+                const containerW = containerSize.width;
+                const maxX = containerW > 0 ? containerW - widthToUse : 0;
+
+                const rawX = isCurrentActive(card)
+                  ? containerW > 0
+                    ? (containerW - expandedWidthEffective) / 2
+                    : xActiveOffset
+                  : isAnyActive
+                    ? card.config.x * xAnyActiveMultiplier + xAnyActiveOffset
+                    : card.config.x * xNoActiveMultiplier;
+
+                if (!containerW) return 0;
+                return clamp(rawX, 0, Math.max(0, maxX));
+              })(),
+              y: (() => {
+                const heightToUse = isCurrentActive(card)
+                  ? expandedHeightEffective
+                  : cardHeightEffective;
+                const containerH = containerSize.height;
+                const maxY = containerH > 0 ? containerH - heightToUse : 0;
+
+                const rawY = isCurrentActive(card)
+                  ? yActive
+                  : isAnyActive
+                    ? yAnyActive
+                    : card.config.y * yNoActiveMultiplier;
+
+                if (!containerH) return 0;
+                return clamp(rawY, 0, Math.max(0, maxY));
+              })(),
               rotate: isCurrentActive(card) ? 0 : card.config.rotate * rotateMultiplier,
               scale: isCurrentActive(card) ? 1 : (isAnyActive ? 0.7 : 1),
               width: isCurrentActive(card) ? expandedWidthEffective : cardWidthEffective,
@@ -231,7 +290,7 @@ const JumpingCards = ({
               scale: isCurrentActive(card) ? 1 : (isAnyActive ? 0.5 : 1.05),
             }}
             className={cn(
-              'font-signika absolute cursor-pointer inset-0 flex rounded-xl flex-col items-start justify-between overflow-hidden',
+              'font-signika absolute cursor-pointer top-0 left-0 flex rounded-xl flex-col items-start justify-between overflow-hidden',
               card.bgColor,
               card.textColor
             )}

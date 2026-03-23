@@ -11,6 +11,8 @@ interface ComponentPreviewProps {
   children: React.ReactNode;
   code: string;
   className?: string;
+  previewWrapperClassName?: string;
+  codeWrapperClassName?: string;
 }
 
 export const ComponentPreview = ({
@@ -19,6 +21,8 @@ export const ComponentPreview = ({
   children,
   code,
   className,
+  previewWrapperClassName,
+  codeWrapperClassName,
 }: ComponentPreviewProps) => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
   const [copied, setCopied] = useState(false);
@@ -93,11 +97,21 @@ export const ComponentPreview = ({
       {/* Content */}
       <div className="mt-4">
         {activeTab === "preview" ? (
-          <div className="flex min-h-[200px] items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-700 dark:bg-neutral-900">
+          <div
+            className={cn(
+              "flex min-h-[200px] items-center justify-center rounded-lg border border-neutral-200 bg-neutral-50 p-8 dark:border-neutral-700 dark:bg-neutral-900",
+              previewWrapperClassName
+            )}
+          >
             {children}
           </div>
         ) : (
-          <div className="relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 min-h-[200px]">
+          <div
+            className={cn(
+              "relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 min-h-[200px]",
+              codeWrapperClassName
+            )}
+          >
             <Highlight theme={themes.nightOwl} code={code.trim()} language="tsx">
               {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <pre

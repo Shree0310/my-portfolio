@@ -72,7 +72,7 @@ const cardsPreviewItems = [
 export default function CardsLibraryPage() {
   return (
     <ComponentsLibraryLayout activeSection="cards">
-      <div className="mx-auto max-w-4xl p-4 sm:p-6 md:p-20 md:pb-10 space-y-8">
+      <div className="w-full p-4 sm:p-6 md:p-10 md:pb-10 space-y-8">
         <Heading>Cards Library</Heading>
         <SubHeading>
           Click any card preview below and use the <span className="font-semibold">Code</span> tab to copy the snippet.
@@ -80,7 +80,22 @@ export default function CardsLibraryPage() {
 
         <div className="space-y-12">
           {cardsPreviewItems.map(({ title, description, code, Preview }) => (
-            <ComponentPreview key={title} title={title} description={description} code={code}>
+            <ComponentPreview
+              key={title}
+              title={title}
+              description={description}
+              code={code}
+              codeWrapperClassName={
+                title === "Jumping Cards"
+                  ? "min-h-[520px]"
+                  : "min-h-[420px]"
+              }
+              previewWrapperClassName={
+                title === "Jumping Cards"
+                  ? "items-start justify-start p-6 sm:p-10 min-h-[820px] sm:min-h-[900px]"
+                  : "p-10 sm:p-12 min-h-[360px] sm:min-h-[440px]"
+              }
+            >
               {/* Use the same “cards section” look as your showcase where it matters */}
               {title === "Beam Card" ? (
                 <Preview
