@@ -37,6 +37,7 @@ import SecondaryBeamCard from "./Playground/Cards/SecondaryBeamCard";
 import MenuCard from "./Playground/Cards/MenuCard";
 import ButtonsPreviewOnly from "./ButtonsLibrary/ButtonsPreviewOnly";
 import { useRouter } from "next/navigation";
+import Isometric from "./Playground/Isometric/Isometric";
 
 const Components = () => {
     const [activeSection, setActiveSection] = useState("all");
@@ -130,6 +131,17 @@ const Components = () => {
                             </PreviewCard>
                             <PreviewCard label="Hold to confirm" centered className="bg-linear-to-r from-yellow-100/50 to-blue-100/50 dark:bg-neutral-900 dark:from-neutral-900 dark:to-neutral-900">
                                 <HoldToConfirmFoundation text='Delete Project'/>
+                            </PreviewCard>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <PreviewCard label="Isometric Design (On Hover)">
+                                <Isometric variant="top"/>
+                            </PreviewCard>
+                            <PreviewCard label="">
+                                <Isometric variant="left"/>
+                            </PreviewCard>
+                            <PreviewCard label="">
+                                <Isometric variant="right"/>
                             </PreviewCard>
                         </div>
                     </>
