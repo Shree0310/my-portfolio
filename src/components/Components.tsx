@@ -134,13 +134,13 @@ const Components = () => {
                             </PreviewCard>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <PreviewCard label="Isometric Design (On Hover)">
+                            <PreviewCard label="Isometric Design (Animations on Hover)" className="h-auto">
                                 <Isometric variant="top"/>
                             </PreviewCard>
-                            <PreviewCard label="">
+                            <PreviewCard label="" className="h-auto">
                                 <Isometric variant="left"/>
                             </PreviewCard>
-                            <PreviewCard label="">
+                            <PreviewCard label="" className="h-auto">
                                 <Isometric variant="right"/>
                             </PreviewCard>
                         </div>
