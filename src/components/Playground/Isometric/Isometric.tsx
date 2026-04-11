@@ -33,20 +33,27 @@ const Isometric = ({className, variant}:{
 
     const [active, setActive] = useState<number | null>(null);
 
-    const getVariants = (face: 'top' | 'left' | 'right') => {
+    const getVariants = (face: 'top' | 'left' | 'right', includeFill: boolean = false) => {
         if(face !== variant) {
-            return {
+            const baseVariant = {
                 animate:{
                     translateX: 0,
                     translateY: 0,
-                    stroke: 'var(--color-neutral-400)'
+                    stroke: 'var(--color-neutral-500)'
                 },
                 initial:{
                     translateX: 0,
                     translateY: 0,
-                    stroke: 'var(--color-neutral-400)'
+                    stroke: 'var(--color-neutral-500)'
                 }
             };
+            if (includeFill) {
+                return {
+                    animate: { ...baseVariant.animate, fill: 'var(--color-neutral-500)' },
+                    initial: { ...baseVariant.initial, fill: 'var(--color-neutral-500)' }
+                };
+            }
+            return baseVariant;
         }
 
         const getAnimateColor = () => {
@@ -59,40 +66,61 @@ const Isometric = ({className, variant}:{
 
         switch(face){
             case('top'): {
-                return {
+                const baseVariant = {
                     animate: {
                         translateY: -10,
                         stroke: getAnimateColor()
                     },
                     initial: {
                         translateY: 0,
-                        stroke: 'var(--color-neutral-400)'
+                        stroke: 'var(--color-neutral-500)'
                     }
                 };
+                if (includeFill) {
+                    return {
+                        animate: { ...baseVariant.animate, fill: getAnimateColor() },
+                        initial: { ...baseVariant.initial, fill: 'var(--color-neutral-500)' }
+                    };
+                }
+                return baseVariant;
             }
             case('left'): {
-                return {
+                const baseVariant = {
                     animate: {
                         translateX: -10,
                         stroke: getAnimateColor()
                     },
                     initial:{
                         translateX: 0,
-                        stroke: 'var(--color-neutral-400)'
+                        stroke: 'var(--color-neutral-500)'
                     }
                 };
+                if (includeFill) {
+                    return {
+                        animate: { ...baseVariant.animate, fill: getAnimateColor() },
+                        initial: { ...baseVariant.initial, fill: 'var(--color-neutral-500)' }
+                    };
+                }
+                return baseVariant;
             }
             case('right'): {
-                return {
+                const baseVariant = {
                     animate: {
                         translateX: 10,
                         stroke: getAnimateColor()
                     },
                     initial: {
                         translateX: 0,
-                        stroke: 'var(--color-neutral-400)'
+                        stroke: 'var(--color-neutral-500)'
                     }
                 };
+                if (includeFill) {
+                    return {
+                        animate: { ...baseVariant.animate, fill: getAnimateColor() },
+                        initial: { ...baseVariant.initial, fill: 'var(--color-neutral-500)' }
+                    };
+                }
+                return baseVariant;
             }
         }
     }
@@ -139,60 +167,133 @@ const Isometric = ({className, variant}:{
             onMouseEnter={() => setActive(features.find(f => f.variant === variant)?.id || null)}
             onMouseLeave={() => setActive(null)}
         >
-            <motion.svg width="200" height="200" viewBox="0 0 200 200" style={{ display: 'block', margin: '0 auto' }}>
-            {/* Isometric cube with three visible faces */}
+            <motion.svg width="240" height="240" viewBox="0 0 240 240" style={{ display: 'block', margin: '0 auto' }}>
+            {/* Isometric cube - Larger size with more rounded corners */}
 
-            {/* Top face */}
+            {/* Top face with rounded corners */}
             <motion.path
                 variants={getVariants('top')}
                 transition={TRANSITION}
                 animate={active !== null ? 'animate' : 'initial'}
-                d="M 105 32 Q 100 30 95 32 L 52 54 Q 48 56 50 60 Q 51 62 53 61 L 95 78 Q 100 80 105 78 L 147 61 Q 149 62 150 60 Q 152 56 148 54 Z"
+                d="M 120 60 Q 124 60 126 62 L 162 83 Q 166 85 166 90 Q 166 92 164 94 L 126 115 Q 122 117 118 115 L 78 94 Q 74 92 74 90 Q 74 85 78 83 L 114 62 Q 116 60 120 60 Z"
                 fill="none"
-                strokeWidth="2"
+                strokeWidth="3.5"
                 strokeLinejoin="round"
                 strokeLinecap="round"
             />
 
-            {/* Inner rectangle on top face */}
+            {/* Inner rounded square on top face */}
             <motion.path
-                variants={getVariants('top')}
+                variants={getVariants('top', true)}
                 transition={TRANSITION}
                 animate={active !== null ? 'animate' : 'initial'}
-                d="M 100 42 Q 98 43 96 44 L 68 58 Q 70 60 72 59 L 100 72 Q 102 71 104 70 L 130 57 Q 128 55 126 56 Z"
-                fill="none"
-                strokeWidth="1.5"
+                d="M 120 73 Q 122 73 124 74 L 148 88 Q 150 89 150 92 Q 150 93 148 95 L 124 107 Q 122 108 118 107 L 92 95 Q 90 93 90 92 Q 90 89 92 88 L 116 74 Q 118 73 120 73 Z"
+                fillOpacity="0.15"
+                strokeWidth="2.5"
                 strokeLinejoin="round"
                 strokeLinecap="round"
+                opacity="0.5"
             />
 
-            {/* Left face */}
+            {/* Left face with rounded corners */}
             <motion.path
                 variants={getVariants('left')}
                 transition={TRANSITION}
                 animate={active !== null ? 'animate' : 'initial'}
-                d="M 52 57 Q 48 59 48 63 L 48 100 Q 48 104 50 106 Q 51 107 53 106 L 98 129 Q 100 130 100 127 L 100 85 Q 100 81 98 79 Q 97 78 95 79 Z"
+                d="M 78 94 Q 74 96 74 100 L 74 138 Q 74 144 78 146 L 118 167 Q 120 168 120 164 L 120 115 Q 120 113 118 115 L 78 94 Z"
                 fill="none"
-                strokeWidth="2"
+                strokeWidth="3.5"
                 strokeLinejoin="round"
                 strokeLinecap="round"
             />
 
-            {/* Right face */}
+            {/* Left face inner lines */}
+            <motion.line
+                variants={getVariants('left')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="90"
+                y1="102"
+                x2="90"
+                y2="155"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
+            <motion.line
+                variants={getVariants('left')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="102"
+                y1="108"
+                x2="102"
+                y2="161"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
+            <motion.line
+                variants={getVariants('left')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="110"
+                y1="113"
+                x2="110"
+                y2="164"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
+
+            {/* Right face with rounded corners */}
             <motion.path
                 variants={getVariants('right')}
                 transition={TRANSITION}
                 animate={active !== null ? 'animate' : 'initial'}
-                d="M 102 79 Q 100 81 100 85 L 100 127 Q 100 130 102 129 L 147 106 Q 149 107 150 106 Q 152 104 152 100 L 152 63 Q 152 59 148 57 Q 147 56 145 57 Z"
+                d="M 120 115 Q 120 113 120 115 L 120 164 Q 120 168 122 167 L 162 146 Q 166 144 166 138 L 166 94 Q 166 92 164 94 L 126 115 Z"
                 fill="none"
-                strokeWidth="2"
+                strokeWidth="3.5"
                 strokeLinejoin="round"
                 strokeLinecap="round"
             />
 
-            {/* Edge highlights */}
-            {/* <line x1="100" y1="30" x2="100" y2="80" stroke="#5ab3ff" strokeWidth="2" /> */}
-            {/* <line x1="100" y1="80" x2="100" y2="130" stroke="#1a3a5c" strokeWidth="3" /> */}
+            {/* Right face inner lines */}
+            <motion.line
+                variants={getVariants('right')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="130"
+                y1="120"
+                x2="130"
+                y2="164"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
+            <motion.line
+                variants={getVariants('right')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="140"
+                y1="126"
+                x2="140"
+                y2="161"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
+            <motion.line
+                variants={getVariants('right')}
+                transition={TRANSITION}
+                animate={active !== null ? 'animate' : 'initial'}
+                x1="150"
+                y1="131"
+                x2="150"
+                y2="155"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                opacity="0.4"
+            />
             </motion.svg>
             <div>
                 {features

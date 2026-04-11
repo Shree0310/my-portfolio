@@ -52,9 +52,9 @@ export const BeamCard = ({
   beamColors = defaultBeamColors,
   animationDuration = 4,
 }: BeamCardProps) => {
-  // Stable across server + client renders (prevents hydration mismatch for SVG IDs)
+  // Use a static ID to prevent hydration mismatch
   const reactId = useId();
-  const gradientId = `beam-gradient-${reactId.replace(/:/g, "")}`;
+  const gradientId = `beam-gradient-${reactId.replace(/:/g, "_")}`;
 
   return (
     <div
@@ -95,56 +95,62 @@ export const BeamCard = ({
       <div className="relative w-full h-18">
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120">
           <defs>
-            <motion.linearGradient
+            <linearGradient
               gradientUnits="userSpaceOnUse"
               id={gradientId}
-              initial={{ x1: "0%", x2: "10%" }}
-              animate={{ x1: "90%", x2: "100%" }}
-              transition={{
-                duration: animationDuration,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-              }}
+              x1="0%"
+              x2="10%"
             >
               <stop stopColor={beamColors.start} />
               <stop offset="0.33" stopColor={beamColors.mid1} />
               <stop offset="0.66" stopColor={beamColors.mid2} />
               <stop offset="1" stopColor={beamColors.end} />
-            </motion.linearGradient>
+            </linearGradient>
           </defs>
 
-          {/* Left vertical line */}
-          <line
-            x1="60" y1="0" x2="60" y2="45"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          {/* Middle vertical line */}
-          <line
-            x1="200" y1="0" x2="200" y2="100"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="3"
-          />
-          {/* Right vertical line */}
-          <line
-            x1="340" y1="0" x2="340" y2="42"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="3"
-          />
-          {/* Left diagonal */}
-          <line
-            x1="60" y1="45" x2="200" y2="100"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="3"
-          />
-          {/* Right diagonal */}
-          <line
-            x1="340" y1="42" x2="200" y2="100"
-            stroke={`url(#${gradientId})`}
-            strokeWidth="3"
-          />
+          {/* Animated gradient position wrapper */}
+          <motion.g
+            initial={{ x: 0 }}
+            animate={{ x: [0, 300, 0] }}
+            transition={{
+              duration: animationDuration,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+            }}
+          >
+            {/* Left vertical line */}
+            <line
+              x1="60" y1="0" x2="60" y2="45"
+              stroke={`url(#${gradientId})`}
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            {/* Middle vertical line */}
+            <line
+              x1="200" y1="0" x2="200" y2="100"
+              stroke={`url(#${gradientId})`}
+              strokeWidth="3"
+            />
+            {/* Right vertical line */}
+            <line
+              x1="340" y1="0" x2="340" y2="42"
+              stroke={`url(#${gradientId})`}
+              strokeWidth="3"
+            />
+            {/* Left diagonal */}
+            <line
+              x1="60" y1="45" x2="200" y2="100"
+              stroke={`url(#${gradientId})`}
+              strokeWidth="3"
+            />
+            {/* Right diagonal */}
+            <line
+              x1="340" y1="42" x2="200" y2="100"
+              stroke={`url(#${gradientId})`}
+              strokeWidth="3"
+            />
+          </motion.g>
         </svg>
       </div>
 
