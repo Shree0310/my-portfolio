@@ -21,10 +21,10 @@ export const projects: Project[]  = [
         image:"/Images/Achievr.png"
     },
     {
-        name: "Foodie",
-        description: "An online food delivery app with various features, to deliver food at your doorstep.",
-        url: "https://foodie.sourashreeart.com/",
-        image: "/Images/FoodieImage1.png"
+        name: "Unfold",
+        description: "A generative UI moodboard generator that streams color palettes, fonts, and imagery in real-time based on your description.",
+        url: "https://unfold-smoky.vercel.app/",
+        image: "/Images/unfoldImage.png"
     },
     {
         name: "MoviesGpt",
