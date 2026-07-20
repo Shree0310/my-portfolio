@@ -111,7 +111,7 @@ const Navbar = () => {
             duration:0.3,
             ease: easeInOut
         }}
-        className="relative md:width:width, md:fixed inset-x-0 top-0 mx-auto z-50 w-full md:w-1/2 md:max-w-4xl rounded-4xl items-center flex justify-between p-2 bg-white dark:bg-neutral-800 left-0">
+        className="fixed inset-x-0 top-0 mx-auto z-50 w-full md:w-1/2 md:max-w-4xl rounded-4xl items-center flex justify-between p-2 bg-white dark:bg-neutral-800 left-0">
             <Link href="/">
                 <Image className="h-12 w-12 rounded-full" src={Profile_Pic} alt="profile_pic" height="100" width="100"/>
             </Link>

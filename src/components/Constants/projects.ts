@@ -24,7 +24,7 @@ export const projects: Project[]  = [
         name: "Unfold",
         description: "A generative UI moodboard generator that streams color palettes, fonts, and imagery in real-time based on your description.",
         url: "https://unfold-smoky.vercel.app/",
-        image: "/Images/unfoldImage.png"
+        image: "/Images/UnfoldImage.png"
     },
     {
         name: "MoviesGpt",
