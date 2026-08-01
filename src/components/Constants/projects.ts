@@ -32,4 +32,13 @@ export const projects: Project[]  = [
         url: "https://moviesgpt.sourashreeart.com/#/",
         image:"/Images/MoviesGPT1.png"
     },
+]
+
+export const threejsProjects: Project[] = [
+    {
+        name: "3D Portfolio",
+        description: "An immersive 3D portfolio experience built with Three.js and React Fiber.",
+        url: "https://my-three-portfolio.vercel.app/",
+        image: "/Images/ThreejsProject.png"
+    },
 ]  
