@@ -12,7 +12,7 @@ const NewPortfolioPage = () => {
 return <div className="min-h-screen flex items-start justify-start">
     <NewPortfolio className=" p-4 md:p-20 md:pb-10">
         <div className="flex flex-grid gap-2">
-            <Heading>Sowrasree Banerjee</Heading>
+            <Heading>Sowrasree</Heading>
             <Roles/>
         </div>
          <SubHeading>

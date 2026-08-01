@@ -9,7 +9,7 @@ export default function HeroWithScene() {
       {/* Name & Role */}
       <div>
         <h1 className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-neutral-100 mb-3">
-          Sowrasree Banerjee
+          Sowrasree
         </h1>
         <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400">
           Design Engineer
