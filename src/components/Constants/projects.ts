@@ -9,12 +9,6 @@ export type Project = {
 
 export const projects: Project[]  = [
     {
-        name: "Mind Craft Wellness",
-        description: "A website for a mental health practisioner from where user can book sessions.",
-        url: "https://mind-craft-wellness.vercel.app/",
-        image:"/Images/MindCraftWellness.png"
-    },
-        {
         name: "Achievr",
         description: " A kanban board to track your personal and professional tasks, create new tasks and cycles.",
         url: "https://achievr.sourashreeart.com/hero",
@@ -31,6 +25,12 @@ export const projects: Project[]  = [
         description: "A netflix clone to browse through different series and movies, with an option for getting AI reccomendations.",
         url: "https://moviesgpt.sourashreeart.com/#/",
         image:"/Images/MoviesGPT1.png"
+    },
+    {
+        name: "Mind Craft Wellness",
+        description: "A website for a mental health practisioner from where user can book sessions.",
+        url: "https://mind-craft-wellness.vercel.app/",
+        image:"/Images/MindCraftWellness.png"
     },
 ]
 

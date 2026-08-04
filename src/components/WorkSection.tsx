@@ -64,40 +64,51 @@ export default function WorkSection() {
         </div>
       </div>
 
-      {/* Project Grid */}
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Project List */}
+      <div className="space-y-12">
         {displayProjects.map((project, idx) => (
           <Link
             key={project.name}
             href={project.url}
-            className="group"
             target="_blank"
             rel="noopener noreferrer"
           >
             <motion.article
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="space-y-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="group grid md:grid-cols-[1fr,2fr] gap-8 items-start"
             >
-              {/* Project Image */}
-              <div className="relative aspect-video overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+              {/* Left: Number and Image */}
+              <div className="space-y-4">
+                <div className="text-sm font-mono text-neutral-400 dark:text-neutral-500">
+                  {String(idx + 1).padStart(2, '0')}
+                </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               </div>
 
-              {/* Project Info */}
-              <div>
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              {/* Right: Project Info */}
+              <div className="space-y-3 pt-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
                   {project.description}
                 </p>
+                <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  <span>View project</span>
+                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
               </div>
             </motion.article>
           </Link>

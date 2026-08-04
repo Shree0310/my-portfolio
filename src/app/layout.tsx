@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { ViewTransitions } from 'next-view-transitions'
 import { Toaster } from 'sonner';
 import { ThemeProvider } from 'next-themes';
+import LenisProvider from "@/components/LenisProvider";
 
 
 
@@ -32,11 +33,13 @@ export default function RootLayout({
           className={`${inter.className} ${signika.variable} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <main className="bg-background text-foreground">
-                <Toaster />
-                <Navbar/>
-                {children}
-            </main>
+            <LenisProvider>
+              <main className="bg-background text-foreground">
+                  <Toaster />
+                  <Navbar/>
+                  {children}
+              </main>
+            </LenisProvider>
           </ThemeProvider>
         </body>
       </html>

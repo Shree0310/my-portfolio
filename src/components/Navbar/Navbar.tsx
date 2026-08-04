@@ -22,6 +22,10 @@ const Navbar = () => {
             href: '/projects2'
         },
         {
+            title: 'Services',
+            href: '/services'
+        },
+        {
             title: 'Contact',
             href: '/contact'
         }
