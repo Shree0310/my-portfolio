@@ -4,22 +4,31 @@ export type WorkExperience = {
     position: string,
     tenture: string,
     description: string,
-    url?: string
+    url?: string,
+    skills?: string[],
+    companyInitials?: string,
+    companyColor?: string
 }
 
 export const workExperiences: WorkExperience[] = [
     {
         company:"EPAM SYSTEMS (Client: Google)",
-        position:"Design Engineer",
+        position:"Frontend Engineer",
         tenture: "April 2023 - Present",
         description: "Designed and developed AI-powered features for Connect Training, Architected reusable component systems with TypeScript type definitions and comprehensive error handling, improving code maintainability by 60%.,Designed responsive, accessible interfaces",
-        url:"https://minimal-portfolio-website-template.vercel.app/images/logos/google-logo.png"
+        url:"https://minimal-portfolio-website-template.vercel.app/images/logos/google-logo.png",
+        skills: ["React", "TypeScript", "AI/ML", "Design Systems"],
+        companyInitials: "EP",
+        companyColor: "#3DA35D"
     },
     {
         company:"CAPGEMINI",
-        position:"Frontend Developer",
+        position:"Software Engineer",
         tenture: "Aug 2019 - April 2023",
         description: "Developed bulk operations interface, Built data export feature supporting Excel/JSON formats,Optimized Angular application performance by implementing custom pipes and reducing change detection cycles by 65%, improving page load time by 2 seconds for 2,000+ concurrent users",
-        url:"https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg"
+        url:"https://upload.wikimedia.org/wikipedia/commons/9/9d/Capgemini_201x_logo.svg",
+        skills: ["Angular", "TypeScript", "Performance", "Excel/JSON"],
+        companyInitials: "CG",
+        companyColor: "#0070AD"
     }
 ]

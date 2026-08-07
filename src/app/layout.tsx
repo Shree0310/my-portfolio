@@ -30,15 +30,13 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${inter.className} ${signika.variable} antialiased bg-neutral-200 dark:bg-neutral-700 [--pattern-fg:var(--color-neutral-900)]/5`}
+          className={`${inter.className} ${signika.variable} antialiased`}
+          style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <LenisProvider>
-              <main className="bg-background text-foreground">
-                  <Toaster />
-                  <Navbar/>
-                  {children}
-              </main>
+              <Toaster />
+              {children}
             </LenisProvider>
           </ThemeProvider>
         </body>
