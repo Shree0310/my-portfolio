@@ -32,7 +32,7 @@ export default function ExperienceCard({
   companyInitials,
   companyColor,
 }: ExperienceCardProps) {
-  const bullets = description.split(',').filter(Boolean)
+  const bullets = description.split('|').filter(Boolean)
   const companyIconData = getCompanyIcon(company)
 
   return (

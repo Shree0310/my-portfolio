@@ -68,7 +68,7 @@ export default function Home() {
             {/* Social links */}
             <div className="reveal reveal-4 flex items-center justify-center gap-6 font-mono text-sm">
               <Link
-                href="https://twitter.com/sourashree"
+                href="https://x.com/sourashreeart"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150"
@@ -77,7 +77,7 @@ export default function Home() {
                 X
               </Link>
               <Link
-                href="https://linkedin.com/in/sourashree"
+                href="https://www.linkedin.com/in/sowrasree-banerjee/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150"
@@ -86,7 +86,7 @@ export default function Home() {
                 LinkedIn
               </Link>
               <Link
-                href="https://github.com/sourashree"
+                href="https://github.com/Shree0310"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150"

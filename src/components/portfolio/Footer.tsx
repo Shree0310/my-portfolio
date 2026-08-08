@@ -17,7 +17,7 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-4 font-mono">
           <Link
-            href="https://twitter.com/sourashree"
+            href="https://x.com/sourashreeart"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors duration-150"
@@ -26,7 +26,7 @@ export default function Footer() {
             X
           </Link>
           <Link
-            href="https://linkedin.com/in/sourashree"
+            href="https://www.linkedin.com/in/sowrasree-banerjee/"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors duration-150"
@@ -35,7 +35,7 @@ export default function Footer() {
             LinkedIn
           </Link>
           <Link
-            href="https://github.com/sourashree"
+            href="https://github.com/Shree0310"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors duration-150"

@@ -57,7 +57,7 @@ export default function ContactPage() {
 
             <div className="flex gap-4 font-mono text-sm">
               <Link
-                href="https://twitter.com/sourashree"
+                href="https://x.com/sourashreeart"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150 hover:underline"
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 X
               </Link>
               <Link
-                href="https://linkedin.com/in/sourashree"
+                href="https://www.linkedin.com/in/sowrasree-banerjee/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150 hover:underline"
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 LinkedIn
               </Link>
               <Link
-                href="https://github.com/sourashree"
+                href="https://github.com/Shree0310"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-150 hover:underline"
