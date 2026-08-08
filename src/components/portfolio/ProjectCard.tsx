@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { HiArrowUpRight } from 'react-icons/hi2'
+import { SiReact, SiTypescript, SiNodedotjs, SiRedux, SiThreedotjs, SiJavascript, SiNextdotjs } from 'react-icons/si'
 
 interface ProjectCardProps {
   name: string
@@ -11,6 +13,16 @@ interface ProjectCardProps {
   skills?: string[]
   gradientFrom?: string
   gradientTo?: string
+}
+
+const skillIcons: Record<string, any> = {
+  React: SiReact,
+  TypeScript: SiTypescript,
+  'Node.js': SiNodedotjs,
+  Redux: SiRedux,
+  'Three.js': SiThreedotjs,
+  JavaScript: SiJavascript,
+  'Next.js': SiNextdotjs,
 }
 
 const skillColors: Record<string, string> = {
@@ -46,8 +58,8 @@ export default function ProjectCard({
         style={{
           borderColor: 'var(--border-subtle)',
           background: `
-            radial-gradient(circle at 0% 0%, ${gradientFrom}15 0%, transparent 38%),
-            radial-gradient(circle at 100% 100%, ${gradientTo}15 0%, transparent 38%),
+            radial-gradient(circle at 0% 0%, ${gradientFrom}40 0%, transparent 38%),
+            radial-gradient(circle at 100% 100%, ${gradientTo}40 0%, transparent 38%),
             var(--bg)
           `,
         }}
@@ -93,14 +105,17 @@ export default function ProjectCard({
                 onMouseLeave={() => setHoveredSkill(null)}
               >
                 <div
-                  className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-xs font-bold"
+                  className="w-[34px] h-[34px] rounded-full flex items-center justify-center"
                   style={{
                     backgroundColor: skillColors[skill] || '#666',
                     border: '2px solid var(--bg)',
-                    color: skill === 'JavaScript' || skill === 'React' ? '#000' : '#fff',
+                    color: '#fff',
                   }}
                 >
-                  {skill.charAt(0)}
+                  {(() => {
+                    const Icon = skillIcons[skill]
+                    return Icon ? <Icon className="w-4 h-4" /> : <span className="text-xs font-bold">{skill.charAt(0)}</span>
+                  })()}
                 </div>
                 {/* Tooltip */}
                 {hoveredSkill === skill && (
@@ -120,8 +135,9 @@ export default function ProjectCard({
         )}
 
         {/* Visit link */}
-        <div className="font-mono text-sm" style={{ color: 'var(--text-muted)' }}>
-          Visit →
+        <div className="flex items-center gap-1 font-mono text-sm" style={{ color: 'var(--text-muted)' }}>
+          <span>Visit</span>
+          <HiArrowUpRight className="w-4 h-4" />
         </div>
       </div>
     </Link>
