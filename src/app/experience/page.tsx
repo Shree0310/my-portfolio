@@ -5,8 +5,10 @@ import Header from '@/components/portfolio/Header'
 import Footer from '@/components/portfolio/Footer'
 import ExperienceCard from '@/components/portfolio/ExperienceCard'
 import { workExperiences } from '@/components/Constants/workEx'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ExperiencePage() {
+  const addToRefs = useScrollReveal({ staggerDelay: 150 })
 
   return (
     <>
@@ -26,16 +28,17 @@ export default function ExperiencePage() {
           {/* Experience Grid */}
           <div className="flex flex-col gap-6">
             {workExperiences.map((exp) => (
-              <ExperienceCard
-                key={exp.company}
-                company={exp.company}
-                position={exp.position}
-                tenure={exp.tenture}
-                description={exp.description}
-                skills={exp.skills}
-                companyInitials={exp.companyInitials || ''}
-                companyColor={exp.companyColor || '#666'}
-              />
+              <div key={exp.company} ref={addToRefs as any} className="scroll-reveal">
+                <ExperienceCard
+                  company={exp.company}
+                  position={exp.position}
+                  tenure={exp.tenture}
+                  description={exp.description}
+                  skills={exp.skills}
+                  companyInitials={exp.companyInitials || ''}
+                  companyColor={exp.companyColor || '#666'}
+                />
+              </div>
             ))}
           </div>
         </div>

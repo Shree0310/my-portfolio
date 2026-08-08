@@ -11,8 +11,10 @@ import ProjectCard from '@/components/portfolio/ProjectCard'
 import ExperienceCard from '@/components/portfolio/ExperienceCard'
 import { projects } from '@/components/Constants/projects'
 import { workExperiences } from '@/components/Constants/workEx'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Home() {
+  const addToRefs = useScrollReveal({ staggerDelay: 100 })
 
   return (
     <>
@@ -114,16 +116,17 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.slice(0, 3).map((project) => (
-                <ProjectCard
-                  key={project.name}
-                  name={project.name}
-                  description={project.description}
-                  url={project.url}
-                  tag={project.tag}
-                  skills={project.skills}
-                  gradientFrom={project.gradientFrom}
-                  gradientTo={project.gradientTo}
-                />
+                <div key={project.name} ref={addToRefs as any} className="scroll-reveal">
+                  <ProjectCard
+                    name={project.name}
+                    description={project.description}
+                    url={project.url}
+                    tag={project.tag}
+                    skills={project.skills}
+                    gradientFrom={project.gradientFrom}
+                    gradientTo={project.gradientTo}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -147,16 +150,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-6">
               {workExperiences.map((exp) => (
-                <ExperienceCard
-                  key={exp.company}
-                  company={exp.company}
-                  position={exp.position}
-                  tenure={exp.tenture}
-                  description={exp.description}
-                  skills={exp.skills}
-                  companyInitials={exp.companyInitials || ''}
-                  companyColor={exp.companyColor || '#666'}
-                />
+                <div key={exp.company} ref={addToRefs as any} className="scroll-reveal">
+                  <ExperienceCard
+                    company={exp.company}
+                    position={exp.position}
+                    tenure={exp.tenture}
+                    description={exp.description}
+                    skills={exp.skills}
+                    companyInitials={exp.companyInitials || ''}
+                    companyColor={exp.companyColor || '#666'}
+                  />
+                </div>
               ))}
             </div>
           </div>

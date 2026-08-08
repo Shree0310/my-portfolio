@@ -5,8 +5,10 @@ import Header from '@/components/portfolio/Header'
 import Footer from '@/components/portfolio/Footer'
 import ProjectCard from '@/components/portfolio/ProjectCard'
 import { projects } from '@/components/Constants/projects'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ProjectsPage() {
+  const addToRefs = useScrollReveal({ staggerDelay: 100 })
 
   return (
     <>
@@ -37,16 +39,17 @@ export default function ProjectsPage() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <ProjectCard
-                key={project.name}
-                name={project.name}
-                description={project.description}
-                url={project.url}
-                tag={project.tag}
-                skills={project.skills}
-                gradientFrom={project.gradientFrom}
-                gradientTo={project.gradientTo}
-              />
+              <div key={project.name} ref={addToRefs as any} className="scroll-reveal">
+                <ProjectCard
+                  name={project.name}
+                  description={project.description}
+                  url={project.url}
+                  tag={project.tag}
+                  skills={project.skills}
+                  gradientFrom={project.gradientFrom}
+                  gradientTo={project.gradientTo}
+                />
+              </div>
             ))}
           </div>
         </div>
