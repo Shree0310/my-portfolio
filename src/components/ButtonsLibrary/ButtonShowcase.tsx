@@ -14,6 +14,7 @@ import Animated3DButton from "../Playground/Buttons/Animated3DButton";
 import GlowingButton from "../Playground/Buttons/GlowingButton";
 import PulsatingButton from "../Playground/Buttons/PulsatingButton";
 import { HeartButton, TrashButton, ShareButton } from "../Playground/Buttons/IconButton";
+import CopyButton from "../Playground/Buttons/CopyButton";
 import {
   gradientButtonCode,
   borderBeamButtonCode,
@@ -26,7 +27,10 @@ import {
   glowingButtonCode,
   pulsatingButtonCode,
   iconButtonCode,
+  copyButtonCode,
+  loginButtonCode,
 } from "./ButtonCodesnippets";
+import LoginButton from "../Playground/Buttons/LoginButton";
 
 const ButtonsShowcase = () => {
   const previewWrapperClassName =
@@ -212,6 +216,24 @@ const ButtonsShowcase = () => {
           <TrashButton />
           <ShareButton />
         </div>
+      </ComponentPreview>
+
+      <ComponentPreview
+        title="Copy Button"
+        description="A button with animated icon transition between copy and checkmark states."
+        code={copyButtonCode}
+        previewWrapperClassName={previewWrapperClassName}
+        codeWrapperClassName={codeWrapperClassName}
+      >
+        <CopyButton />
+      </ComponentPreview>
+      <ComponentPreview
+        title="Login Button"
+        description="A button with initial text, then a loading spinner and and final state text"
+        code={loginButtonCode}
+        previewWrapperClassName={previewWrapperClassName}
+        codeWrapperClassName={codeWrapperClassName}>
+        <LoginButton/>
       </ComponentPreview>
     </div>
   );

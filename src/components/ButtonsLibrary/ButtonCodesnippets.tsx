@@ -520,3 +520,176 @@ export const TrashButton = (props: Partial<IconButtonProps>) => (
 export const ShareButton = (props: Partial<IconButtonProps>) => (
   <IconButton icon={IconShare} bgColor="bg-sky-600" hoverBgColor="hover:bg-sky-700" {...props} />
 );`;
+
+export const copyButtonCode = `"use client"
+
+import { useState } from 'react';
+import {AnimatePresence, motion} from 'framer-motion';
+import { Copy, Check } from 'lucide-react';
+
+
+export default function CopyButton() {
+  const [copied, setCopied] = useState(false);
+
+  const variants ={
+    hidden: {opacity: 0, scale: 0.5},
+    visible: {opacity: 1, scale: 1}
+  }
+
+  const handleCopy = () => {
+    // TODO: Implement copy functionality
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <button
+      aria-label='copy code snippet'
+      onClick={handleCopy}
+      className="px-4 py-2 rounded-lg border transition-all duration-200"
+      style={{
+        borderColor: 'var(--border-medium)',
+        backgroundColor: 'var(--surface-subtle)',
+        color: 'var(--text)',
+      }}
+    >
+      <AnimatePresence mode='wait' initial={false}>
+        {copied ? (
+          <motion.span
+            key="checked"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden">
+            <Check/>
+          </motion.span>) :
+          (<motion.span
+            key="copy"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden">
+            <Copy/>
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </button>
+  )
+}`;
+
+export const loginButtonCode = `"use client"
+
+import { useState } from "react";
+import { Spinner } from "../Spinner/Spinner";
+import { AnimatePresence, motion } from "framer-motion";
+
+
+export default function LoginButton() {
+
+    const ButtonCopy = {
+        idle: "Send me a log in link",
+        loading: <Spinner size={16} color="rgba(255, 255, 255, 0.65)"/>,
+        success: "Login Link Sent"
+    }
+
+    const [buttonState, setButtonState] = useState<keyof typeof ButtonCopy>("idle");
+
+
+    const handleLogin = () => {
+        if(buttonState === "success") return;
+        setButtonState("loading");
+
+        setTimeout(() => {
+            setButtonState("success")
+        }, 2000)
+
+        setTimeout(() => {
+            setButtonState("idle")
+        }, 3500)
+    }
+
+    return (
+        <div className="">
+            <button onClick={handleLogin} className="blue-button">
+                <AnimatePresence initial={false}>
+                    <motion.span
+                        key={buttonState}
+                        transition={{ type: "spring", duration: 0.5, bounce: 0.3}}
+                        initial={{opacity: 0, y: -25}}
+                        animate={{ opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: 25}}>
+                        {ButtonCopy[buttonState]}
+                    </motion.span>
+                </AnimatePresence>
+
+            </button>
+        </div>
+    )
+}
+
+// Spinner.jsx
+import { clsx } from "clsx";
+import "./styles.css";
+
+const bars = Array(12).fill(0);
+
+export function Spinner({ color, size = 20 }) {
+  return (
+    <div
+      className="wrapper"
+      style={{
+        ["--spinner-size"]: \`\${size}px\`,
+        ["--spinner-color"]: color,
+      }}
+    >
+      <div className="spinner">
+        {bars.map((_, i) => (
+          <div className="bar" key={\`spinner-bar-\${i}\`} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// styles.css
+.wrapper {
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  display: inline-block;
+}
+
+.spinner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  position: absolute;
+  width: calc(var(--spinner-size) / 10);
+  height: calc(var(--spinner-size) / 4);
+  top: calc(50% - (var(--spinner-size) / 8));
+  left: calc(50% - (var(--spinner-size) / 20));
+  background: var(--spinner-color);
+  border-radius: calc(var(--spinner-size) / 20);
+  transform-origin: center calc(var(--spinner-size) / 2);
+  animation: spinner 1.2s linear infinite;
+}
+
+.bar:nth-child(1) { transform: rotate(0deg); animation-delay: -1.2s; }
+.bar:nth-child(2) { transform: rotate(30deg); animation-delay: -1.1s; }
+.bar:nth-child(3) { transform: rotate(60deg); animation-delay: -1s; }
+.bar:nth-child(4) { transform: rotate(90deg); animation-delay: -0.9s; }
+.bar:nth-child(5) { transform: rotate(120deg); animation-delay: -0.8s; }
+.bar:nth-child(6) { transform: rotate(150deg); animation-delay: -0.7s; }
+.bar:nth-child(7) { transform: rotate(180deg); animation-delay: -0.6s; }
+.bar:nth-child(8) { transform: rotate(210deg); animation-delay: -0.5s; }
+.bar:nth-child(9) { transform: rotate(240deg); animation-delay: -0.4s; }
+.bar:nth-child(10) { transform: rotate(270deg); animation-delay: -0.3s; }
+.bar:nth-child(11) { transform: rotate(300deg); animation-delay: -0.2s; }
+.bar:nth-child(12) { transform: rotate(330deg); animation-delay: -0.1s; }
+
+@keyframes spinner {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}`;
