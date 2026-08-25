@@ -13,6 +13,12 @@ export default function LoginButton() {
         success: "Login Link Sent"
     }
 
+    const variants = {
+        initial: {opacity: 0, y: -25},
+        visible: { opacity: 1, y: 0},
+        exit: {opacity: 0, y: 25}
+    }
+
     const [buttonState, setButtonState] = useState<keyof typeof ButtonCopy>("idle");
 
 
@@ -31,14 +37,15 @@ export default function LoginButton() {
 
     return (
         <div className="">
-            <button onClick={handleLogin} className="blue-button" disabled={buttonState === "loading"}>
+            <button onClick={handleLogin} className="blue-button cursor-pointer" disabled={buttonState === "loading"}>
                 <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span 
                         key={buttonState}
                         transition={{ type: "spring", duration: 0.5, bounce: 0.3}}
-                        initial={{opacity: 0, y: -25}}
-                        animate={{ opacity: 1, y: 0}}
-                        exit={{opacity: 0, y: 25}}>
+                        initial="initial"
+                        animate="visible"
+                        exit="exit"
+                        variants={variants}>
                         {ButtonCopy[buttonState]}
                     </motion.span>
                 </AnimatePresence>
