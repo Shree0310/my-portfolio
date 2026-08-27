@@ -11,6 +11,7 @@ import AnimatedCard from "@/components/Playground/Cards/AnimatedCard";
 import BeamCard from "@/components/Playground/Cards/BeamCard";
 import SecondaryBeamCard from "@/components/Playground/Cards/SecondaryBeamCard";
 import MenuCard from "@/components/Playground/Cards/MenuCard";
+import DrawerCard from "@/components/Playground/Cards/DrawerCard";
 
 import JumpingCards from "@/components/Playground/JumpingCards";
 import ExpandingCards from "@/components/Playground/ExpandingCards";
@@ -27,6 +28,7 @@ const animatedCardSource = readSource("src/components/Playground/Cards/AnimatedC
 const beamCardSource = readSource("src/components/Playground/Cards/BeamCard.tsx");
 const secondaryBeamCardSource = readSource("src/components/Playground/Cards/SecondaryBeamCard.tsx");
 const menuCardSource = readSource("src/components/Playground/Cards/MenuCard.tsx");
+const drawerCardSource = readSource("src/components/Playground/Cards/DrawerCard.tsx");
 const jumpingCardsSource = readSource("src/components/Playground/JumpingCards.tsx");
 const expandingCardsSource = readSource("src/components/Playground/ExpandingCards.tsx");
 
@@ -54,6 +56,12 @@ const cardsPreviewItems = [
     description: "Menu/list card that highlights options.",
     code: menuCardSource,
     Preview: MenuCard,
+  },
+  {
+    title: "Drawer Card",
+    description: "Animated height drawer with smooth expand/collapse transitions.",
+    code: drawerCardSource,
+    Preview: DrawerCard,
   },
   {
     title: "Jumping Cards",
