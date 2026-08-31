@@ -3,12 +3,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { HiArrowUpRight } from 'react-icons/hi2'
-import { SiReact, SiTypescript, SiNodedotjs, SiRedux, SiThreedotjs, SiJavascript, SiNextdotjs } from 'react-icons/si'
+import { SiGithub, SiReact, SiTypescript, SiNodedotjs, SiRedux, SiThreedotjs, SiJavascript, SiNextdotjs } from 'react-icons/si'
 
 interface ProjectCardProps {
   name: string
   description: string
   url: string
+  github?: string
   tag?: string
   skills?: string[]
   gradientFrom?: string
@@ -39,6 +40,7 @@ export default function ProjectCard({
   name,
   description,
   url,
+  github,
   tag,
   skills = [],
   gradientFrom = '#3b82f6',
@@ -47,12 +49,7 @@ export default function ProjectCard({
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   return (
-    <Link
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block group h-full"
-    >
+    <div className="block group h-full">
       <div
         className="relative p-7 rounded-2xl border transition-all duration-150 hover:border-[var(--border-strong)] h-full flex flex-col"
         style={{
@@ -134,12 +131,33 @@ export default function ProjectCard({
           </div>
         )}
 
-        {/* Visit link */}
-        <div className="flex items-center gap-1 font-mono text-sm" style={{ color: 'var(--text-muted)' }}>
-          <span>Visit</span>
-          <HiArrowUpRight className="w-4 h-4" />
+        {/* Links */}
+        <div className="flex items-center gap-4 font-mono text-sm" style={{ color: 'var(--text-muted)' }}>
+          <Link
+            href={url}
+            target={url.startsWith('/') ? '_self' : '_blank'}
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-[var(--text)] transition-colors"
+          >
+            <span>Visit</span>
+            <HiArrowUpRight className="w-4 h-4" />
+          </Link>
+          {github && (
+            <>
+              <span style={{ color: 'var(--border-subtle)' }}>·</span>
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 hover:text-[var(--text)] transition-colors"
+              >
+                <span>GitHub</span>
+                <HiArrowUpRight className="w-4 h-4" />
+              </a>
+            </>
+          )}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }

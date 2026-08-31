@@ -9,8 +9,10 @@ import Button from '@/components/portfolio/Button'
 import RotatingRole from '@/components/portfolio/RotatingRole'
 import ProjectCard from '@/components/portfolio/ProjectCard'
 import ExperienceCard from '@/components/portfolio/ExperienceCard'
+import SkillCard from '@/components/portfolio/SkillCard'
 import { projects } from '@/components/Constants/projects'
 import { workExperiences } from '@/components/Constants/workEx'
+import { claudeCodeSkills } from '@/components/Constants/skills'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Home() {
@@ -121,6 +123,7 @@ export default function Home() {
                     name={project.name}
                     description={project.description}
                     url={project.url}
+                    github={project.github}
                     tag={project.tag}
                     skills={project.skills}
                     gradientFrom={project.gradientFrom}
@@ -159,6 +162,39 @@ export default function Home() {
                     skills={exp.skills}
                     companyInitials={exp.companyInitials || ''}
                     companyColor={exp.companyColor || '#666'}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* skill.md section */}
+        <section className="px-6 py-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-12">
+              <h2 className="text-4xl font-semibold mb-4" style={{ color: 'var(--text)' }}>
+                <span className="font-mono">skill.md</span>
+              </h2>
+              <p
+                className="text-base leading-relaxed max-w-3xl"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                skill.md files are custom markdown files that extend Claude Code's capabilities for specific workflows.
+                They encapsulate repeatable patterns, domain knowledge, and automation recipes that make
+                development faster and more consistent.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {claudeCodeSkills.map((skill) => (
+                <div key={skill.name} ref={addToRefs as any} className="scroll-reveal">
+                  <SkillCard
+                    name={skill.name}
+                    description={skill.description}
+                    location={skill.location}
+                    tags={skill.tags}
+                    gradientFrom={skill.gradientFrom}
+                    gradientTo={skill.gradientTo}
                   />
                 </div>
               ))}

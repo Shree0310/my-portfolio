@@ -4,7 +4,9 @@ import AmbientBackground from '@/components/portfolio/AmbientBackground'
 import Header from '@/components/portfolio/Header'
 import Footer from '@/components/portfolio/Footer'
 import ProjectCard from '@/components/portfolio/ProjectCard'
+import SkillCard from '@/components/portfolio/SkillCard'
 import { projects } from '@/components/Constants/projects'
+import { claudeCodeSkills } from '@/components/Constants/skills'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ProjectsPage() {
@@ -44,6 +46,7 @@ export default function ProjectsPage() {
                   name={project.name}
                   description={project.description}
                   url={project.url}
+                  github={project.github}
                   tag={project.tag}
                   skills={project.skills}
                   gradientFrom={project.gradientFrom}
@@ -51,6 +54,37 @@ export default function ProjectsPage() {
                 />
               </div>
             ))}
+          </div>
+
+          {/* skill.md section */}
+          <div className="mt-20">
+            <div className="mb-12">
+              <h2 className="text-4xl font-semibold mb-4" style={{ color: 'var(--text)' }}>
+                <span className="font-mono">skill.md</span>
+              </h2>
+              <p
+                className="text-base leading-relaxed max-w-3xl"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                skill.md files are custom markdown files that extend Claude Code's capabilities for specific workflows.
+                They encapsulate repeatable patterns, domain knowledge, and automation recipes that make
+                development faster and more consistent.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {claudeCodeSkills.map((skill) => (
+                <div key={skill.name} ref={addToRefs as any} className="scroll-reveal">
+                  <SkillCard
+                    name={skill.name}
+                    description={skill.description}
+                    location={skill.location}
+                    tags={skill.tags}
+                    gradientFrom={skill.gradientFrom}
+                    gradientTo={skill.gradientTo}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
