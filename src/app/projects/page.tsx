@@ -81,6 +81,7 @@ export default function ProjectsPage() {
                     tags={skill.tags}
                     gradientFrom={skill.gradientFrom}
                     gradientTo={skill.gradientTo}
+                    href={skill.href}
                   />
                 </div>
               ))}

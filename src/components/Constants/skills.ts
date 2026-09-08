@@ -5,6 +5,7 @@ export type Skill = {
     tags: string[];
     gradientFrom?: string;
     gradientTo?: string;
+    href?: string;
 }
 
 export const claudeCodeSkills: Skill[] = [
@@ -14,7 +15,8 @@ export const claudeCodeSkills: Skill[] = [
         location: "~/.claude/skills/therapist-site-scaffold/skill.md",
         tags: ["Next.js", "TypeScript", "Tailwind CSS", "Automation"],
         gradientFrom: "#ec4899",
-        gradientTo: "#8b5cf6"
+        gradientTo: "#8b5cf6",
+        href: "/skills/therapist-site-scaffold"
     },
     {
         name: "web-animation-design",
@@ -22,6 +24,7 @@ export const claudeCodeSkills: Skill[] = [
         location: "Built-in",
         tags: ["Animations", "Framer Motion", "React Spring", "Performance"],
         gradientFrom: "#f59e0b",
-        gradientTo: "#f97316"
+        gradientTo: "#f97316",
+        href: "/skills/web-animation-design"
     }
 ]

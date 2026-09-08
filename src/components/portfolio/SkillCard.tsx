@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { SiClaude } from 'react-icons/si'
+import Link from 'next/link'
 
 interface SkillCardProps {
   name: string
@@ -10,6 +11,7 @@ interface SkillCardProps {
   tags?: string[]
   gradientFrom?: string
   gradientTo?: string
+  href?: string
 }
 
 export default function SkillCard({
@@ -19,20 +21,20 @@ export default function SkillCard({
   tags = [],
   gradientFrom = '#3b82f6',
   gradientTo = '#8b5cf6',
+  href,
 }: SkillCardProps) {
-  return (
-    <div className="block group h-full">
-      <div
-        className="relative p-7 rounded-2xl border transition-all duration-150 hover:border-[var(--border-strong)] h-full flex flex-col"
-        style={{
-          borderColor: 'var(--border-subtle)',
-          background: `
-            radial-gradient(circle at 0% 0%, ${gradientFrom}40 0%, transparent 38%),
-            radial-gradient(circle at 100% 100%, ${gradientTo}40 0%, transparent 38%),
-            var(--bg)
-          `,
-        }}
-      >
+  const content = (
+    <div
+      className="relative p-7 rounded-2xl border transition-all duration-150 hover:border-[var(--border-strong)] h-full flex flex-col"
+      style={{
+        borderColor: 'var(--border-subtle)',
+        background: `
+          radial-gradient(circle at 0% 0%, ${gradientFrom}40 0%, transparent 38%),
+          radial-gradient(circle at 100% 100%, ${gradientTo}40 0%, transparent 38%),
+          var(--bg)
+        `,
+      }}
+    >
         {/* Icon */}
         <div
           className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
@@ -85,6 +87,19 @@ export default function SkillCard({
           {location}
         </div>
       </div>
+  )
+
+  if (href) {
+    return (
+      <Link href={href} className="block group h-full">
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <div className="block group h-full">
+      {content}
     </div>
   )
 }

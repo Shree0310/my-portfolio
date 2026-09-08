@@ -195,6 +195,7 @@ export default function Home() {
                     tags={skill.tags}
                     gradientFrom={skill.gradientFrom}
                     gradientTo={skill.gradientTo}
+                    href={skill.href}
                   />
                 </div>
               ))}

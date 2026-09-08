@@ -48,19 +48,18 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
-  return (
-    <div className="block group h-full">
-      <div
-        className="relative p-7 rounded-2xl border transition-all duration-150 hover:border-[var(--border-strong)] h-full flex flex-col"
-        style={{
-          borderColor: 'var(--border-subtle)',
-          background: `
-            radial-gradient(circle at 0% 0%, ${gradientFrom}40 0%, transparent 38%),
-            radial-gradient(circle at 100% 100%, ${gradientTo}40 0%, transparent 38%),
-            var(--bg)
-          `,
-        }}
-      >
+  const cardContent = (
+    <div
+      className="relative p-7 rounded-2xl border transition-all duration-150 hover:border-[var(--border-strong)] h-full flex flex-col"
+      style={{
+        borderColor: 'var(--border-subtle)',
+        background: `
+          radial-gradient(circle at 0% 0%, ${gradientFrom}40 0%, transparent 38%),
+          radial-gradient(circle at 100% 100%, ${gradientTo}40 0%, transparent 38%),
+          var(--bg)
+        `,
+      }}
+    >
         {/* Tag */}
         {tag && (
           <div
@@ -133,31 +132,38 @@ export default function ProjectCard({
 
         {/* Links */}
         <div className="flex items-center gap-4 font-mono text-sm" style={{ color: 'var(--text-muted)' }}>
-          <Link
-            href={url}
-            target={url.startsWith('/') ? '_self' : '_blank'}
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 hover:text-[var(--text)] transition-colors"
-          >
+          <span className="flex items-center gap-1 hover:text-[var(--text)] transition-colors cursor-pointer">
             <span>Visit</span>
             <HiArrowUpRight className="w-4 h-4" />
-          </Link>
+          </span>
           {github && (
             <>
               <span style={{ color: 'var(--border-subtle)' }}>·</span>
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 hover:text-[var(--text)] transition-colors"
+              <span
+                className="flex items-center gap-1 hover:text-[var(--text)] transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  window.open(github, '_blank', 'noopener,noreferrer')
+                }}
               >
                 <span>GitHub</span>
                 <HiArrowUpRight className="w-4 h-4" />
-              </a>
+              </span>
             </>
           )}
         </div>
       </div>
-    </div>
+  )
+
+  return (
+    <Link
+      href={url}
+      target={url.startsWith('/') ? '_self' : '_blank'}
+      rel={url.startsWith('/') ? undefined : 'noopener noreferrer'}
+      className="block group h-full"
+    >
+      {cardContent}
+    </Link>
   )
 }
