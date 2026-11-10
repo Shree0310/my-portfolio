@@ -1,9 +1,5 @@
 # Amplify ignore file - Exclude unnecessary files from deployment
 
-# Source files (not needed in production)
-src/
-public/
-
 # Development files
 .storybook/
 *.stories.*
@@ -12,31 +8,28 @@ public/
 __tests__/
 __mocks__/
 
-# Build artifacts cache
+# Build artifacts cache (will be regenerated)
 .next/cache/
 
-# Source maps
+# Source maps (not needed in production)
 **/*.js.map
 **/*.css.map
 
-# Documentation and config
+# Documentation
 README.md
-*.config.ts
-*.config.js
-*.config.mjs
+
+# Development configs
 vitest.config.ts
 .prettierrc.json
-.npmrc
-tsconfig.json
 tsconfig.tsbuildinfo
 
 # Git
 .git/
 .gitignore
 
-# Storybook
+# Storybook build
 storybook-static/
 
-# Environment (should use Amplify env vars instead)
+# Local environment files (use Amplify env vars instead)
 .env.local
 .env.development
