@@ -92,18 +92,18 @@ const projects: Project[]  = [
         name: "Foodie",
         description: "An online food delivery app with features like showing your nearby food places, filtering different food types, offers going on and an option for you to add different dishes from restaurants to your cart and place orders.",
         url: "https://foodie.sourashreeart.com/",
-        images: ["/Images/FoodieImage1.png", "/Images/FoodieImage2.png", "/Images/FoodieImage3.png"]
+        images: ["/Images/FoodieImage1.jpg", "/Images/FoodieImage2.jpg", "/Images/FoodieImage3.jpg"]
     },
     {
         name: "MoviesGpt",
         description: "A netflix clone to browse through different series and movies that you might wnat to watch, giving you an option to see the trailer and carousel of movies displayed with an ooption to ask AI to recommend you movies based on your mood and taste.",
         url: "https://moviesgpt.sourashreeart.com/#/",
-        images: ["/Images/MoviesGPT1.png", "/Images/MoviesGPT2.png", "/Images/MoviesGPT3.png"]
+        images: ["/Images/MoviesGPT1.jpg", "/Images/MoviesGPT2.jpg", "/Images/MoviesGPT3.jpg"]
     },
     {
         name: "Achievr",
         description: " A kanban board to track your personal and professional tasks, create new tasks and cycles.",
         url: "https://achievr.sourashreeart.com/",
-        video: "/Videos/achievrDemo.mp4"
+        // video: "/Videos/achievrDemo.mp4" // TODO: Upload to YouTube and use embed URL
     }
 ]

@@ -292,7 +292,7 @@ export default function TherapistSiteScaffoldPage() {
                 className="inline-block"
               >
                 <img
-                  src="/Images/MindCraftWellness.png"
+                  src="/Images/MindCraftWellness.jpg"
                   alt="Mind Craft Wellness screenshot"
                   className="rounded-lg w-full"
                   style={{ border: '1px solid var(--border-subtle)' }}
