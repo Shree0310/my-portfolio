@@ -15,6 +15,9 @@ __mocks__/
 **/*.js.map
 **/*.css.map
 
+# Large texture files (if not needed in production)
+public/textures/Scene_-_Root_baseColor.jpeg
+
 # Documentation
 README.md
 
