@@ -1,6 +1,4 @@
 import type { NextConfig } from "next";
-import createMDX from '@next/mdx'
-
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -14,7 +12,5 @@ const nextConfig: NextConfig = {
     ],
   },
 };
-
-module.exports = nextConfig;
 
 export default nextConfig;
