@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['@react-three/fiber', '@react-three/drei', 'three', 'framer-motion', '@phosphor-icons/react', '@tabler/icons-react'],
+  },
+  // Optimize production bundle
+  productionBrowserSourceMaps: false,
+  compress: true,
 };
 
 export default nextConfig;
